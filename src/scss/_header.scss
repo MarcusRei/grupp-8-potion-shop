@@ -1,0 +1,55 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    height: 10vh;
+    background-color: red;
+}
+
+nav {
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul.nav-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0;
+    margin: 0;
+    gap: 70px;
+
+    & > li {
+        list-style-type: none;
+    }
+
+    .nav-option {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+            color: grey;
+        }
+    }
+}
+
+.logo-container {
+    display: flex;
+
+    & > img {
+        width: 80px;
+    }
+}
+
+.shoppingcart-container {
+    display: flex;
+
+    & > img {
+        width: 80px;
+    }
+}

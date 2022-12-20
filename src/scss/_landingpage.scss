@@ -8,6 +8,24 @@
 }
 
 .button-shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 275px;
     height: 75px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 15px;
+
+    & > a {
+        text-decoration: none;
+        color: white;
+    }
+
+    &:hover {
+        background-color: grey;
+    }
 }
+

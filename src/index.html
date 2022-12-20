@@ -9,10 +9,25 @@
     <script defer src="ts/main.ts" type="module"></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <div class="logo-container">
+        <img src="./assets/images/placeholder_square.jpg" alt="company logo"/>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="./html/products.html" class="nav-option">Produkter</a></li>
+          <li><a href="./html/checkout_page.html" class="nav-option">Kassa</a></li>
+        </ul>
+        <div class="shoppingcart-container">
+          <img src="./assets/images/placeholder_square.jpg" alt="shopping cart"/>
+        </div>
+      </nav>
+    </header>
     <div class="content-container">
       <h2>Välkommen till vår potionshop!</h2>
-      <button type="button" class="button-shop">Shoppa</button>
+      <div type="button" class="button-shop">
+        <a href="./html/products.html">Shoppa</a>
+      </div>
     </div>
     <footer></footer>
   </body>
