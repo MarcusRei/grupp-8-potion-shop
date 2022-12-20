@@ -10,4 +10,13 @@
 .button-shop {
     width: 275px;
     height: 75px;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 15px;
+
+    &:hover {
+        background-color: grey;
+    }
 }
+
