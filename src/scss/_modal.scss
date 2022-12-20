@@ -1,3 +1,5 @@
+@use "mixins" as mix;
+
 .modal {
   position: fixed;
   z-index: 1;
@@ -9,17 +11,22 @@
   background-color: rgba(72, 72, 72, 0.4);
 }
 .modalContent {
+  background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid grey;
   border-radius: 10px;
-  width: 80%;
+  width: 40%;
+  @include mix.desktop {
+    width: 20%;
+    padding: 30px;
+  }
   //if flex, gör det här
 }
 .modalContent__close {
-  font-size: large;
+  font-size: x-large;
   color: rgb(80, 80, 80);
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .modalContent__close:hover,
@@ -29,7 +36,12 @@
   cursor: pointer;
   font-weight: 700;
 }
-
+.modalContent__text {
+  text-align: center;
+  @include mix.desktop {
+    font-size: larger;
+  }
+}
 .modalVisible {
   display: block;
 }

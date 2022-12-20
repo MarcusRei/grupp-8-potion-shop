@@ -1,15 +1,12 @@
 //modal function
-
-var modal = document.getElementById("checkoutModal") as HTMLDivElement;
-var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
-var closeCross = document.getElementsByClassName(
-  "modalContent__close"
-)[0] as HTMLSpanElement;
-
 export function startModalFunctionality() {
+  var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
+  var closeCross = document.getElementsByClassName(
+    "modalContent__close"
+  )[0] as HTMLSpanElement;
+
   checkoutBtn.addEventListener("click", () => {
-    // changeModalVisability();
-    console.log("I've been clicked");
+    changeModalVisability();
     //lägg till function för att tömma varukorg
     //lägg till funktion för att skapa om html
   });
@@ -19,6 +16,8 @@ export function startModalFunctionality() {
 }
 
 function changeModalVisability() {
+  var modal = document.getElementById("checkoutModal") as HTMLDivElement;
+
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
 }
