@@ -17,6 +17,7 @@
   border: 1px solid grey;
   border-radius: 10px;
   width: 40%;
+  transform: translate(0, -50%);
   @include mix.desktop {
     width: 20%;
     padding: 30px;
