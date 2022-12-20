@@ -1,50 +1,94 @@
-.checkout {
+@use "mixins" as mix;
+
+#checkout {
   display: flex;
   flex-direction: column;
 
   margin: 5vh 5vw 5vh 5vw; //ändra efter header och footer är insatta
 
   height: 90vh; //ändra efter header och footer är insatta
-
-  background-color: bisque;
 }
-
-#productContainer {
+.shoppingCart {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.product {
+// produkt rad
+.ItemRow {
   display: flex;
-  //   justify-content: center;
-  padding: 10px;
-  background-color: blueviolet;
-  width: 100%;
-  justify-content: space-between;
-}
-#quantityContainer {
-  display: flex;
-  height: 30px;
-}
-#productQuantity {
-  width: 2vh;
-}
-#btnContainer {
-  display: flex;
-  flex-direction: column;
-}
-.changeQuantityBtn {
-  //   height: 10px;
-  font-size: xx-small;
-  padding: 0 2px 0 2px;
-}
-.potionImg {
-  height: 5vh;
-}
-.productInfo {
+  align-items: center;
   margin: 5px;
+  padding: 0 5px 0 5px;
+  width: 95%;
+  justify-content: space-between;
+  border: 1px solid grey;
+  border-radius: 5px;
+  @include mix.desktop {
+    width: 80%;
+    height: 10vh;
+    justify-content: space-evenly;
+    font-size: larger;
+  }
+
+  &__Img {
+    height: 5vh;
+    @include mix.desktop {
+      height: 8vh;
+    }
+  }
+  //ItemRow__productName
+  //ItemRow__productPrice
+  #quantityContainer {
+    display: flex;
+    height: 30px;
+    @include mix.desktop {
+      height: 5vh;
+    }
+  }
+  #productQuantity {
+    width: 2vh;
+    @include mix.desktop {
+      width: 8vh;
+    }
+  }
+
+  &__btnContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__changeQuantityBtn {
+    //   height: 10px;
+    font-size: xx-small;
+    font-weight: bold;
+    padding: 0 2px 0 2px;
+    @include mix.desktop {
+      font-size: small;
+      font-weight: 400;
+      padding: 0 2px 0 2px;
+    }
+  }
 }
+
+//summa & checkout knapp
 .sumContainer {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 2vh;
+  @include mix.desktop {
+    font-size: x-large;
+  }
+}
+#checkoutBtn {
+  padding: 5px;
+  height: 50px;
+  width: 50%;
+  border-radius: 10px;
+  align-self: center;
+  @include mix.desktop {
+    font-size: large;
+    padding: 5px;
+    height: 8vh;
+    width: 20%;
+  }
 }
