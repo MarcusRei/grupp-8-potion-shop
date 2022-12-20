@@ -6,7 +6,7 @@ var closeCross = document.getElementsByClassName(
   "modalContent__close"
 )[0] as HTMLSpanElement;
 
-function startEventlisteners() {
+export function startModalFunctionality() {
   checkoutBtn.addEventListener("click", () => {
     // changeModalVisability();
     console.log("I've been clicked");
@@ -17,7 +17,6 @@ function startEventlisteners() {
     changeModalVisability();
   });
 }
-startEventlisteners();
 
 function changeModalVisability() {
   modal.classList.toggle("modalVisible");
