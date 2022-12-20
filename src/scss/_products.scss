@@ -1,0 +1,17 @@
+.product__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  width: 100vw;
+  .product__container-image {
+    width: 200px;
+  }
+
+  .product__info {
+    display: flex;
+    width: 80%;
+    border: 2px red;
+    gap: 1em;
+  }
+}
