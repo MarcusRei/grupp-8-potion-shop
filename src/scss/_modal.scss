@@ -20,27 +20,30 @@
   transform: translate(0, -50%);
   @include mix.desktop {
     width: 20%;
-    padding: 30px;
+    // padding: 30px;
   }
   //if flex, gör det här
 }
 .modalContent__close {
   font-size: x-large;
-  color: rgb(80, 80, 80);
+  color: rgb(0, 0, 0);
   font-weight: bolder;
+  margin-left: 5px;
 }
 
 .modalContent__close:hover,
 .modalContent__close:focus {
-  color: #000;
+  color: rgb(56, 56, 56);
   text-decoration: none;
   cursor: pointer;
   font-weight: 700;
 }
 .modalContent__text {
   text-align: center;
+  margin: 0 0 10px 0;
   @include mix.desktop {
     font-size: larger;
+    margin: 20px;
   }
 }
 .modalVisible {
