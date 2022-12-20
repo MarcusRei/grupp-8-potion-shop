@@ -1,0 +1,50 @@
+.checkout {
+  display: flex;
+  flex-direction: column;
+
+  margin: 5vh 5vw 5vh 5vw; //ändra efter header och footer är insatta
+
+  height: 90vh; //ändra efter header och footer är insatta
+
+  background-color: bisque;
+}
+
+#productContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product {
+  display: flex;
+  //   justify-content: center;
+  padding: 10px;
+  background-color: blueviolet;
+  width: 100%;
+  justify-content: space-between;
+}
+#quantityContainer {
+  display: flex;
+  height: 30px;
+}
+#productQuantity {
+  width: 2vh;
+}
+#btnContainer {
+  display: flex;
+  flex-direction: column;
+}
+.changeQuantityBtn {
+  //   height: 10px;
+  font-size: xx-small;
+  padding: 0 2px 0 2px;
+}
+.potionImg {
+  height: 5vh;
+}
+.productInfo {
+  margin: 5px;
+}
+.sumContainer {
+  display: flex;
+  justify-content: space-evenly;
+}

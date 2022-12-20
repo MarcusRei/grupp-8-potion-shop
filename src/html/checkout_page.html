@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../scss/main.scss" />
+    <script defer src="../ts/main.ts" type="module"></script>
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <!--här kommer logo + nav-->
+    </header>
+    <main>
+      <section class="checkout">
+        <section id="productContainer">
+          <article class="product">
+            <img
+              src="../assets/images//unicorn-potion.jpg"
+              alt="Mana Potion,S"
+              class="potionImg"
+            />
+            <p class="productName">Mana Potion - S</p>
+            <p class="productPrice">10:-</p>
+            <label for="productQuantity" id="quantityContainer">
+              <input type="number" id="productQuantity" />
+              <div id="btnContainer">
+                <button class="changeQuantityBtn addQuantity">+</button>
+                <button class="changeQuantityBtn reduceQuantity">-</button>
+              </div>
+            </label>
+          </article>
+          <article class="product">
+            <img
+              src="../assets/images//unicorn-potion.jpg"
+              alt="Mana Potion,S"
+              class="potionImg"
+            />
+            <p class="productName">Health Potion - L</p>
+            <p class="productPrice">60:-</p>
+            <label for="productQuantity" id="quantityContainer">
+              <input type="number" id="productQuantity" />
+              <div id="btnContainer">
+                <button class="changeQuantityBtn addQuantity">+</button>
+                <button class="changeQuantityBtn reduceQuantity">-</button>
+              </div>
+            </label>
+          </article>
+        </section>
+        <section class="sumContainer">
+          <p>Att betala</p>
+          <p id="sumOfShoppingCart">xx:-</p>
+        </section>
+        <button id="checkoutBtn">Checkout</button>
+      </section>
+    </main>
+    <footer>
+      <!--här kommer footer-->
+    </footer>
+  </body>
+</html>
