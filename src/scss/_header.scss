@@ -4,3 +4,20 @@ header {
 
     height: 10vh;
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+ul.nav-menu {
+    display: flex;
+    flex-direction: row;
+}
+.logo-container {
+    display: flex;
+}
+
+.shoppingcart-container {
+    display: flex;
+}
