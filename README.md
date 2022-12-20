@@ -26,3 +26,6 @@ Vår produktägare är:
 - Linda Mossberg
 - Sebastian Tegel
 
+## Länkar till externa NPM-paket:
+- [Länk till NPM parcel plugin static files](https://www.npmjs.com/package/parcel-plugin-static-files-copy)
+

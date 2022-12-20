@@ -1,0 +1,51 @@
+@use "mixins" as mix;
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 50vh; /*location of box on screen*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(72, 72, 72, 0.4);
+}
+.modalContent {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  width: 40%;
+  transform: translate(0, -50%);
+  @include mix.desktop {
+    width: 20%;
+    padding: 30px;
+  }
+  //if flex, gör det här
+}
+.modalContent__close {
+  font-size: x-large;
+  color: rgb(80, 80, 80);
+  font-weight: bolder;
+}
+
+.modalContent__close:hover,
+.modalContent__close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+}
+.modalContent__text {
+  text-align: center;
+  @include mix.desktop {
+    font-size: larger;
+  }
+}
+.modalVisible {
+  display: block;
+}
+.modalInvisible {
+  display: none;
+}
