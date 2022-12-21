@@ -7,10 +7,57 @@
     <title>Products</title>
 
     <link rel="stylesheet" href="../scss/main.scss" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
 
     <script defer src="../ts/products.ts" type="module"></script>
+    <script defer src="../ts/main.ts" type="module"></script>
   </head>
   <body id="products">
+    <header>
+      <nav>
+        <div class="logo-container home-button">
+          <a href="../index.html"
+            ><span class="material-symbols-rounded icon">home</span></a
+          >
+        </div>
+
+        <!-- desktopnav -->
+        <div class="desktopnav-container">
+          <ul class="desktopnav-menu">
+            <li>
+              <a href="./products.html" class="menu-link">Produkter</a>
+            </li>
+            <li>
+              <a href="./checkout_page.html" class="menu-link">Kassa</a>
+            </li>
+          </ul>
+          <div class="shoppingcart-container">
+            <span class="material-symbols-rounded icon">shopping_bag</span>
+          </div>
+        </div>
+      </nav>
+
+      <!-- hamburger-button -->
+      <button id="hamburgerButton" type="button">
+        <span class="material-symbols-rounded icon" id="menuIcon">menu</span>
+        <span class="material-symbols-rounded icon" id="closeIcon">close</span>
+      </button>
+
+      <!-- mobilenav -->
+      <div class="mobilenav-container" id="mobilenav">
+        <ul class="mobilenav-menu">
+          <li>
+            <a href="./products.html" class="menu-link">Produkter</a>
+          </li>
+          <li>
+            <a href="./checkout_page.html" class="menu-link">Kassa</a>
+          </li>
+        </ul>
+      </div>
+    </header>
     <!--     <section class="filter">
       <article class="filter-widget">Filtrera</article>
     </section> -->
