@@ -45,7 +45,7 @@ function renderProductlist() {
     //Creates element for product price
     let productPrice = document.createElement("p");
     productName.classList.add("product__info-price");
-    productPrice.innerHTML = products[i].price + ":-";
+    productPrice.innerHTML = products[i].price.toString() + ":-";
     productinfoTextContainer.appendChild(productPrice);
 
     //Creates inputs container
