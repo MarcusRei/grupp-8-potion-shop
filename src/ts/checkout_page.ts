@@ -93,7 +93,7 @@ function showShoppingCart() {
     productPrice.innerText += " :-";
     itemRow.appendChild(productPrice);
 
-    //create ptag for quantity
+    // // create ptag for quantity
     // let productQuantity = document.createElement("p");
     // productQuantity.classList.add("itemRow__productQuantity");
     // productQuantity.innerText = "x";
@@ -110,6 +110,7 @@ function showShoppingCart() {
     let productQuantityInput = document.createElement("input");
     productQuantityInput.type = "number";
     productQuantityInput.id = "productQuantity";
+    productQuantityInput.placeholder = userCart[i].quantity.toString();
     productLabel.appendChild(productQuantityInput);
 
     //create checkBtn for submiting changes to quantity
@@ -140,16 +141,20 @@ function emptyShoppingCart() {
   }
 }
 
-// function addMoreOfAProduct(listPosition: number,product:ProductTemplate, value: string) {
-//   for (let i = 0; i < userCart.length; i++) {
-//     if(i===listPosition) {
-//       product.quantity =value;
-//     console.log(userCart);
-//   }
-//   }
+function addMoreOfAProduct(
+  listPosition: number,
+  product: ProductTemplate,
+  value: string
+) {
+  for (let i = 0; i < userCart.length; i++) {
+    if (i === listPosition) {
+      product.quantity = Number(value);
+      console.log(userCart);
+    }
+  }
 
-//   showShoppingCart();
-// }
+  showShoppingCart();
+}
 function deleteFromCart(listPosition: number) {
   for (let i = 0; i < userCart.length; i++) {
     if (i === listPosition) {
