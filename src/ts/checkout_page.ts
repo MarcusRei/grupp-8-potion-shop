@@ -93,13 +93,6 @@ function showShoppingCart() {
     productPrice.innerText += " :-";
     itemRow.appendChild(productPrice);
 
-    // // create ptag for quantity
-    // let productQuantity = document.createElement("p");
-    // productQuantity.classList.add("itemRow__productQuantity");
-    // productQuantity.innerText = "x";
-    // productQuantity.innerText += userCart[i].quantity.toString();
-    // itemRow.appendChild(productQuantity);
-
     //create label for quantity input
     let productLabel = document.createElement("label");
     productLabel.setAttribute("for", "productQuantity");
@@ -110,7 +103,7 @@ function showShoppingCart() {
     let productQuantityInput = document.createElement("input");
     productQuantityInput.type = "number";
     productQuantityInput.id = "productQuantity";
-    productQuantityInput.placeholder = userCart[i].quantity.toString();
+    productQuantityInput.value = userCart[i].quantity.toString();
     productLabel.appendChild(productQuantityInput);
 
     //create checkBtn for submiting changes to quantity
@@ -121,7 +114,7 @@ function showShoppingCart() {
 
     //eventListener for adding more of a product(inputValue)
     productQuantityInput.addEventListener("change", () => {
-      addMoreOfAProduct(i, userCart[i], productQuantityInput.value);
+      changeQuantity(i, userCart[i], productQuantityInput.value);
     });
     deleteBtn.addEventListener("click", () => {
       deleteFromCart(i);
@@ -141,7 +134,7 @@ function emptyShoppingCart() {
   }
 }
 
-function addMoreOfAProduct(
+function changeQuantity(
   listPosition: number,
   product: ProductTemplate,
   value: string

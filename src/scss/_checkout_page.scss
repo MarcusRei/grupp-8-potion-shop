@@ -13,7 +13,7 @@
   flex-direction: column;
   align-items: center;
 }
-// produkt rad
+// produkt row
 .itemRow {
   display: flex;
   align-items: center;
@@ -38,7 +38,6 @@
   }
   //itemRow__productName
   //itemRow__productPrice
-  //itemRow____productQuantity
   #quantityContainer {
     display: flex;
     height: 30px;
