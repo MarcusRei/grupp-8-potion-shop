@@ -1,13 +1,6 @@
-export class TestProductTemplate {
-  constructor(
-    public name: string,
-    public price: string,
-    public size: string,
-    public image: string
-  ) {}
-}
+import { ProductTemplate } from "./models/ProductTemplate";
 
-const testProducts: TestProductTemplate[] = [
+const testProducts: ProductTemplate[] = [
   {
     name: "Small potion",
     price: "100",
@@ -28,13 +21,14 @@ const testProducts: TestProductTemplate[] = [
   },
 ];
 
-const testUserCart = [];
+const testUserCart: ProductTemplate[] = [];
 
 renderProductlist();
 
-function addProductToCart(product: TestProductTemplate) {
+function addProductToCart(product: ProductTemplate) {
   console.log(product.name);
   testUserCart.push(product);
+  console.log(testUserCart);
 }
 
 function renderProductlist() {
