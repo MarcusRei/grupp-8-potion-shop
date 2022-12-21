@@ -1,3 +1,6 @@
+import { products } from "./models/ProductList";
+import { ProductTemplate } from "./models/ProductTemplate";
+
 //modal function
 export function startModalFunctionality() {
   var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
@@ -21,3 +24,54 @@ function changeModalVisability() {
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
 }
+
+//skapa html för varukorg
+function showShoppingCart() {
+  let shoppingCart = document.getElementById("shoppingCart") as HTMLElement;
+  shoppingCart.innerHTML = "";
+  console.log("function started");
+
+  for (let i = 0; i < products.length; i++) {
+    console.log("loop started");
+    let itemRow = document.createElement("article");
+    itemRow.classList.add("itemRow");
+    let productImg = document.createElement("img");
+    productImg.classList.add("itemRow__Img");
+    productImg.alt = products[i].name;
+    productImg.src = products[i].image;
+    let productName = document.createElement("p");
+    productName.classList.add("itemRow__productName");
+    productName.innerText = products[i].name;
+    let productPrice = document.createElement("p");
+    productPrice.classList.add("itemRow__productPrice");
+    productPrice.innerText = products[i].price.toString();
+    productPrice.innerText += " :-";
+    let productLabel = document.createElement("label");
+    productLabel.htmlFor = "productQuantity"; //vet inte om denna blir rätt
+    productLabel.id = "quantityContainer";
+    let productQuantityInput = document.createElement("input");
+    productQuantityInput.type = "number";
+    productQuantityInput.id = "productQuantity";
+    let btnContainer = document.createElement("div");
+    btnContainer.classList.add("itemRow__btnContainer");
+    let btnAddQuantity = document.createElement("button");
+    btnAddQuantity.classList.add("ItemRow__changeQuantityBtn"),
+      btnAddQuantity.classList.add("addQuantity"),
+      (btnAddQuantity.innerText = "+");
+    let btnReduceQuantity = document.createElement("button");
+    btnReduceQuantity.classList.add("itemRow__changeQuantityBtn"),
+      btnReduceQuantity.classList.add("reduceQuantity"),
+      (btnReduceQuantity.innerText = "-");
+
+    shoppingCart.appendChild(itemRow);
+    itemRow.appendChild(productImg);
+    itemRow.appendChild(productName);
+    itemRow.appendChild(productPrice);
+    itemRow.appendChild(productLabel);
+    productLabel.appendChild(productQuantityInput);
+    productLabel.appendChild(btnContainer);
+    btnContainer.appendChild(btnAddQuantity);
+    btnContainer.appendChild(btnReduceQuantity);
+  }
+}
+showShoppingCart();

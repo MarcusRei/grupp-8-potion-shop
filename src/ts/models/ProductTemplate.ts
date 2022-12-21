@@ -3,7 +3,7 @@
 export class ProductTemplate {
   constructor(
     public name: string,
-    public price: string,
+    public price: number,
     public size: string,
     public type: string,
     public image: string
