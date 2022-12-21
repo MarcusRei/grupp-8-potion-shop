@@ -1,14 +1,13 @@
+import { shoppingCartProducts } from "./checkout_page";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
-
-const testUserCart: ProductTemplate[] = [];
 
 renderProductlist();
 
 function addProductToCart(product: ProductTemplate) {
   console.log(product.name);
-  testUserCart.push(product);
-  console.log(testUserCart);
+  shoppingCartProducts.push(product);
+  console.log(shoppingCartProducts);
 }
 
 function renderProductlist() {
