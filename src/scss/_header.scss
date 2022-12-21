@@ -1,55 +1,134 @@
-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+@use "mixins";
 
+// layout header
+header {
+    justify-content: flex-end;
+    display: flex;
     height: 10vh;
     background-color: red;
+    position: relative;
 }
 
+//layout navigation bar
 nav {
-    width: 300px;
+    position: relative;
+
+    .logo-container {
+        display: flex;
+        width: 80px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .icon {
+            font-size: 4rem;
+            color: white;
+        }
+    
+    }
+
+    .menu-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: blue;
+
+        @include mixins.desktop {
+            position: relative;
+        }
+
+    }
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
-
-ul.nav-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    padding: 0;
-    margin: 0;
     gap: 70px;
 
-    & > li {
+    .menu {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        transform: translateY(-100%);
+        transition: transform 0.2s;
+        
+        padding: 0;
+        padding-top: 15vh;
+        margin: 0;
+        gap: 30px;
+        background-color: pink;
+        
         list-style-type: none;
+        
+
+        @include mixins.desktop {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            height: auto;
+            width: auto;
+            }
     }
 
-    .nav-option {
+    .showMenu {
+        transform: translateY(0);
+      }
+      
+
+    .menu-link {
         text-decoration: none;
         color: white;
+        
 
         &:hover {
             color: grey;
         }
     }
-}
 
-.logo-container {
-    display: flex;
-
-    & > img {
+    .shoppingcart-container {
+        display: flex;
         width: 80px;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .icon {
+            font-size: 4rem;
+            color: white;
+        }
+    
     }
 }
 
-.shoppingcart-container {
-    display: flex;
+// layout and styling hamburger-menu
+#hamburgerButton {
+    justify-content: center;
+    align-items: center;
+    background-color: plum;
+    width: 80px;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
 
-    & > img {
-        width: 80px;
+    &:hover {
+        background-color: grey;
+    }
+
+    @include mixins.desktop {
+        display: none;
+    }
+
+    .icon {
+        font-size: 4rem;
+    }
+
+    #closeIcon {
+        display: none;
     }
 }
+
+
+
