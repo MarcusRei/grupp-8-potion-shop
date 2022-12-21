@@ -1,5 +1,5 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-import placeholder_square from "../assets/images/placeholder_square.jpg";
+// import { userCart } from "./main";
 
 //modal function
 export function startModalFunctionality() {
@@ -20,6 +20,8 @@ export function startModalFunctionality() {
   });
 }
 
+startModalFunctionality();
+
 function changeModalVisability() {
   var modal = document.getElementById("checkoutModal") as HTMLDivElement;
 
@@ -27,31 +29,9 @@ function changeModalVisability() {
   modal.classList.toggle("modalInvisible");
 }
 
-//varukorg
-export const shoppingCartProducts: ProductTemplate[] = [
-  {
-    name: "Small healing potion",
-    price: 100,
-    image: placeholder_square,
-    size: "small",
-    type: "healing",
-  },
-  {
-    name: "Medium healing potion",
-    price: 200,
-    image: placeholder_square,
-    size: "medium",
-    type: "healing",
-  },
-  {
-    name: "Large healing potion",
-    price: 300,
-    image: placeholder_square,
-    size: "large",
-    type: "healing",
-  },
-];
-console.log(shoppingCartProducts);
+export const userCart: ProductTemplate[] = [];
+
+console.log(userCart);
 //skapa html för varukorg
 function showShoppingCart() {
   let shoppingCartSection = document.getElementById(
@@ -60,7 +40,7 @@ function showShoppingCart() {
   console.log("function started");
   shoppingCartSection.innerHTML = "";
 
-  for (let i = 0; i < shoppingCartProducts.length; i++) {
+  for (let i = 0; i < userCart.length; i++) {
     console.log("loop started");
     //create article for product
     let itemRow = document.createElement("article");
@@ -70,20 +50,20 @@ function showShoppingCart() {
     //create img for product img
     let productImg = document.createElement("img");
     productImg.classList.add("itemRow__Img");
-    productImg.alt = shoppingCartProducts[i].name;
-    productImg.src = shoppingCartProducts[i].image;
+    productImg.alt = userCart[i].name;
+    productImg.src = userCart[i].image;
     itemRow.appendChild(productImg);
 
     //create ptag for productname
     let productName = document.createElement("p");
     productName.classList.add("itemRow__productName");
-    productName.innerText = shoppingCartProducts[i].name;
+    productName.innerText = userCart[i].name;
     itemRow.appendChild(productName);
 
     //create ptag for product price
     let productPrice = document.createElement("p");
     productPrice.classList.add("itemRow__productPrice");
-    productPrice.innerText = shoppingCartProducts[i].price.toString();
+    productPrice.innerText = userCart[i].price.toString();
     productPrice.innerText += " :-";
     itemRow.appendChild(productPrice);
 

@@ -1,14 +1,13 @@
-import { shoppingCartProducts } from "./checkout_page";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
 renderProductlist();
 
-function addProductToCart(product: ProductTemplate) {
-  console.log(product.name);
-  shoppingCartProducts.push(product);
-  console.log(shoppingCartProducts);
-}
+// function addProductToCart(product: ProductTemplate) {
+//   console.log(product.name);
+//   userCart.push(product);
+//   console.log(userCart);
+// }
 
 function renderProductlist() {
   for (let i = 0; i < products.length; i++) {
@@ -72,8 +71,8 @@ function renderProductlist() {
     ) as HTMLButtonElement;
 
     //Adds eventlistener
-    productButton.addEventListener("click", () => {
-      addProductToCart(products[i]);
-    });
+    // productButton.addEventListener("click", () => {
+    //   addProductToCart(products[i]);
+    // });
   }
 }
