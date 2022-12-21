@@ -1,0 +1,14 @@
+.filter-bar {
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  .filter-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid red;
+    width: 20%;
+  }
+}
