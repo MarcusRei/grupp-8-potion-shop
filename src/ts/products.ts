@@ -6,18 +6,21 @@ const testProducts: ProductTemplate[] = [
     price: "100",
     image: "./assets/images/placeholder_square.jpg",
     size: "small",
+    type: "Healing",
   },
   {
     name: "Medium potion",
     price: "200",
     image: "/assets/images/placeholder_square.jpg",
     size: "medium",
+    type: "mana",
   },
   {
     name: "Large potion",
     price: "300",
     image: "/assets/images/placeholder_square.jpg",
     size: "large",
+    type: "stamina",
   },
 ];
 
