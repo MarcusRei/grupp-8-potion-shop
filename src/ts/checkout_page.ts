@@ -90,6 +90,13 @@ function showShoppingCart() {
     productPrice.innerText += " :-";
     itemRow.appendChild(productPrice);
 
+    //create ptag for quantity
+    // let productQuantity = document.createElement("p");
+    // productQuantity.classList.add("itemRow__productQuantity");
+    // productQuantity.innerText = "x";
+    // productQuantity.innerText += userCart[i].quantity.toString();
+    // itemRow.appendChild(productQuantity);
+
     //create label for quantity input
     let productLabel = document.createElement("label");
     productLabel.setAttribute("for", "productQuantity");
@@ -110,7 +117,7 @@ function showShoppingCart() {
 
     //eventListener for adding more of a product(inputValue)
     productQuantityInput.addEventListener("change", () => {
-      addMoreOfAProduct(userCart[i], productQuantityInput.value);
+      addMoreOfAProduct(i, userCart[i], productQuantityInput.value);
     });
     deleteBtn.addEventListener("click", () => {
       deleteFromCart(i);
@@ -130,13 +137,16 @@ function emptyShoppingCart() {
   }
 }
 
-function addMoreOfAProduct(product: ProductTemplate, value: string) {
-  for (let i = 1; i < value.length - 1; i++) {
-    userCart.push(product);
-    console.log(userCart);
-  }
-  showShoppingCart();
-}
+// function addMoreOfAProduct(listPosition: number,product:ProductTemplate, value: string) {
+//   for (let i = 0; i < userCart.length; i++) {
+//     if(i===listPosition) {
+//       product.quantity =value;
+//     console.log(userCart);
+//   }
+//   }
+
+//   showShoppingCart();
+// }
 function deleteFromCart(listPosition: number) {
   for (let i = 0; i < userCart.length; i++) {
     if (i === listPosition) {
