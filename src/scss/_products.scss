@@ -1,11 +1,14 @@
 @use "mixins";
 
-body {
+/* #products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include mixins.desktop {
     display: flex;
     justify-content: center;
   }
-}
+} */
 
 .product__list {
   display: flex;
@@ -20,7 +23,7 @@ body {
   @include mixins.desktop {
     flex-direction: row;
     flex-wrap: wrap;
-    width: 60vw;
+    width: 80vw;
     gap: 2em;
   }
 }
@@ -30,10 +33,16 @@ body {
   align-items: center;
   background-color: rgba(255, 0, 0, 0.689);
   border-radius: 10px;
-  gap: 0.5em;
+  gap: 0.3em;
   padding: 1em;
+  width: 60%;
+
+  @include mixins.desktop {
+    width: 20%;
+  }
+
   .product__container-image {
-    width: 200px;
+    width: 80%;
   }
 
   .product__info {
@@ -41,6 +50,15 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1em;
+
+    .product__info-name {
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .product__info-price {
+      font-weight: 600;
+    }
 
     .product__inputs {
       display: flex;
@@ -57,4 +75,12 @@ body {
       flex-direction: column;
     }
   }
+}
+
+.filter {
+  display: flex;
+  width: 100vw;
+
+  flex-direction: row;
+  justify-content: flex-end;
 }
