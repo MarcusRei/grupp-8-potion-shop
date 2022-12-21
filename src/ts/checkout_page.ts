@@ -1,5 +1,5 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-// import { userCart } from "./main";
+// import { userCart } from "./products";
 
 //modal function
 export function startModalFunctionality() {
@@ -28,8 +28,7 @@ function changeModalVisability() {
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
 }
-
-export const userCart: ProductTemplate[] = [];
+export let userCart: ProductTemplate[] = [];
 
 console.log(userCart);
 //skapa html för varukorg
