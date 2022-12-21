@@ -1,13 +1,30 @@
-const testProducts = [
+export class TestProductTemplate {
+  constructor(
+    public name: string,
+    public price: string,
+    public size: string,
+    public image: string
+  ) {}
+}
+
+const testProducts: TestProductTemplate[] = [
   {
     name: "Small potion",
     price: "100",
     image: "./assets/images/placeholder_square.jpg",
+    size: "small",
   },
   {
     name: "Medium potion",
     price: "200",
     image: "/assets/images/placeholder_square.jpg",
+    size: "medium",
+  },
+  {
+    name: "Large potion",
+    price: "300",
+    image: "/assets/images/placeholder_square.jpg",
+    size: "large",
   },
 ];
 
@@ -15,14 +32,9 @@ const testUserCart = [];
 
 renderProductlist();
 
-/* let addToCartBtn: HTMLButtonElement = document.querySelector(
-  ".product__info-buy-btn"
-) as HTMLButtonElement;
-
-addToCartBtn.addEventListener("click", addProductToCart); */
-
-function addProductToCart(product) {
+function addProductToCart(product: TestProductTemplate) {
   console.log(product.name);
+  testUserCart.push(product);
 }
 
 function renderProductlist() {
@@ -89,6 +101,7 @@ function renderProductlist() {
       `add-${testProducts[i].name}-button`
     ) as HTMLButtonElement;
 
+    //Adds eventlistener
     productButton.addEventListener("click", () => {
       addProductToCart(testProducts[i]);
     });
