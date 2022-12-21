@@ -1,3 +1,4 @@
+import { userCart } from "./checkout_page";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
@@ -70,7 +71,7 @@ function renderProductlist() {
       `add-${products[i].name}-button`
     ) as HTMLButtonElement;
 
-    //Adds eventlistener
+    // Adds eventlistener
     // productButton.addEventListener("click", () => {
     //   addProductToCart(products[i]);
     // });
