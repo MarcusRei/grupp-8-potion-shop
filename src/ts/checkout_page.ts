@@ -1,6 +1,6 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-// import { userCart } from "./products";
 
+export let userCart: ProductTemplate[] = [];
 //modal function
 export function startModalFunctionality() {
   var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
@@ -11,8 +11,8 @@ export function startModalFunctionality() {
   checkoutBtn.addEventListener("click", () => {
     changeModalVisability();
     console.log("I got clicked");
-    //lägg till function för att tömma varukorg
-    //lägg till funktion för att skapa om html
+    emptyShoppingCart();
+    showShoppingCart();
   });
   closeCross.addEventListener("click", () => {
     changeModalVisability();
@@ -28,7 +28,6 @@ function changeModalVisability() {
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
 }
-export let userCart: ProductTemplate[] = [];
 
 console.log(userCart);
 //skapa html för varukorg
@@ -79,6 +78,7 @@ function showShoppingCart() {
     productLabel.appendChild(productQuantityInput);
 
     //create btn container for btns
+    //ta bort +/- men ha en submit för att spara ev ändrat antal
     let btnContainer = document.createElement("div");
     btnContainer.classList.add("itemRow__btnContainer");
     productLabel.appendChild(btnContainer);
@@ -99,3 +99,14 @@ function showShoppingCart() {
   }
 }
 showShoppingCart();
+
+function emptyShoppingCart() {
+  console.log(userCart);
+  for (let i = 0; i < userCart.length; i++) {
+    console.log(userCart.length);
+    let listLength = userCart.length;
+    if (i < listLength) {
+      userCart.splice(i, listLength);
+    }
+  }
+}
