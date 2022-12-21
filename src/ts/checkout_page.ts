@@ -1,7 +1,6 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-// import { userCart } from "./products";
-import placeholder_square from "../assets/images/placeholder_square.jpg";
 
+export let userCart: ProductTemplate[] = [];
 //modal function
 export function startModalFunctionality() {
   var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
@@ -12,7 +11,7 @@ export function startModalFunctionality() {
   checkoutBtn.addEventListener("click", () => {
     changeModalVisability();
     console.log("I got clicked");
-    //lägg till function för att tömma varukorg
+    emptyShoppingCart();
     showShoppingCart();
   });
   closeCross.addEventListener("click", () => {
@@ -29,7 +28,6 @@ function changeModalVisability() {
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
 }
-export let userCart: ProductTemplate[] = [];
 
 console.log(userCart);
 //skapa html för varukorg
@@ -80,25 +78,35 @@ function showShoppingCart() {
     productLabel.appendChild(productQuantityInput);
 
     //create btn container for btns
-    // let btnContainer = document.createElement("div");
-    // btnContainer.classList.add("itemRow__btnContainer");
-    // productLabel.appendChild(btnContainer);
+    //ta bort +/- men ha en submit för att spara ev ändrat antal
+    let btnContainer = document.createElement("div");
+    btnContainer.classList.add("itemRow__btnContainer");
+    productLabel.appendChild(btnContainer);
 
-    // //create btn for adding quantity
-    // let btnAddQuantity = document.createElement("button");
-    // btnAddQuantity.classList.add("ItemRow__changeQuantityBtn"),
-    //   btnAddQuantity.classList.add("addQuantity"),
-    //   (btnAddQuantity.innerText = "+");
-    // btnContainer.appendChild(btnAddQuantity);
+    //create btn for adding quantity
+    let btnAddQuantity = document.createElement("button");
+    btnAddQuantity.classList.add("ItemRow__changeQuantityBtn"),
+      btnAddQuantity.classList.add("addQuantity"),
+      (btnAddQuantity.innerText = "+");
+    btnContainer.appendChild(btnAddQuantity);
 
-    // //create btn for reducing quantity
-    // let btnReduceQuantity = document.createElement("button");
-    // btnReduceQuantity.classList.add("itemRow__changeQuantityBtn"),
-    //   btnReduceQuantity.classList.add("reduceQuantity"),
-    //   (btnReduceQuantity.innerText = "-");
-    // btnContainer.appendChild(btnReduceQuantity);
+    //create btn for reducing quantity
+    let btnReduceQuantity = document.createElement("button");
+    btnReduceQuantity.classList.add("itemRow__changeQuantityBtn"),
+      btnReduceQuantity.classList.add("reduceQuantity"),
+      (btnReduceQuantity.innerText = "-");
+    btnContainer.appendChild(btnReduceQuantity);
   }
 }
 showShoppingCart();
 
-function emptyShoppingCart() {}
+function emptyShoppingCart() {
+  console.log(userCart);
+  for (let i = 0; i < userCart.length; i++) {
+    console.log(userCart.length);
+    let listLength = userCart.length;
+    if (i < listLength) {
+      userCart.splice(i, listLength);
+    }
+  }
+}
