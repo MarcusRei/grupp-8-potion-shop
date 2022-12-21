@@ -8,6 +8,7 @@ export let userCart: ProductTemplate[] = [
     image: placeholder_square,
     size: "large",
     type: "healing",
+    quantity: 1,
   },
   {
     name: "Small mana potion",
@@ -15,6 +16,7 @@ export let userCart: ProductTemplate[] = [
     image: placeholder_square,
     size: "small",
     type: "mana",
+    quantity: 1,
   },
   {
     name: "Medium mana potion",
@@ -22,6 +24,7 @@ export let userCart: ProductTemplate[] = [
     image: placeholder_square,
     size: "medium",
     type: "mana",
+    quantity: 1,
   },
 ];
 //modal function

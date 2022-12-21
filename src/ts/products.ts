@@ -5,9 +5,10 @@ renderProductlist();
 
 let productsPageUserCart: ProductTemplate[] = [];
 
-function addProductToCart(product: ProductTemplate) {
+function addProductToCart(product: ProductTemplate, productAmount: string) {
   productsPageUserCart.push(product);
   console.log(productsPageUserCart);
+
   putUserCartInLS(productsPageUserCart);
 }
 
@@ -60,6 +61,7 @@ function renderProductlist() {
     productAmount.value = "1";
     productAmount.classList.add("product__info-amount");
     productInputs.appendChild(productAmount);
+    let amountOfProducts = productAmount.value;
 
     //Creates  "add to cart" button
     let productAddToCartBtn = document.createElement("button");
@@ -74,7 +76,7 @@ function renderProductlist() {
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
-      addProductToCart(products[i]);
+      addProductToCart(products[i], amountOfProducts);
     });
   }
 }
@@ -84,8 +86,7 @@ function putUserCartInLS(userProducts: ProductTemplate[]) {
 }
 
 export function getUserCartFromLS() {
-  let userCartFromLS = JSON.parse(localStorage.getItem("userCart") || "{}");
-  return;
+  let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
+  console.log(userCartLS);
+  return userCartLS;
 }
-
-getUserCartFromLS();
