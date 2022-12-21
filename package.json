@@ -1,6 +1,9 @@
 {
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.2",
-    "parcel": "^2.8.2"
+    "parcel": "^2.8.2",
+    "@parcel/validator-typescript": "^2.8.0",
+    "@parcel/transformer-typescript-tsc": "^2.8.0",
+    "tsc": "^2.0.4"
   }
 }
