@@ -11,7 +11,7 @@ header {
 
 //layout navigation bar
 nav {
-    position: relative;
+    width: 100%;
 
     .logo-container {
         display: flex;
@@ -24,19 +24,12 @@ nav {
             font-size: 4rem;
             color: white;
         }
-    
     }
 
-    .menu-container {
+    .desktopnav-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color: blue;
-
-        @include mixins.desktop {
-            position: relative;
-        }
-
     }
 
     display: flex;
@@ -44,45 +37,28 @@ nav {
     justify-content: space-between;
     gap: 70px;
 
-    .menu {
+    .desktopnav-menu {
 
-        display: flex;
+        display: none;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
-        transform: translateY(-100%);
-        transition: transform 0.2s;
-        
-        padding: 0;
-        padding-top: 15vh;
-        margin: 0;
         gap: 30px;
-        background-color: pink;
-        
+        padding: 0;
         list-style-type: none;
-        
 
         @include mixins.desktop {
             display: flex;
             flex-direction: row;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            gap: 70px;
-            height: auto;
-            width: auto;
             }
     }
-
-    .showMenu {
-        transform: translateY(0);
-      }
-      
 
     .menu-link {
         text-decoration: none;
         color: white;
         
-
         &:hover {
             color: grey;
         }
@@ -99,7 +75,6 @@ nav {
             font-size: 4rem;
             color: white;
         }
-    
     }
 }
 
@@ -107,7 +82,7 @@ nav {
 #hamburgerButton {
     justify-content: center;
     align-items: center;
-    background-color: plum;
+    background-color: rgba(0, 0, 0, 0);
     width: 80px;
     border: none;
     cursor: pointer;
@@ -123,6 +98,7 @@ nav {
 
     .icon {
         font-size: 4rem;
+        color: white;
     }
 
     #closeIcon {
@@ -130,5 +106,47 @@ nav {
     }
 }
 
+.mobilenav-container {
+    background-color: lightgreen;
+    display: none;
+    flex-direction: column;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    position: absolute;
+    width: 100vw;
+    top: 10vh;
 
+    @include mixins.desktop {
+        display: none;
+    }
+
+    .mobilenav-menu {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu-link {
+        text-decoration: none;
+        color: white;
+        
+
+        &:hover {
+            color: grey;
+        }
+    }
+
+    &.showMenu {
+        transform: translateY(0);
+        background-color: lightblue;
+        display: flex;
+    }
+
+    @include mixins.desktop {
+        display: none;
+    }
+}
 
