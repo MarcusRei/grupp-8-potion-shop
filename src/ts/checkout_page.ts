@@ -34,8 +34,10 @@ export function startModalFunctionality() {
   checkoutBtn.addEventListener("click", () => {
     changeModalVisability();
     console.log("I got clicked");
-    emptyShoppingCart();
-    showShoppingCart();
+    setTimeout(() => {
+      emptyShoppingCart();
+      showShoppingCart();
+    }, 50);
   });
   closeCross.addEventListener("click", () => {
     changeModalVisability();
@@ -101,10 +103,18 @@ function showShoppingCart() {
     productLabel.appendChild(productQuantityInput);
 
     //create checkBtn for submiting changes to quantity
-    let checkBtn = document.createElement("button");
-    checkBtn.innerHTML = "&check;";
-    checkBtn.classList.add("itemRow__changeQuantityBtn");
-    productLabel.appendChild(checkBtn);
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerHTML = "&times;";
+    deleteBtn.classList.add("itemRow__deleteQuantityBtn");
+    productLabel.appendChild(deleteBtn);
+
+    //eventListener for adding more of a product(inputValue)
+    productQuantityInput.addEventListener("change", () => {
+      addMoreOfAProduct(userCart[i], productQuantityInput.value);
+    });
+    deleteBtn.addEventListener("click", () => {
+      deleteFromCart(i);
+    });
   }
 }
 showShoppingCart();
@@ -118,4 +128,21 @@ function emptyShoppingCart() {
       userCart.splice(i, listLength);
     }
   }
+}
+
+function addMoreOfAProduct(product: ProductTemplate, value: string) {
+  for (let i = 1; i < value.length - 1; i++) {
+    userCart.push(product);
+    console.log(userCart);
+  }
+  showShoppingCart();
+}
+function deleteFromCart(listPosition: number) {
+  for (let i = 0; i < userCart.length; i++) {
+    if (i === listPosition) {
+      userCart.splice(i, 1);
+      console.log(userCart);
+    }
+  }
+  showShoppingCart();
 }

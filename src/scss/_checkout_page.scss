@@ -52,13 +52,13 @@
     }
   }
 
-  //submit button for changes quantity
-  &__changeQuantityBtn {
-    font-size: xx-small;
+  //delete Btn
+  &__deleteQuantityBtn {
+    font-size: small;
     font-weight: bold;
     margin-left: 5px;
     @include mix.desktop {
-      font-size: small;
+      font-size: medium;
       font-weight: 400;
       padding: 0;
       width: 2vw;
