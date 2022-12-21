@@ -1,4 +1,3 @@
-import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
 //modal function
@@ -28,12 +27,14 @@ function changeModalVisability() {
 //varukorg
 
 export const shoppingCartProducts: ProductTemplate[] = [];
-
+console.log(shoppingCartProducts);
 //skapa html för varukorg
 function showShoppingCart() {
-  let shoppingCart = document.getElementById("shoppingCart") as HTMLElement;
-  shoppingCart.innerText = "";
+  let shoppingCartSection = document.getElementById(
+    "shoppingCart"
+  ) as HTMLElement;
   console.log("function started");
+  //shoppingCartSection.innerHTML = "";
 
   for (let i = 0; i < shoppingCartProducts.length; i++) {
     console.log("loop started");
@@ -67,7 +68,7 @@ function showShoppingCart() {
       btnReduceQuantity.classList.add("reduceQuantity"),
       (btnReduceQuantity.innerText = "-");
 
-    shoppingCart.appendChild(itemRow);
+    shoppingCartSection.appendChild(itemRow);
     itemRow.appendChild(productImg);
     itemRow.appendChild(productName);
     itemRow.appendChild(productPrice);
