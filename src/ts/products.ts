@@ -1,45 +1,43 @@
-export class TestProductTemplate {
-  constructor(
-    public name: string,
-    public price: string,
-    public size: string,
-    public image: string
-  ) {}
-}
+import { products } from "./models/ProductList";
+import { ProductTemplate } from "./models/ProductTemplate";
 
-const testProducts: TestProductTemplate[] = [
+const testProducts: ProductTemplate[] = [
   {
     name: "Small potion",
     price: "100",
     image: "./assets/images/placeholder_square.jpg",
     size: "small",
+    type: "Healing",
   },
   {
     name: "Medium potion",
     price: "200",
     image: "/assets/images/placeholder_square.jpg",
     size: "medium",
+    type: "mana",
   },
   {
     name: "Large potion",
     price: "300",
     image: "/assets/images/placeholder_square.jpg",
     size: "large",
+    type: "stamina",
   },
 ];
 
-const testUserCart = [];
+const testUserCart: ProductTemplate[] = [];
 
 renderProductlist();
 
-function addProductToCart(product: TestProductTemplate) {
+function addProductToCart(product: ProductTemplate) {
   console.log(product.name);
   testUserCart.push(product);
+  console.log(testUserCart);
 }
 
 function renderProductlist() {
-  for (let i = 0; i < testProducts.length; i++) {
-    console.log(testProducts);
+  for (let i = 0; i < products.length; i++) {
+    console.log(products);
 
     //Creates container for a product
     let productContainer = document.createElement("div");
@@ -49,7 +47,7 @@ function renderProductlist() {
     //Creates image element for product
     let productImg = document.createElement("img");
     productImg.classList.add("product__container-image");
-    productImg.src = testProducts[i].image;
+    productImg.src = products[i].image;
     productImg.alt = "Picture of product";
     productContainer.appendChild(productImg);
 
@@ -66,13 +64,13 @@ function renderProductlist() {
     //Creates element for product name
     let productName = document.createElement("p");
     productName.classList.add("product__info-name");
-    productName.innerHTML = testProducts[i].name;
+    productName.innerHTML = products[i].name;
     productinfoTextContainer.appendChild(productName);
 
     //Creates element for product price
     let productPrice = document.createElement("p");
     productName.classList.add("product__info-price");
-    productPrice.innerHTML = testProducts[i].price + ":-";
+    productPrice.innerHTML = products[i].price + ":-";
     productinfoTextContainer.appendChild(productPrice);
 
     //Creates inputs container
@@ -89,21 +87,18 @@ function renderProductlist() {
 
     //Creates  "add to cart" button
     let productAddToCartBtn = document.createElement("button");
-    productAddToCartBtn.setAttribute(
-      "id",
-      `add-${testProducts[i].name}-button`
-    );
+    productAddToCartBtn.setAttribute("id", `add-${products[i].name}-button`);
     productAddToCartBtn.classList.add("product__info-buy-btn");
     productAddToCartBtn.innerText = "Add to cart";
     productInputs.appendChild(productAddToCartBtn);
 
     let productButton: HTMLButtonElement = document.getElementById(
-      `add-${testProducts[i].name}-button`
+      `add-${products[i].name}-button`
     ) as HTMLButtonElement;
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
-      addProductToCart(testProducts[i]);
+      addProductToCart(products[i]);
     });
   }
 }
