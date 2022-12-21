@@ -32,7 +32,7 @@ export const shoppingCartProducts: ProductTemplate[] = [];
 //skapa html för varukorg
 function showShoppingCart() {
   let shoppingCart = document.getElementById("shoppingCart") as HTMLElement;
-  shoppingCart.innerHTML = "";
+  shoppingCart.innerText = "";
   console.log("function started");
 
   for (let i = 0; i < shoppingCartProducts.length; i++) {
