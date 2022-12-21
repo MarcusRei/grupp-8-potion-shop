@@ -8,7 +8,7 @@ let productsPageUserCart: ProductTemplate[] = [];
 function addProductToCart(product: ProductTemplate) {
   productsPageUserCart.push(product);
   console.log(productsPageUserCart);
-  putInLocalStorage(productsPageUserCart);
+  putUserCartInLS(productsPageUserCart);
 }
 
 function renderProductlist() {
@@ -79,15 +79,13 @@ function renderProductlist() {
   }
 }
 
-function putInLocalStorage(userProducts: ProductTemplate[]) {
+function putUserCartInLS(userProducts: ProductTemplate[]) {
   localStorage.setItem("userCart", JSON.stringify(userProducts));
 }
 
-export function getFromLocalStorage() {
-  //let userCartAsText = JSON.parselocalStorage.getItem("taskList");
-  //let taskListfromLS = JSON.parse(listofStringsFromLS);
-
+export function getUserCartFromLS() {
   let userCartFromLS = JSON.parse(localStorage.getItem("userCart") || "{}");
+  return;
 }
 
-getFromLocalStorage();
+getUserCartFromLS();
