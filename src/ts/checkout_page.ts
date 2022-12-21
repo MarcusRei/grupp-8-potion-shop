@@ -1,6 +1,29 @@
 import { ProductTemplate } from "./models/ProductTemplate";
+import placeholder_square from "../assets/images/placeholder_square.jpg";
 
-export let userCart: ProductTemplate[] = [];
+export let userCart: ProductTemplate[] = [
+  {
+    name: "Large healing potion",
+    price: 300,
+    image: placeholder_square,
+    size: "large",
+    type: "healing",
+  },
+  {
+    name: "Small mana potion",
+    price: 100,
+    image: placeholder_square,
+    size: "small",
+    type: "mana",
+  },
+  {
+    name: "Medium mana potion",
+    price: 200,
+    image: placeholder_square,
+    size: "medium",
+    type: "mana",
+  },
+];
 //modal function
 export function startModalFunctionality() {
   var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
@@ -67,7 +90,7 @@ function showShoppingCart() {
 
     //create label for quantity input
     let productLabel = document.createElement("label");
-    //productLabel.htmlFor = "productQuantity"; //vet inte om denna blir rätt
+    productLabel.setAttribute("for", "productQuantity");
     productLabel.id = "quantityContainer";
     itemRow.appendChild(productLabel);
 
@@ -77,25 +100,11 @@ function showShoppingCart() {
     productQuantityInput.id = "productQuantity";
     productLabel.appendChild(productQuantityInput);
 
-    //create btn container for btns
-    //ta bort +/- men ha en submit för att spara ev ändrat antal
-    let btnContainer = document.createElement("div");
-    btnContainer.classList.add("itemRow__btnContainer");
-    productLabel.appendChild(btnContainer);
-
-    //create btn for adding quantity
-    let btnAddQuantity = document.createElement("button");
-    btnAddQuantity.classList.add("ItemRow__changeQuantityBtn"),
-      btnAddQuantity.classList.add("addQuantity"),
-      (btnAddQuantity.innerText = "+");
-    btnContainer.appendChild(btnAddQuantity);
-
-    //create btn for reducing quantity
-    let btnReduceQuantity = document.createElement("button");
-    btnReduceQuantity.classList.add("itemRow__changeQuantityBtn"),
-      btnReduceQuantity.classList.add("reduceQuantity"),
-      (btnReduceQuantity.innerText = "-");
-    btnContainer.appendChild(btnReduceQuantity);
+    //create checkBtn for submiting changes to quantity
+    let checkBtn = document.createElement("button");
+    checkBtn.innerHTML = "&check;";
+    checkBtn.classList.add("itemRow__changeQuantityBtn");
+    productLabel.appendChild(checkBtn);
   }
 }
 showShoppingCart();

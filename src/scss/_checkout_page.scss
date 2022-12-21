@@ -36,8 +36,8 @@
       height: 8vh;
     }
   }
-  //ItemRow__productName
-  //ItemRow__productPrice
+  //itemRow__productName
+  //itemRow__productPrice
   #quantityContainer {
     display: flex;
     height: 30px;
@@ -46,26 +46,23 @@
     }
   }
   #productQuantity {
-    width: 2vh;
+    width: 5vw;
     @include mix.desktop {
-      width: 8vh;
+      width: 10vw;
     }
   }
 
-  &__btnContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+  //submit button for changes quantity
   &__changeQuantityBtn {
-    //   height: 10px;
     font-size: xx-small;
     font-weight: bold;
-    padding: 0 2px 0 2px;
+    margin-left: 5px;
     @include mix.desktop {
       font-size: small;
       font-weight: 400;
-      padding: 0 2px 0 2px;
+      padding: 0;
+      width: 2vw;
+      margin-left: 5px;
     }
   }
 }
