@@ -21,7 +21,7 @@ function renderProductlist() {
     productContainer.classList.add("product__container");
     document.querySelector(".product__list")?.appendChild(productContainer);
 
-    //Creates image element for product
+    //Creates element for product image
     let productImg = document.createElement("img");
     productImg.classList.add("product__container-image");
     productImg.src = products[i].image;
@@ -57,13 +57,14 @@ function renderProductlist() {
 
     //Creates input field
     let productAmount = document.createElement("input");
+    productAmount.setAttribute("id", `add-${products[i].name}-input`);
     productAmount.type = "number";
     productAmount.value = "1";
     productAmount.classList.add("product__info-amount");
     productInputs.appendChild(productAmount);
     let amountOfProducts = productAmount.value;
 
-    //Creates  "add to cart" button
+    //Creates "add to cart" button
     let productAddToCartBtn = document.createElement("button");
     productAddToCartBtn.setAttribute("id", `add-${products[i].name}-button`);
     productAddToCartBtn.classList.add("product__info-buy-btn");
@@ -81,6 +82,7 @@ function renderProductlist() {
   }
 }
 
+//Local Storage functions
 function putUserCartInLS(userProducts: ProductTemplate[]) {
   localStorage.setItem("userCart", JSON.stringify(userProducts));
 }
