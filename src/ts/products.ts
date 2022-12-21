@@ -1,18 +1,19 @@
-import { userCart } from "./checkout_page";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
 renderProductlist();
 
-// function addProductToCart(product: ProductTemplate) {
-//   console.log(product.name);
-//   userCart.push(product);
-//   console.log(userCart);
-// }
+let productsPageUserCart: ProductTemplate[] = [];
+
+function addProductToCart(product: ProductTemplate) {
+  productsPageUserCart.push(product);
+  console.log(productsPageUserCart);
+  putUserCartInLS(productsPageUserCart);
+}
 
 function renderProductlist() {
   for (let i = 0; i < products.length; i++) {
-    console.log(products);
+    //console.log(products);
 
     //Creates container for a product
     let productContainer = document.createElement("div");
@@ -71,9 +72,20 @@ function renderProductlist() {
       `add-${products[i].name}-button`
     ) as HTMLButtonElement;
 
-    // Adds eventlistener
-    // productButton.addEventListener("click", () => {
-    //   addProductToCart(products[i]);
-    // });
+    //Adds eventlistener
+    productButton.addEventListener("click", () => {
+      addProductToCart(products[i]);
+    });
   }
 }
+
+function putUserCartInLS(userProducts: ProductTemplate[]) {
+  localStorage.setItem("userCart", JSON.stringify(userProducts));
+}
+
+export function getUserCartFromLS() {
+  let userCartFromLS = JSON.parse(localStorage.getItem("userCart") || "{}");
+  return;
+}
+
+getUserCartFromLS();
