@@ -84,8 +84,7 @@ function putUserCartInLS(userProducts: ProductTemplate[]) {
 }
 
 export function getUserCartFromLS() {
-  let userCartFromLS = JSON.parse(localStorage.getItem("userCart") || "{}");
-  return;
-}
+  //return JSON.parse(localStorage.getItem("userCart") || "{}");
 
-getUserCartFromLS();
+  return JSON.parse(localStorage.getItem("userCart")!);
+}
