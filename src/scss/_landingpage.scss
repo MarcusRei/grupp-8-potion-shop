@@ -1,3 +1,5 @@
+
+// landingpage layout
 .content-container {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,7 @@
     height: 100vh;
 }
 
+// shopbutton layout and styling
 .button-shop {
     display: flex;
     justify-content: center;
@@ -18,6 +21,7 @@
     border: none;
     color: white;
     border-radius: 15px;
+    cursor: pointer;
 
     & > a {
         text-decoration: none;
