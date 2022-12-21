@@ -25,26 +25,30 @@ function changeModalVisability() {
   modal.classList.toggle("modalInvisible");
 }
 
+//varukorg
+
+export const shoppingCartProducts: ProductTemplate[] = [];
+
 //skapa html för varukorg
 function showShoppingCart() {
   let shoppingCart = document.getElementById("shoppingCart") as HTMLElement;
   shoppingCart.innerHTML = "";
   console.log("function started");
 
-  for (let i = 0; i < products.length; i++) {
+  for (let i = 0; i < shoppingCartProducts.length; i++) {
     console.log("loop started");
     let itemRow = document.createElement("article");
     itemRow.classList.add("itemRow");
     let productImg = document.createElement("img");
     productImg.classList.add("itemRow__Img");
-    productImg.alt = products[i].name;
-    productImg.src = products[i].image;
+    productImg.alt = shoppingCartProducts[i].name;
+    productImg.src = shoppingCartProducts[i].image;
     let productName = document.createElement("p");
     productName.classList.add("itemRow__productName");
-    productName.innerText = products[i].name;
+    productName.innerText = shoppingCartProducts[i].name;
     let productPrice = document.createElement("p");
     productPrice.classList.add("itemRow__productPrice");
-    productPrice.innerText = products[i].price.toString();
+    productPrice.innerText = shoppingCartProducts[i].price.toString();
     productPrice.innerText += " :-";
     let productLabel = document.createElement("label");
     productLabel.htmlFor = "productQuantity"; //vet inte om denna blir rätt
