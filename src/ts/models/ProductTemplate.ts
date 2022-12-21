@@ -2,8 +2,10 @@
 
 export class ProductTemplate {
   constructor(
-    public productName: string,
-    public productPrice: string,
-    public productSize: string
+    public name: string,
+    public price: string,
+    public size: string,
+    public type: string,
+    public image: string
   ) {}
 }
