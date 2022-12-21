@@ -2,151 +2,149 @@
 
 // layout header
 header {
-    justify-content: flex-end;
-    display: flex;
-    height: 10vh;
-    background-color: red;
-    position: relative;
+  justify-content: flex-end;
+  display: flex;
+  height: 10vh;
+  background-color: red;
+  position: relative;
+  width: 100vw;
 }
 
 //layout navigation bar
 nav {
-    width: 100%;
+  width: 100%;
 
-    .logo-container {
-        display: flex;
-        width: 80px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+  .logo-container {
+    display: flex;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
-        .icon {
-            font-size: 4rem;
-            color: white;
-        }
+    .icon {
+      font-size: 4rem;
+      color: white;
     }
+  }
 
-    .desktopnav-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-
+  .desktopnav-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 70px;
+    justify-content: center;
+  }
 
-    .desktopnav-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 70px;
 
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        padding: 0;
-        list-style-type: none;
+  .desktopnav-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0;
+    list-style-type: none;
 
-        @include mixins.desktop {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            }
+    @include mixins.desktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
     }
+  }
 
-    .menu-link {
-        text-decoration: none;
-        color: white;
-        
-        &:hover {
-            color: grey;
-        }
+  .menu-link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: grey;
     }
+  }
 
-    .shoppingcart-container {
-        display: flex;
-        width: 80px;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
+  .shoppingcart-container {
+    display: flex;
+    width: 80px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 
-        .icon {
-            font-size: 4rem;
-            color: white;
-        }
+    .icon {
+      font-size: 4rem;
+      color: white;
     }
+  }
 }
 
 // layout and styling hamburger-menu
 #hamburgerButton {
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0);
-    width: 80px;
-    border: none;
-    cursor: pointer;
-    z-index: 100;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  width: 80px;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
 
-    &:hover {
-        background-color: grey;
-    }
+  &:hover {
+    background-color: grey;
+  }
 
-    @include mixins.desktop {
-        display: none;
-    }
+  @include mixins.desktop {
+    display: none;
+  }
 
-    .icon {
-        font-size: 4rem;
-        color: white;
-    }
+  .icon {
+    font-size: 4rem;
+    color: white;
+  }
 
-    #closeIcon {
-        display: none;
-    }
+  #closeIcon {
+    display: none;
+  }
 }
 
 .mobilenav-container {
-    background-color: lightgreen;
+  background-color: lightgreen;
+  display: none;
+  flex-direction: column;
+  transform: translateY(-100%);
+  transition: transform 0.2s;
+  position: absolute;
+  width: 100vw;
+  top: 10vh;
+
+  @include mixins.desktop {
     display: none;
+  }
+
+  .mobilenav-menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
     flex-direction: column;
-    transform: translateY(-100%);
-    transition: transform 0.2s;
-    position: absolute;
-    width: 100vw;
-    top: 10vh;
+    justify-content: center;
+    align-items: center;
+  }
 
-    @include mixins.desktop {
-        display: none;
+  .menu-link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: grey;
     }
+  }
 
-    .mobilenav-menu {
-        list-style-type: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  &.showMenu {
+    transform: translateY(0);
+    background-color: lightblue;
+    display: flex;
+  }
 
-    .menu-link {
-        text-decoration: none;
-        color: white;
-        
-
-        &:hover {
-            color: grey;
-        }
-    }
-
-    &.showMenu {
-        transform: translateY(0);
-        background-color: lightblue;
-        display: flex;
-    }
-
-    @include mixins.desktop {
-        display: none;
-    }
+  @include mixins.desktop {
+    display: none;
+  }
 }
-
