@@ -1,30 +1,6 @@
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
-const testProducts: ProductTemplate[] = [
-  {
-    name: "Small potion",
-    price: "100",
-    image: "./assets/images/placeholder_square.jpg",
-    size: "small",
-    type: "Healing",
-  },
-  {
-    name: "Medium potion",
-    price: "200",
-    image: "/assets/images/placeholder_square.jpg",
-    size: "medium",
-    type: "mana",
-  },
-  {
-    name: "Large potion",
-    price: "300",
-    image: "/assets/images/placeholder_square.jpg",
-    size: "large",
-    type: "stamina",
-  },
-];
-
 const testUserCart: ProductTemplate[] = [];
 
 renderProductlist();
@@ -69,7 +45,7 @@ function renderProductlist() {
 
     //Creates element for product price
     let productPrice = document.createElement("p");
-    productName.classList.add("product__info-price");
+    productPrice.classList.add("product__info-price");
     productPrice.innerHTML = products[i].price + ":-";
     productinfoTextContainer.appendChild(productPrice);
 
