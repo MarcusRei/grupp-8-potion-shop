@@ -1,5 +1,6 @@
 @use "mixins";
 
+// footer layout
 footer {
     display: flex;
     flex-direction: column;
@@ -20,6 +21,7 @@ footer {
     }
 }
 
+// customerservice layout
 .customerservice-container {
     display: flex;
     flex-direction: column;
@@ -32,7 +34,7 @@ footer {
     }
 }
 
-
+// contact layout
 .contact-container {
     display: flex;
     flex-direction: column;
@@ -45,6 +47,7 @@ footer {
     }
 }
 
+// copyright layout
 .copyright-container {
     display: flex;
     flex-direction: column;
