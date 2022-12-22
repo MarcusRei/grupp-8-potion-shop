@@ -1,4 +1,5 @@
 @use "mixins";
+@use "colors" as col;
 
 #products {
   display: flex;
@@ -8,6 +9,7 @@
     display: flex;
     justify-content: center;
   }
+  background-color: col.$color-grey-very-dark;
 }
 
 .product__list {
@@ -31,7 +33,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(255, 0, 0, 0.689);
+  background-color: col.$color-grey-dark;
   border-radius: 10px;
   gap: 0.3em;
   padding: 1em;
@@ -73,6 +75,12 @@
     .product__info-text-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .product__info-buy-btn {
+      background-color: col.$color-grey-very-light;
+      color: col.$color-text-light;
+      border: none;
     }
   }
 }
