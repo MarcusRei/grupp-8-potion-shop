@@ -1,3 +1,4 @@
+import { changeQuantity } from "./checkout";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
@@ -79,6 +80,10 @@ function renderProductlist() {
     productButton.addEventListener("click", () => {
       addProductToCart(products[i], amountOfProducts);
     });
+
+    /* productAmount.addEventListener("change", () => {
+      changeQuantity(i, products[i], productAmount.value);
+    }); */
   }
 }
 

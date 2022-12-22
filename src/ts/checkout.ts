@@ -134,7 +134,7 @@ function emptyShoppingCart() {
   }
 }
 
-function changeQuantity(
+export function changeQuantity(
   listPosition: number,
   product: ProductTemplate,
   value: string
