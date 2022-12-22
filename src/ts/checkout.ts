@@ -96,9 +96,7 @@ export function showShoppingCart() {
       deleteFromCart(i);
     });
 
-    function handleCheckout() {
-      startModalFunctionality();
-    }
+    startModalFunctionality();
   }
 }
 showShoppingCart();
