@@ -83,7 +83,7 @@ function renderProductlist() {
 }
 
 //Local Storage functions
-function putUserCartInLS(userProducts: ProductTemplate[]) {
+export function putUserCartInLS(userProducts: ProductTemplate[]) {
   localStorage.setItem("userCart", JSON.stringify(userProducts));
 }
 

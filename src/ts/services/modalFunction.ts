@@ -1,4 +1,4 @@
-import { emptyShoppingCart, showShoppingCart } from "../checkout";
+import { emptyShoppingCart, showShoppingCart, userCart } from "../checkout";
 
 //modal function
 export function startModalFunctionality() {
@@ -11,7 +11,21 @@ export function startModalFunctionality() {
     changeModalVisability();
 
     console.log("I got clicked");
-
+    let modalContentText = document.getElementById(
+      "modalContent__text"
+    ) as HTMLParagraphElement;
+    if (userCart.length < 0) {
+      modalContentText.innerText = "Din varukorg är tom";
+      setTimeout(() => {
+        emptyShoppingCart();
+        showShoppingCart();
+      }, 50);
+      closeCross.addEventListener("click", () => {
+        changeModalVisability();
+        console.log("I got closed");
+      });
+    }
+    modalContentText.innerText = "Ditt köp har gått igenom";
     setTimeout(() => {
       emptyShoppingCart();
       showShoppingCart();

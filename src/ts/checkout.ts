@@ -1,6 +1,5 @@
 import { ProductTemplate } from "./models/ProductTemplate";
 import { startModalFunctionality } from "./services/modalFunction";
-import { getUserCartFromLS } from "./products";
 import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: ProductTemplate[] = getUserCartFromLS();
@@ -79,6 +78,16 @@ export function showShoppingCart() {
 }
 showShoppingCart();
 
+//localStorage
+function putUserCartInLS(userProducts: ProductTemplate[]) {
+  localStorage.setItem("userCart", JSON.stringify(userProducts));
+}
+function getUserCartFromLS() {
+  let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
+  console.log(userCartLS);
+  return userCartLS;
+}
+
 export function emptyShoppingCart() {
   console.log(userCart);
   for (let i = 0; i < userCart.length; i++) {
@@ -88,6 +97,8 @@ export function emptyShoppingCart() {
       userCart.splice(i, listLength);
     }
   }
+  putUserCartInLS(userCart);
+  console.log(userCart);
 }
 
 export function changeQuantity(

@@ -10,16 +10,20 @@ export function sumTotalPrice() {
     "modalContent__sum"
   ) as HTMLParagraphElement;
   for (let i = 0; i < userCart.length; i++) {
-    let amount: number = 1;
-    if (amount > 1) {
+    // let amount: number = 1;
+    if (userCart.length > 1) {
       sum = sum + userCart[i].price * userCart[i].quantity;
     } else {
-      sum = sum + userCart[i].price;
+      sum = 0;
     }
   }
 
   // skriver ut total priset i DOM
   let totalPrice: string = sum.toString();
-  sumCheckout.innerText = totalPrice + " G";
-  sumModal.innerText = "Att debiteras: " + totalPrice + " G";
+  if (sum <= 1) {
+    sumCheckout.innerText = totalPrice + " G";
+    sumModal.innerText = "Att debiteras: " + totalPrice + " G";
+  }
+  sumCheckout.innerText = "0 G";
+  sumModal.innerText = "0 G";
 }
