@@ -1,37 +1,9 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-import placeholder_square from "../assets/images/placeholder_square.jpg";
 import { startModalFunctionality } from "./services/modalFunction";
 import { getUserCartFromLS } from "./products";
 import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: ProductTemplate[] = getUserCartFromLS();
-
-/* export let userCart: ProductTemplate[] = [
-  {
-    name: "Large healing potion",
-    price: 300,
-    image: placeholder_square,
-    size: "large",
-    type: "healing",
-    quantity: 1,
-  },
-  {
-    name: "Small mana potion",
-    price: 100,
-    image: placeholder_square,
-    size: "small",
-    type: "mana",
-    quantity: 1,
-  },
-  {
-    name: "Medium mana potion",
-    price: 200,
-    image: placeholder_square,
-    size: "medium",
-    type: "mana",
-    quantity: 1,
-  },
-]; */
 
 console.log("Checkout " + userCart);
 
