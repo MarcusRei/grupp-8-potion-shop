@@ -1,6 +1,7 @@
 import { ProductTemplate } from "./models/ProductTemplate";
 import placeholder_square from "../assets/images/placeholder_square.jpg";
 import { startModalFunctionality } from "./services/modalFunction";
+import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: ProductTemplate[] = [
   {
@@ -38,6 +39,10 @@ export function showShoppingCart() {
   ) as HTMLElement;
   console.log("showShoppingCart started");
   shoppingCartSection.innerHTML = "";
+  let sumCheckout = document.getElementById(
+    "sumOfShoppingCart"
+  ) as HTMLParagraphElement;
+  sumCheckout.innerText = "0 G";
 
   for (let i = 0; i < userCart.length; i++) {
     console.log("loop started");
@@ -63,7 +68,7 @@ export function showShoppingCart() {
     let productPrice = document.createElement("p");
     productPrice.classList.add("itemRow__productPrice");
     productPrice.innerText = userCart[i].price.toString();
-    productPrice.innerText += " :-";
+    productPrice.innerText += " G";
     itemRow.appendChild(productPrice);
 
     //create label for quantity input
@@ -94,6 +99,7 @@ export function showShoppingCart() {
     });
 
     startModalFunctionality();
+    sumTotalPrice();
   }
 }
 showShoppingCart();
