@@ -1,32 +1,57 @@
+@use "mixins";
+
 footer {
-    height: 200px;
-    width: 100vw;
-    background-color: red;
     display: flex;
     flex-direction: column;
+    height: 225px;
+    width: 100vw;
+
+    background-color: red;
+    color: white;
 }
 
 .information-container {
     display: flex;
     flex-direction: row;
+    height: 175px;
+
+    @include mixins.desktop {
+        justify-content: space-around;
+    }
 }
 
 .customerservice-container {
     display: flex;
     flex-direction: column;
     width: 50%;
+    gap: 10px;
+    margin: 20px;
+
+    @include mixins.desktop {
+        width: auto;
+    }
 }
 
-.copyright-container {
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-}
 
 .contact-container {
     display: flex;
     flex-direction: column;
     width: 50%;
+    gap: 10px;
+    margin: 20px;
+
+    @include mixins.desktop {
+        width: auto;
+    }
+}
+
+.copyright-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
 }
 
 
