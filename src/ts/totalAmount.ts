@@ -20,10 +20,11 @@ export function sumTotalPrice() {
 
   // skriver ut total priset i DOM
   let totalPrice: string = sum.toString();
-  if (sum <= 1) {
-    sumCheckout.innerText = totalPrice + " G";
-    sumModal.innerText = "Att debiteras: " + totalPrice + " G";
+  if (sum <= 0) {
+    sumCheckout.innerText = "0 G";
+    sumModal.innerText = "0 G";
   }
-  sumCheckout.innerText = "0 G";
-  sumModal.innerText = "0 G";
+
+  sumCheckout.innerText = totalPrice + " G";
+  sumModal.innerText = "Att debiteras: " + totalPrice + " G";
 }
