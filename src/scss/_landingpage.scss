@@ -1,35 +1,37 @@
-
 // landingpage layout
 .content-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: beige;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: beige;
+  height: 100vh;
 }
 
 // shopbutton layout and styling
 .button-shop {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 275px;
-    height: 75px;
-    background-color: red;
-    border: none;
+  width: 275px;
+  height: 75px;
+  background-color: red;
+  border: none;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+
+  & > a {
+    text-decoration: none;
     color: white;
-    border-radius: 15px;
-    cursor: pointer;
+  }
 
-    & > a {
-        text-decoration: none;
-        color: white;
-    }
-
-    &:hover {
-        background-color: grey;
-    }
+  &:hover {
+    background-color: grey;
+  }
 }
 
+.welcome-text {
+  font-family: "Cinzel", serif;
+}
