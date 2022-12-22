@@ -1,12 +1,14 @@
 @use "mixins";
+@use "colors" as col;
 
 #user-cart__container {
-  background-color: rgba(128, 128, 128, 0.787);
+  background-color: col.$color-grey-very-light;
   border: 1px solid black;
   width: 100vw;
   height: auto;
   z-index: 100;
   top: 10vh;
+  color: col.$color-text-light;
 
   @include mixins.desktop {
     width: 40%;
@@ -58,6 +60,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: col.$color-grey-very-dark;
+    border: none;
+    border-radius: 5px;
+    color: col.$color-text-light;
+
+    @include mixins.desktop {
+      width: 6%;
+    }
   }
 }
 
