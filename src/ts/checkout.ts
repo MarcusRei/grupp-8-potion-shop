@@ -71,12 +71,35 @@ export function showShoppingCart() {
     deleteBtn.addEventListener("click", () => {
       deleteFromCart(i);
     });
-
-    startModalFunctionality();
     sumTotalPrice();
   }
+  startModalFunctionality();
 }
 showShoppingCart();
+
+export function changeQuantity(
+  listPosition: number,
+  product: ProductTemplate,
+  value: string
+) {
+  for (let i = 0; i < userCart.length; i++) {
+    if (i === listPosition) {
+      product.quantity = Number(value);
+      console.log(userCart);
+    }
+  }
+  showShoppingCart();
+}
+
+function deleteFromCart(listPosition: number) {
+  for (let i = 0; i < userCart.length; i++) {
+    if (i === listPosition) {
+      userCart.splice(i, 1);
+      console.log(userCart);
+    }
+  }
+  showShoppingCart();
+}
 
 //localStorage
 function putUserCartInLS(userProducts: ProductTemplate[]) {
@@ -99,28 +122,4 @@ export function emptyShoppingCart() {
   }
   putUserCartInLS(userCart);
   console.log(userCart);
-}
-
-export function changeQuantity(
-  listPosition: number,
-  product: ProductTemplate,
-  value: string
-) {
-  for (let i = 0; i < userCart.length; i++) {
-    if (i === listPosition) {
-      product.quantity = Number(value);
-      console.log(userCart);
-    }
-  }
-
-  showShoppingCart();
-}
-function deleteFromCart(listPosition: number) {
-  for (let i = 0; i < userCart.length; i++) {
-    if (i === listPosition) {
-      userCart.splice(i, 1);
-      console.log(userCart);
-    }
-  }
-  showShoppingCart();
 }

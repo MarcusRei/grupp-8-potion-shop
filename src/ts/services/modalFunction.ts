@@ -14,22 +14,24 @@ export function startModalFunctionality() {
     let modalContentText = document.getElementById(
       "modalContent__text"
     ) as HTMLParagraphElement;
-    if (userCart.length < 0) {
+    let sumCheckout = document.getElementById(
+      "sumOfShoppingCart"
+    ) as HTMLParagraphElement;
+    let sumModal = document.getElementById(
+      "modalContent__sum"
+    ) as HTMLParagraphElement;
+    if (userCart.length === 0) {
       modalContentText.innerText = "Din varukorg är tom";
+      sumCheckout.innerText = "0 G"; //denna funkar
+      sumModal.innerText = "0 G"; //denna funkar inte
+    } else {
+      modalContentText.innerText = "Ditt köp har gått igenom";
+
       setTimeout(() => {
         emptyShoppingCart();
         showShoppingCart();
       }, 50);
-      closeCross.addEventListener("click", () => {
-        changeModalVisability();
-        console.log("I got closed");
-      });
     }
-    modalContentText.innerText = "Ditt köp har gått igenom";
-    setTimeout(() => {
-      emptyShoppingCart();
-      showShoppingCart();
-    }, 50);
   });
   closeCross.addEventListener("click", () => {
     changeModalVisability();
@@ -38,7 +40,7 @@ export function startModalFunctionality() {
 }
 
 export function changeModalVisability() {
-  var modal = document.getElementById("checkoutModal") as HTMLDivElement;
+  let modal = document.getElementById("checkoutModal") as HTMLDivElement;
 
   modal.classList.toggle("modalVisible");
   modal.classList.toggle("modalInvisible");
