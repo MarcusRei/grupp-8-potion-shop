@@ -29,15 +29,14 @@ export let userCart: ProductTemplate[] = [
   },
 ];
 
-startModalFunctionality();
+console.log("Checkout " + userCart);
 
-console.log(userCart);
 //skapa html för varukorg
 export function showShoppingCart() {
   let shoppingCartSection = document.getElementById(
     "shoppingCart"
   ) as HTMLElement;
-  console.log("function started");
+  console.log("showShoppingCart started");
   shoppingCartSection.innerHTML = "";
 
   for (let i = 0; i < userCart.length; i++) {
@@ -93,6 +92,10 @@ export function showShoppingCart() {
     deleteBtn.addEventListener("click", () => {
       deleteFromCart(i);
     });
+
+    function handleCheckout() {
+      startModalFunctionality();
+    }
   }
 }
 showShoppingCart();

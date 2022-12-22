@@ -1,13 +1,14 @@
-import { changeQuantity } from "./checkout";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
 renderProductlist();
 
 let productsPageUserCart: ProductTemplate[] = [];
+//console.log(productsPageUserCart);
 
 function addProductToCart(product: ProductTemplate, productAmount: string) {
   productsPageUserCart.push(product);
+
   console.log(productsPageUserCart);
 
   putUserCartInLS(productsPageUserCart);
@@ -77,10 +78,7 @@ function renderProductlist() {
     //Adds eventlistener
     productButton.addEventListener("click", () => {
       addProductToCart(products[i], amountOfProducts);
-    });
-
-    productAmount.addEventListener("change", () => {
-      changeQuantity(i, products[i], productAmount.value);
+      changeQuantityInProducts(i, products[i], productAmount.value);
     });
   }
 }
@@ -94,4 +92,17 @@ export function getUserCartFromLS() {
   let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
   console.log(userCartLS);
   return userCartLS;
+}
+
+export function changeQuantityInProducts(
+  listPosition: number,
+  product: ProductTemplate,
+  value: string
+) {
+  for (let i = 0; i < productsPageUserCart.length; i++) {
+    if (i === listPosition) {
+      productsPageUserCart[i].quantity = Number(value);
+      console.log(productsPageUserCart);
+    }
+  }
 }
