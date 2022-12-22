@@ -22,5 +22,3 @@ function sumTotalPrice () {
     pTag.innerText = totalPrice + " :-";
 
 }
-
-sumTotalPrice();
