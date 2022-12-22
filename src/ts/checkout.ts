@@ -1,8 +1,11 @@
 import { ProductTemplate } from "./models/ProductTemplate";
 import placeholder_square from "../assets/images/placeholder_square.jpg";
 import { startModalFunctionality } from "./services/modalFunction";
+import { getUserCartFromLS } from "./products";
 
-export let userCart: ProductTemplate[] = [
+export let userCart: ProductTemplate[] = getUserCartFromLS();
+
+/* export let userCart: ProductTemplate[] = [
   {
     name: "Large healing potion",
     price: 300,
@@ -27,7 +30,7 @@ export let userCart: ProductTemplate[] = [
     type: "mana",
     quantity: 1,
   },
-];
+]; */
 
 console.log("Checkout " + userCart);
 
