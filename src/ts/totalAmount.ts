@@ -1,5 +1,5 @@
 
-import { userCart } from "./checkout_page";
+import { userCart } from "./checkout";
 
 // summerar priset på varor i varukorgen
 function sumTotalPrice () {
