@@ -2,9 +2,9 @@ import { ProductTemplate } from "./models/ProductTemplate";
 import placeholder_square from "../assets/images/placeholder_square.jpg";
 import { startModalFunctionality } from "./services/modalFunction";
 import { getUserCartFromLS } from "./products";
+import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: ProductTemplate[] = getUserCartFromLS();
-import { sumTotalPrice } from "./totalAmount";
 
 /* export let userCart: ProductTemplate[] = [
   {
