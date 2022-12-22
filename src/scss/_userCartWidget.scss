@@ -1,0 +1,14 @@
+#user-cart__container {
+  background-color: red;
+  width: 30px;
+  height: 30px;
+}
+
+.user-cart__invisible {
+  display: none;
+}
+
+.user-cart__visible {
+  display: flex;
+  position: absolute;
+}

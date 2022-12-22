@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Cursed Cauldrona Products</title>
+    <title>The Cursed Cauldron Products</title>
 
     <link rel="stylesheet" href="../scss/main.scss" />
     <link
@@ -14,6 +14,7 @@
 
     <script defer src="../ts/products.ts" type="module"></script>
     <script defer src="../ts/main.ts" type="module"></script>
+    <script src="../ts/services/userCartWidget.ts" type="module"></script>
   </head>
   <body id="products">
     <header>
@@ -57,10 +58,9 @@
           </li>
         </ul>
       </div>
+      <article id="user-cart__container" class="user-cart__invisible"></article>
     </header>
-    <!--     <section class="filter">
-      <article class="filter-widget">Filtrera</article>
-    </section> -->
+
     <section class="product__list"></section>
     <button type="button" class="modalInvisible" id="checkoutBtn">
       Checkout
