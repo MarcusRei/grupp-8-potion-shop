@@ -10,8 +10,6 @@ function addProductToCart(product: ProductTemplate, productAmount: string) {
   productsPageUserCart.push(product);
 
   console.log(productsPageUserCart);
-
-  putUserCartInLS(productsPageUserCart);
 }
 
 function renderProductlist() {
@@ -79,6 +77,7 @@ function renderProductlist() {
     productButton.addEventListener("click", () => {
       addProductToCart(products[i], amountOfProducts);
       changeQuantityInProducts(i, products[i], productAmount.value);
+      putUserCartInLS(productsPageUserCart);
     });
   }
 }
@@ -99,9 +98,9 @@ export function changeQuantityInProducts(
   product: ProductTemplate,
   value: string
 ) {
-  for (let i = 0; i < productsPageUserCart.length; i++) {
+  for (let i = 0; i < products.length; i++) {
     if (i === listPosition) {
-      productsPageUserCart[i].quantity = Number(value);
+      product.quantity = Number(value);
       console.log(productsPageUserCart);
     }
   }
