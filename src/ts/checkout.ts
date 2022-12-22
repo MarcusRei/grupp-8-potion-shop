@@ -1,5 +1,6 @@
 import { ProductTemplate } from "./models/ProductTemplate";
 import placeholder_square from "../assets/images/placeholder_square.jpg";
+import { startModalFunctionality } from "./services/modalFunction";
 
 export let userCart: ProductTemplate[] = [
   {
@@ -27,30 +28,10 @@ export let userCart: ProductTemplate[] = [
     quantity: 1,
   },
 ];
-//modal function
-export function startModalFunctionality() {
-  var checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
-  var closeCross = document.getElementsByClassName(
-    "modalContent__close"
-  )[0] as HTMLSpanElement;
-
-  checkoutBtn.addEventListener("click", () => {
-    changeModalVisability();
-    console.log("I got clicked");
-    setTimeout(() => {
-      emptyShoppingCart();
-      showShoppingCart();
-    }, 50);
-  });
-  closeCross.addEventListener("click", () => {
-    changeModalVisability();
-    console.log("I got closed");
-  });
-}
 
 startModalFunctionality();
 
-function changeModalVisability() {
+export function changeModalVisability() {
   var modal = document.getElementById("checkoutModal") as HTMLDivElement;
 
   modal.classList.toggle("modalVisible");
@@ -59,7 +40,7 @@ function changeModalVisability() {
 
 console.log(userCart);
 //skapa html för varukorg
-function showShoppingCart() {
+export function showShoppingCart() {
   let shoppingCartSection = document.getElementById(
     "shoppingCart"
   ) as HTMLElement;
@@ -123,7 +104,7 @@ function showShoppingCart() {
 }
 showShoppingCart();
 
-function emptyShoppingCart() {
+export function emptyShoppingCart() {
   console.log(userCart);
   for (let i = 0; i < userCart.length; i++) {
     console.log(userCart.length);
