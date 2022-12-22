@@ -1,5 +1,3 @@
-//Testlista
-
 export class ProductTemplate {
   constructor(
     public name: string,
