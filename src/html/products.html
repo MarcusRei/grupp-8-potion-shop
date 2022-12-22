@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Cursed Cauldrona Products</title>
+    <title>The Cursed Cauldron (Products)</title>
 
     <link rel="stylesheet" href="../scss/main.scss" />
+
+    <!-- Icon pack -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
@@ -14,6 +16,8 @@
 
     <script defer src="../ts/products.ts" type="module"></script>
     <script defer src="../ts/main.ts" type="module"></script>
+
+    <script src="../ts/services/userCartWidget.ts" type="module"></script>
   </head>
   <body id="products">
     <header>
@@ -57,13 +61,32 @@
           </li>
         </ul>
       </div>
+      <article id="user-cart__container" class="user-cart__invisible"></article>
     </header>
-    <!--     <section class="filter">
-      <article class="filter-widget">Filtrera</article>
-    </section> -->
+
     <section class="product__list"></section>
     <!-- <button type="button" class="modalInvisible" id="checkoutBtn">
       Checkout
-    </button> -->
+    </button>
+    <!-- footer -->
+    <footer>
+      <div class="information-container">
+        <div class="customerservice-container">
+          <span class="customerservice-title">Customerservice</span>
+          <span class="customerservice-info"
+            >Talk wisely to the Shady Lady</span
+          >
+        </div>
+        <div class="contact-container">
+          <span class="contact-title">Contact</span>
+          <span class="contact-info">Send crow too:</span>
+          <span class="contact-info">The Cursed Cauldronans</span>
+          <span class="contact-info">The Dark alley of Dragonsdoom</span>
+        </div>
+      </div>
+      <div class="copyright-container">
+        <span class="copyright">The Cursed Cauldron &copy; 2022</span>
+      </div>
+    </footer>
   </body>
 </html>

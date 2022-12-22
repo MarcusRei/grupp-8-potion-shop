@@ -77,3 +77,30 @@ export const products: ProductTemplate[] = [
     quantity: 1,
   },
 ];
+
+export let testList = [
+  {
+    name: "Small healing potion",
+    price: 100,
+    image: placeholder_square,
+    size: "small",
+    type: "healing",
+    quantity: 5,
+  },
+  {
+    name: "Medium healing potion",
+    price: 200,
+    image: placeholder_square,
+    size: "medium",
+    type: "healing",
+    quantity: 4,
+  },
+  {
+    name: "Large healing potion",
+    price: 300,
+    image: placeholder_square,
+    size: "large",
+    type: "healing",
+    quantity: 2,
+  },
+];

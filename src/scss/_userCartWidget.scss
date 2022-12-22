@@ -1,0 +1,77 @@
+@use "mixins";
+@use "colors" as col;
+
+#user-cart__container {
+  background-color: col.$color-grey-very-light;
+  border: 1px solid black;
+  width: 100vw;
+  height: auto;
+  z-index: 100;
+  top: 10vh;
+  color: col.$color-text-light;
+
+  @include mixins.desktop {
+    width: 40%;
+  }
+}
+
+.user-cart__invisible {
+  display: none;
+}
+
+.user-cart__visible {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+}
+
+.user-cart-item__container {
+  width: 90%;
+  padding: 0.5em;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.837);
+
+  .user-cart-item__image {
+    width: 10%;
+    height: 10%;
+  }
+
+  .user-cart-item__info-name {
+    width: 41%;
+  }
+
+  .user-cart-item__info-quantity {
+    width: 20.5%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-cart-item__info-price {
+    width: 20.5%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .user-cart-item__remove-btn {
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: col.$color-grey-very-dark;
+    border: none;
+    border-radius: 5px;
+    color: col.$color-text-light;
+
+    @include mixins.desktop {
+      width: 6%;
+    }
+  }
+}
+
+//Måste ligga efter #user-cart__container
+#user-cart__container:last-child {
+  border: none;
+}
