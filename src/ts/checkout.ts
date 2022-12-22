@@ -1,33 +1,9 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-import placeholder_square from "../assets/images/placeholder_square.jpg";
 import { startModalFunctionality } from "./services/modalFunction";
+import { getUserCartFromLS } from "./products";
+import { sumTotalPrice } from "./totalAmount";
 
-export let userCart: ProductTemplate[] = [
-  {
-    name: "Large healing potion",
-    price: 300,
-    image: placeholder_square,
-    size: "large",
-    type: "healing",
-    quantity: 1,
-  },
-  {
-    name: "Small mana potion",
-    price: 100,
-    image: placeholder_square,
-    size: "small",
-    type: "mana",
-    quantity: 1,
-  },
-  {
-    name: "Medium mana potion",
-    price: 200,
-    image: placeholder_square,
-    size: "medium",
-    type: "mana",
-    quantity: 1,
-  },
-];
+export let userCart: ProductTemplate[] = getUserCartFromLS();
 
 console.log("Checkout " + userCart);
 
@@ -38,6 +14,10 @@ export function showShoppingCart() {
   ) as HTMLElement;
   console.log("showShoppingCart started");
   shoppingCartSection.innerHTML = "";
+  let sumCheckout = document.getElementById(
+    "sumOfShoppingCart"
+  ) as HTMLParagraphElement;
+  sumCheckout.innerText = "0 G";
 
   for (let i = 0; i < userCart.length; i++) {
     console.log("loop started");
@@ -63,7 +43,7 @@ export function showShoppingCart() {
     let productPrice = document.createElement("p");
     productPrice.classList.add("itemRow__productPrice");
     productPrice.innerText = userCart[i].price.toString();
-    productPrice.innerText += " :-";
+    productPrice.innerText += " G";
     itemRow.appendChild(productPrice);
 
     //create label for quantity input
@@ -94,6 +74,7 @@ export function showShoppingCart() {
     });
 
     startModalFunctionality();
+    sumTotalPrice();
   }
 }
 showShoppingCart();
