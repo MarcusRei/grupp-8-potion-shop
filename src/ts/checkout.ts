@@ -31,13 +31,6 @@ export let userCart: ProductTemplate[] = [
 
 startModalFunctionality();
 
-export function changeModalVisability() {
-  var modal = document.getElementById("checkoutModal") as HTMLDivElement;
-
-  modal.classList.toggle("modalVisible");
-  modal.classList.toggle("modalInvisible");
-}
-
 console.log(userCart);
 //skapa html för varukorg
 export function showShoppingCart() {

@@ -15,8 +15,6 @@ function addProductToCart(product: ProductTemplate, productAmount: string) {
 
 function renderProductlist() {
   for (let i = 0; i < products.length; i++) {
-    //console.log(products);
-
     //Creates container for a product
     let productContainer = document.createElement("div");
     productContainer.classList.add("product__container");
@@ -81,9 +79,9 @@ function renderProductlist() {
       addProductToCart(products[i], amountOfProducts);
     });
 
-    /* productAmount.addEventListener("change", () => {
+    productAmount.addEventListener("change", () => {
       changeQuantity(i, products[i], productAmount.value);
-    }); */
+    });
   }
 }
 
