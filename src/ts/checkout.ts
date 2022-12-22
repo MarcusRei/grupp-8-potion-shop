@@ -1,6 +1,22 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-import { startModalFunctionality } from "./services/modalFunction";
+import { changeModalVisability, startModalFunctionality } from "./services/modalFunction";
 import { sumTotalPrice } from "./totalAmount";
+
+// checkoutbutton 
+let checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
+
+checkoutBtn.addEventListener("click", () => {
+  startModalFunctionality(); 
+});
+
+// krysset i modal
+let closeCross = document.getElementsByClassName(
+  "modalContent__close"
+)[0] as HTMLSpanElement;
+
+closeCross.addEventListener("click", () => {
+  changeModalVisability();
+});
 
 export let userCart: ProductTemplate[] = getUserCartFromLS();
 
@@ -73,7 +89,7 @@ export function showShoppingCart() {
     });
     sumTotalPrice();
   }
-  startModalFunctionality();
+  // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout
 }
 showShoppingCart();
 
@@ -88,7 +104,8 @@ export function changeQuantity(
       console.log(userCart);
     }
   }
-  showShoppingCart();
+  showShoppingCart(); 
+  putUserCartInLS(userCart); // la till den här funktionen så att LS uppdateras när man ändrar på quantity i checkout
 }
 
 function deleteFromCart(listPosition: number) {

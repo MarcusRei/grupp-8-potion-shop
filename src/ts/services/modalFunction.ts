@@ -1,29 +1,27 @@
 import { emptyShoppingCart, showShoppingCart, userCart } from "../checkout";
 
-//modal function
-export function startModalFunctionality() {
-  let checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
-  let closeCross = document.getElementsByClassName(
-    "modalContent__close"
-  )[0] as HTMLSpanElement;
 
-  checkoutBtn.addEventListener("click", () => {
-    changeModalVisability();
+
+//modal function
+
+export function startModalFunctionality() {
+  changeModalVisability();
+
+// addEventListener för checkoutBtn som låg här har flyttats till roten i checkout.ts
 
     console.log("I got clicked");
     let modalContentText = document.getElementById(
       "modalContent__text"
-    ) as HTMLParagraphElement;
-    let sumCheckout = document.getElementById(
-      "sumOfShoppingCart"
     ) as HTMLParagraphElement;
     let sumModal = document.getElementById(
       "modalContent__sum"
     ) as HTMLParagraphElement;
     if (userCart.length === 0) {
       modalContentText.innerText = "Din varukorg är tom";
-      sumCheckout.innerText = "0 G"; //denna funkar
-      sumModal.innerText = "0 G"; //denna funkar inte
+
+// total beloppet för checkout sidan ändras nu istället i funktionen sumTotalPrice
+      
+      sumModal.innerText = "0 G";
     } else {
       modalContentText.innerText = "Ditt köp har gått igenom";
 
@@ -32,11 +30,8 @@ export function startModalFunctionality() {
         showShoppingCart();
       }, 50);
     }
-  });
-  closeCross.addEventListener("click", () => {
-    changeModalVisability();
-    console.log("I got closed");
-  });
+  
+// addEventListener för krysset som låg här har flyttats till roten i checkout.ts
 }
 
 export function changeModalVisability() {

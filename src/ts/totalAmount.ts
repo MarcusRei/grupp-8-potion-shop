@@ -1,5 +1,7 @@
 import { userCart } from "./checkout";
 
+//denna funkar men inte om det bara är ett objekt i listan
+
 // summerar priset på varor i varukorgen
 export function sumTotalPrice() {
   let sum: number = 0;
@@ -18,13 +20,9 @@ export function sumTotalPrice() {
     }
   }
 
-  // skriver ut total priset i DOM
+  // skriver ut total priset i checkout och modal
   let totalPrice: string = sum.toString();
-  // if (sum === 0) {
-  //   sumCheckout.innerText = "0 G"; //denna funkar
-  //   sumModal.innerText = "0 G"; //denna funkar inte
-  // }
-
+  sumModal.innerText = totalPrice + " G"; 
   sumCheckout.innerText = totalPrice + " G";
   sumModal.innerText = "Att debiteras: " + totalPrice + " G";
 }
