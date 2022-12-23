@@ -36,7 +36,7 @@ export function renderFilterMenu() {
   filterMenu.appendChild(typeBtn);
 
   let priceBtn = document.createElement("button");
-  priceBtn.innerText = "Sort by price";
+  priceBtn.innerText = "Sort by Price";
   priceBtn.classList.add("menu-btn");
   priceBtn.classList.add("potion-price");
   filterMenu.appendChild(priceBtn);
@@ -46,7 +46,6 @@ export function renderFilterMenu() {
       ".potion-size"
     ) as HTMLButtonElement;
     sortBySizeBtn.addEventListener("click", () => {
-      console.log("Du vill sortera efter storlek");
       toggleSizeMenu();
     });
 
@@ -54,21 +53,29 @@ export function renderFilterMenu() {
       ".potion-type"
     ) as HTMLButtonElement;
     sortByTypeBtn.addEventListener("click", () => {
-      console.log("Du vill sortera efter typ");
-      toggleSizeMenu();
+      toggleTypeMenu();
     });
 
     let sortByPriceBtn: HTMLButtonElement = document.querySelector(
       ".potion-price"
     ) as HTMLButtonElement;
     sortByPriceBtn.addEventListener("click", () => {
-      console.log("Du vill sortera efter pris");
-      toggleSizeMenu();
+      togglePriceMenu();
     });
   }
 }
 
-export function toggleSizeMenu() {}
+export function toggleSizeMenu() {
+  console.log("Du vill sortera efter storlek");
+}
+
+export function toggleTypeMenu() {
+  console.log("Du vill sortera efter typ");
+}
+
+export function togglePriceMenu() {
+  console.log("Du vill sortera efter pris");
+}
 
 export function removeFilterHtml() {
   filterMenu.innerHTML = "";
