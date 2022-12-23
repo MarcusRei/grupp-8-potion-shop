@@ -5,21 +5,29 @@ import {
 } from "./services/modalFunction";
 import { sumTotalPrice } from "./totalAmount";
 
-// checkoutbutton
-let checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
+(document.querySelector("#checkout-body") as HTMLBodyElement).onload =
+  function () {
+    console.log("checkout-body onload Fn started");
+    showShoppingCart();
 
-checkoutBtn.addEventListener("click", () => {
-  startModalFunctionality();
-});
+    // checkoutbutton
+    let checkoutBtn = document.getElementById(
+      "checkoutBtn"
+    ) as HTMLButtonElement;
 
-// krysset i modal
-let closeCross = document.getElementsByClassName(
-  "modalContent__close"
-)[0] as HTMLSpanElement;
+    checkoutBtn.addEventListener("click", () => {
+      startModalFunctionality();
+    });
 
-closeCross.addEventListener("click", () => {
-  changeModalVisability();
-});
+    // krysset i modal
+    let closeCross = document.getElementsByClassName(
+      "modalContent__close"
+    )[0] as HTMLSpanElement;
+
+    closeCross.addEventListener("click", () => {
+      changeModalVisability();
+    });
+  };
 
 export let userCart: ProductTemplate[] = getUserCartFromLS();
 
@@ -27,11 +35,8 @@ console.log("Checkout " + userCart);
 
 //skapa html för varukorg
 export function showShoppingCart() {
-  let shoppingCartSection = document.getElementById(
-    "shoppingCart"
-  ) as HTMLElement;
   console.log("showShoppingCart started");
-  shoppingCartSection.innerHTML = "";
+  (document.querySelector("#shoppingCart") as HTMLElement).innerHTML = "";
   let sumCheckout = document.getElementById(
     "sumOfShoppingCart"
   ) as HTMLParagraphElement;
@@ -42,7 +47,7 @@ export function showShoppingCart() {
     //create article for product
     let itemRow = document.createElement("article");
     itemRow.classList.add("itemRow");
-    shoppingCartSection.appendChild(itemRow);
+    document.querySelector("#shoppingCart")?.appendChild(itemRow);
 
     //create img for product img
     let productImg = document.createElement("img");
@@ -94,7 +99,6 @@ export function showShoppingCart() {
   }
   // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout
 }
-showShoppingCart();
 
 export function changeQuantity(
   listPosition: number,

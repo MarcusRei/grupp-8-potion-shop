@@ -1,8 +1,10 @@
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 
-renderProductlist();
-
+(document.querySelector("#products") as HTMLBodyElement).onload = function () {
+  console.log("products body onload Fn started");
+  renderProductlist();
+};
 let productsPageUserCart: ProductTemplate[] = [];
 //console.log(productsPageUserCart);
 
@@ -13,6 +15,7 @@ function addProductToCart(product: ProductTemplate, productAmount: string) {
 }
 
 function renderProductlist() {
+  (document.querySelector(".product__list") as HTMLElement).innerHTML = "";
   for (let i = 0; i < products.length; i++) {
     //Creates container for a product
     let productContainer = document.createElement("div");
