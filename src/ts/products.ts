@@ -2,20 +2,14 @@ import { putUserCartInLS } from "./localStorage";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 import { toggleFilterMenu } from "./services/filter";
-import { changeQuantity } from "./shoppingCartChanges";
+import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   console.log("products body onload Fn started");
   renderProductlist();
 };
 let productsPageUserCart: ProductTemplate[] = [];
-//console.log(productsPageUserCart);
-
-function addProductToCart(product: ProductTemplate, productAmount: string) {
-  productsPageUserCart.push(product);
-
-  console.log(productsPageUserCart);
-}
+console.log(productsPageUserCart);
 
 function renderProductlist() {
   (document.querySelector(".product__list") as HTMLElement).innerHTML = "";
@@ -66,7 +60,6 @@ function renderProductlist() {
     productAmount.value = "1";
     productAmount.classList.add("product__info-amount");
     productInputs.appendChild(productAmount);
-    let amountOfProducts = productAmount.value;
 
     //Creates "add to cart" button
     let productAddToCartBtn = document.createElement("button");
@@ -81,8 +74,19 @@ function renderProductlist() {
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
-      addProductToCart(products[i], amountOfProducts);
-      changeQuantityInProducts(i, products[i], productAmount.value, products);
+      // let newQuantity = productAmount.value;
+      // original addProductToCart function
+      addProductToCart(productsPageUserCart, products[i], productAmount.value);
+
+      // //trial and error addProductToCart function
+      // addProductToCart(
+      //   products,
+      //   i,
+      //   products[i],
+      //   newQuantity,
+      //   productsPageUserCart
+      // );
+      //changeQuantity(i, products[i], productAmount.value, productsPageUserCart);
       putUserCartInLS(productsPageUserCart);
     });
   }
@@ -100,19 +104,19 @@ function renderProductlist() {
 //   return userCartLS;
 // }
 
-export function changeQuantityInProducts(
-  listPosition: number,
-  product: ProductTemplate,
-  value: string,
-  list: ProductTemplate[]
-) {
-  for (let i = 0; i < list.length; i++) {
-    if (i === listPosition) {
-      product.quantity = Number(value);
-      console.log(list);
-    }
-  }
-}
+// export function changeQuantityInProducts(
+//   listPosition: number,
+//   product: ProductTemplate,
+//   value: string,
+//   list: ProductTemplate[]
+// ) {
+//   for (let i = 0; i < list.length; i++) {
+//     if (i === listPosition) {
+//       product.quantity = Number(value);
+//       console.log(list);
+//     }
+//   }
+// }
 
 let filterBtn: HTMLButtonElement = document.getElementById(
   "filter-btn"
