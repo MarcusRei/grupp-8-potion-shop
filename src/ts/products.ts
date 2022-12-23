@@ -1,5 +1,6 @@
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
+import { toggleFilterMenu } from "./services/filter";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   console.log("products body onload Fn started");
@@ -109,3 +110,10 @@ export function changeQuantityInProducts(
     }
   }
 }
+
+let filterBtn: HTMLButtonElement = document.getElementById(
+  "filter-btn"
+) as HTMLButtonElement;
+filterBtn.addEventListener("click", () => {
+  toggleFilterMenu();
+});
