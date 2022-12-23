@@ -35,7 +35,7 @@ export function toggleUserCartWidget() {
   }
 }
 
-function renderUserCartinWidget() {
+export function renderUserCartinWidget() {
   for (let i = 0; i < userCartInWidget.length; i++) {
     console.log("loop started");
 
@@ -76,9 +76,24 @@ function renderUserCartinWidget() {
     delete
     </span>`;
     userItemContainer.appendChild(userItemRemoveBtn);
+
+    userItemRemoveBtn.addEventListener("click", () => {
+      removeItemfromUserCart(userCartInWidget[i], i);
+    });
   }
 }
 
-function removeUserCartHtml() {
+export function removeUserCartHtml() {
   userCartWidget.innerHTML = "";
+}
+
+export function removeItemfromUserCart(
+  userCartItem: ProductTemplate,
+  userCartPosition: number
+) {
+  console.log("Du vill ta bort " + userCartItem.name);
+  userCartInWidget.splice(userCartPosition, 1);
+  console.log(userCartInWidget);
+  removeUserCartHtml();
+  renderUserCartinWidget();
 }

@@ -1,12 +1,15 @@
 import { ProductTemplate } from "./models/ProductTemplate";
-import { changeModalVisability, startModalFunctionality } from "./services/modalFunction";
+import {
+  changeModalVisability,
+  startModalFunctionality,
+} from "./services/modalFunction";
 import { sumTotalPrice } from "./totalAmount";
 
-// checkoutbutton 
+// checkoutbutton
 let checkoutBtn = document.getElementById("checkoutBtn") as HTMLButtonElement;
 
 checkoutBtn.addEventListener("click", () => {
-  startModalFunctionality(); 
+  startModalFunctionality();
 });
 
 // krysset i modal
@@ -104,7 +107,7 @@ export function changeQuantity(
       console.log(userCart);
     }
   }
-  showShoppingCart(); 
+  showShoppingCart();
   putUserCartInLS(userCart); // la till den här funktionen så att LS uppdateras när man ändrar på quantity i checkout
 }
 
@@ -116,6 +119,7 @@ function deleteFromCart(listPosition: number) {
     }
   }
   showShoppingCart();
+  putUserCartInLS(userCart);
 }
 
 //localStorage
