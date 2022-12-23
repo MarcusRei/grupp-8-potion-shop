@@ -34,6 +34,7 @@ import { sumTotalPrice } from "./totalAmount";
 export let userCart: ProductTemplate[] = getUserCartFromLS();
 
 console.log("Checkout " + userCart);
+console.log(userCart);
 
 //skapa html för varukorg
 export function showShoppingCart() {
@@ -43,7 +44,6 @@ export function showShoppingCart() {
     "sumOfShoppingCart"
   ) as HTMLParagraphElement;
   sumCheckout.innerText = "0 G";
-
   for (let i = 0; i < userCart.length; i++) {
     console.log("loop started");
     //create article for product
@@ -103,6 +103,7 @@ export function showShoppingCart() {
     });
     sumTotalPrice();
   }
+
   // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout
 }
 
