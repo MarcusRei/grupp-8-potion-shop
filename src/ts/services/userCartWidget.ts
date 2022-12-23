@@ -1,5 +1,5 @@
-import { testList } from "../models/ProductList";
 import { ProductTemplate } from "../models/ProductTemplate";
+import { getUserCartFromLS } from "../products";
 
 let userCartBtn: HTMLButtonElement = document.querySelector(
   ".shoppingcart-container"
@@ -8,6 +8,8 @@ let userCartBtn: HTMLButtonElement = document.querySelector(
 userCartBtn.addEventListener("click", () => {
   toggleUserCartWidget();
 });
+
+let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
 
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
@@ -20,6 +22,7 @@ export function toggleUserCartWidget() {
       "user-cart__visible"
     );
 
+    userCartInWidget = getUserCartFromLS();
     renderUserCartinWidget();
 
     console.log("userCart is open");
@@ -31,8 +34,6 @@ export function toggleUserCartWidget() {
     console.log("userCart is closed");
   }
 }
-
-let userCartInWidget: ProductTemplate[] = testList;
 
 function renderUserCartinWidget() {
   for (let i = 0; i < userCartInWidget.length; i++) {
