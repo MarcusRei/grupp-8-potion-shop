@@ -47,8 +47,6 @@ export function renderUserCartinWidget() {
     emptyCart.appendChild(emptyCartText);
   } else {
     for (let i = 0; i < userCartInWidget.length; i++) {
-      console.log("loop started");
-
       //creates container for individual item
       let userItemContainer = document.createElement("div");
       userItemContainer.classList.add("user-cart-item__container");

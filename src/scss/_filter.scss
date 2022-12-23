@@ -1,14 +1,55 @@
+@use "colors" as col;
+@use "mixins";
+
+.filter-menu__invisible {
+  display: none;
+}
+
+.filter-menu__visible {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  background-color: col.$color-grey-very-light;
+  width: 100%;
+  right: -2em;
+  top: 3em;
+
+  @include mixins.desktop {
+    width: 20%;
+  }
+}
+
 .filter-bar {
+  position: relative;
   display: flex;
   width: 100vw;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+  right: 2em;
+  margin-top: 1em;
 
-  .filter-widget {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid red;
-    width: 20%;
+  #filter-btn {
+    color: col.$color-text-light;
+    width: 7em;
+    background-color: col.$color-accent-purple;
+    border: none;
+    height: 3em;
+    border-radius: 5px;
+  }
+
+  .menu-btn {
+    background-color: col.$color-grey-dark;
+    border: none;
+    height: 3em;
+    width: 100%;
+    color: col.$color-text-light;
+  }
+
+  .menu-btn:hover {
+    background-color: col.$color-grey-light;
   }
 }
