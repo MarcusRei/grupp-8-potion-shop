@@ -1,3 +1,4 @@
+import { putUserCartInLS } from "./localStorage";
 import { ProductTemplate } from "./models/ProductTemplate";
 
 export function changeQuantity(
@@ -12,6 +13,7 @@ export function changeQuantity(
       console.log(list);
     }
   }
+  putUserCartInLS(list);
 }
 
 export function deleteFromCart(listPosition: number, list: ProductTemplate[]) {
@@ -21,16 +23,15 @@ export function deleteFromCart(listPosition: number, list: ProductTemplate[]) {
       console.log(list);
     }
   }
+  putUserCartInLS(list);
 }
 
 export function emptyShoppingCart(list: ProductTemplate[]) {
   console.log(list);
   for (let i = 0; i < list.length; i++) {
     console.log(list.length);
-    let listLength = list.length;
-    if (i < listLength) {
-      list.splice(i, listLength);
-    }
+    list.splice(i, list.length);
   }
   console.log(list);
+  putUserCartInLS(list);
 }

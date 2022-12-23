@@ -1,4 +1,5 @@
 import { showShoppingCart, userCart } from "../checkout";
+import { putUserCartInLS } from "../localStorage";
 import { emptyShoppingCart } from "../shoppingCartChanges";
 
 //modal function
