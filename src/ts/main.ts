@@ -1,5 +1,7 @@
 // hamburgermenu button
 
+import { toggleUserCartWidget } from "./services/userCartWidget";
+
 document.getElementById("hamburgerButton")?.addEventListener("click", () => {
   toggleHamburgerMenu();
 });
