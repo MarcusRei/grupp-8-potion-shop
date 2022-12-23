@@ -85,6 +85,8 @@
   background-color: col.$color-grey-light;
   border-radius: 10px;
   width: 80%;
+  color: col.$color-text-light;
+
   @include mix.desktop {
     font-size: x-large;
     width: 50%;
@@ -98,6 +100,7 @@
   align-self: center;
   background-color: col.$color-accent-purple;
   border: none;
+  color: col.$color-text-light;
 
   @include mix.desktop {
     font-size: large;
