@@ -16,12 +16,13 @@
   justify-content: center;
   align-items: center;
 
-  width: 275px;
-  height: 75px;
+  width: 9em;
+  height: 3em;
   background-color: col.$color-accent-purple;
   border: none;
   color: col.$color-text-light;
   border-radius: 15px;
+  font-size: 2em;
   cursor: pointer;
 
   & > a {

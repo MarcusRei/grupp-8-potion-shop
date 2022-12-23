@@ -1,17 +1,26 @@
 @use "mixins" as mix;
+@use "colors" as col;
 
 #checkout {
   display: flex;
   flex-direction: column;
-
-  margin: 5vh 5vw 5vh 5vw; //ändra efter header och footer är insatta
+  align-items: center;
+  justify-content: center;
+  background-color: col.$color-grey-very-dark;
+  gap: 1em;
 
   height: 80vh; //ändra efter header och footer är insatta
 }
+
 .shoppingCart {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 90%;
+  @include mix.desktop {
+    width: 70%;
+  }
 }
 // produkt row
 .itemRow {
@@ -21,8 +30,9 @@
   padding: 0 5px 0 5px;
   width: 95%;
   justify-content: space-between;
-  border: 1px solid grey;
   border-radius: 5px;
+  background-color: col.$color-grey-light;
+
   @include mix.desktop {
     width: 80%;
     height: 10vh;
@@ -72,8 +82,12 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 2vh;
+  background-color: col.$color-grey-light;
+  border-radius: 10px;
+  width: 80%;
   @include mix.desktop {
     font-size: x-large;
+    width: 50%;
   }
 }
 #checkoutBtn {
@@ -82,6 +96,9 @@
   width: 50%;
   border-radius: 10px;
   align-self: center;
+  background-color: col.$color-accent-purple;
+  border: none;
+
   @include mix.desktop {
     font-size: large;
     padding: 5px;

@@ -1,13 +1,15 @@
 @use "mixins";
+@use "colors" as col;
 
 // layout header
 header {
   justify-content: flex-end;
   display: flex;
   height: 10vh;
-  background-color: red;
-  position: relative;
+  background-color: col.$color-accent-purple;
+  position: fixed;
   width: 100vw;
+  top: 0;
 }
 
 //layout navigation bar

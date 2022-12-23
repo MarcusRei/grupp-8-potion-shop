@@ -1,60 +1,75 @@
 @use "mixins";
+@use "colors" as col;
 
 // footer layout
 footer {
-    display: flex;
-    flex-direction: column;
-    height: 225px;
-    width: 100vw;
+  display: flex;
+  flex-direction: column;
+  height: 225px;
+  width: 100vw;
 
-    background-color: red;
-    color: white;
+  background-color: col.$color-accent-purple;
+  color: white;
 }
 
 .information-container {
-    display: flex;
-    flex-direction: row;
-    height: 175px;
+  display: flex;
+  flex-direction: row;
+  height: 175px;
 
-    @include mixins.desktop {
-        justify-content: space-around;
-    }
+  @include mixins.desktop {
+    justify-content: space-around;
+  }
 }
 
 // customerservice layout
 .customerservice-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 10px;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 10px;
+  margin: 1.5em;
 
-    @include mixins.desktop {
-        width: auto;
-    }
+  @include mixins.desktop {
+    width: auto;
+  }
+
+  .customerservice-title {
+    margin: 0;
+  }
+
+  .customerservice-info {
+    margin: 0;
+  }
 }
 
 // contact layout
 .contact-container {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 10px;
-    margin: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 0.5em;
+  margin: 1.5em;
 
-    @include mixins.desktop {
-        width: auto;
-    }
+  @include mixins.desktop {
+    width: auto;
+  }
+
+  .contact-title {
+    margin: 0;
+  }
+
+  .contact-info {
+    margin: 0;
+  }
 }
 
 // copyright layout
 .copyright-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
 }
-
-
