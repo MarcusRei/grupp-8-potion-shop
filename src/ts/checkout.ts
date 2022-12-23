@@ -1,8 +1,10 @@
+import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
 import { ProductTemplate } from "./models/ProductTemplate";
 import {
   changeModalVisability,
   startModalFunctionality,
 } from "./services/modalFunction";
+import { changeQuantity, deleteFromCart } from "./shoppingCartChanges";
 import { sumTotalPrice } from "./totalAmount";
 
 (document.querySelector("#checkout-body") as HTMLBodyElement).onload =
@@ -90,61 +92,43 @@ export function showShoppingCart() {
 
     //eventListener for adding more of a product(inputValue)
     productQuantityInput.addEventListener("change", () => {
-      changeQuantity(i, userCart[i], productQuantityInput.value);
+      changeQuantity(i, userCart[i], productQuantityInput.value, userCart);
+      showShoppingCart();
+      putUserCartInLS(userCart);
     });
     deleteBtn.addEventListener("click", () => {
-      deleteFromCart(i);
+      deleteFromCart(i, userCart);
+      showShoppingCart();
+      putUserCartInLS(userCart);
     });
     sumTotalPrice();
   }
   // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout
 }
 
-export function changeQuantity(
-  listPosition: number,
-  product: ProductTemplate,
-  value: string
-) {
-  for (let i = 0; i < userCart.length; i++) {
-    if (i === listPosition) {
-      product.quantity = Number(value);
-      console.log(userCart);
-    }
-  }
-  showShoppingCart();
-  putUserCartInLS(userCart); // la till den här funktionen så att LS uppdateras när man ändrar på quantity i checkout
-}
+// export function changeQuantity(
+//   listPosition: number,
+//   product: ProductTemplate,
+//   value: string
+// ) {
+//   for (let i = 0; i < userCart.length; i++) {
+//     if (i === listPosition) {
+//       product.quantity = Number(value);
+//       console.log(userCart);
+//     }
+//   }
+//   showShoppingCart();
+//   putUserCartInLS(userCart); // la till den här funktionen så att LS uppdateras när man ändrar på quantity i checkout
+// }
 
-function deleteFromCart(listPosition: number) {
-  for (let i = 0; i < userCart.length; i++) {
-    if (i === listPosition) {
-      userCart.splice(i, 1);
-      console.log(userCart);
-    }
-  }
-  showShoppingCart();
-  putUserCartInLS(userCart);
-}
-
-//localStorage
-function putUserCartInLS(userProducts: ProductTemplate[]) {
-  localStorage.setItem("userCart", JSON.stringify(userProducts));
-}
-function getUserCartFromLS() {
-  let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
-  console.log(userCartLS);
-  return userCartLS;
-}
-
-export function emptyShoppingCart() {
-  console.log(userCart);
-  for (let i = 0; i < userCart.length; i++) {
-    console.log(userCart.length);
-    let listLength = userCart.length;
-    if (i < listLength) {
-      userCart.splice(i, listLength);
-    }
-  }
-  putUserCartInLS(userCart);
-  console.log(userCart);
-}
+// export function emptyShoppingCart() {
+//   console.log(userCart);
+//   for (let i = 0; i < userCart.length; i++) {
+//     console.log(userCart.length);
+//     let listLength = userCart.length;
+//     if (i < listLength) {
+//       userCart.splice(i, listLength);
+//     }
+//   }
+//   console.log(userCart);
+// }

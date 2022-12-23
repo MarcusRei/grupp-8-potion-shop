@@ -1,5 +1,5 @@
+import { getUserCartFromLS } from "../localStorage";
 import { ProductTemplate } from "../models/ProductTemplate";
-import { getUserCartFromLS } from "../products";
 
 let userCartBtn: HTMLButtonElement = document.querySelector(
   ".shoppingcart-container"

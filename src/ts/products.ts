@@ -1,6 +1,8 @@
+import { putUserCartInLS } from "./localStorage";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 import { toggleFilterMenu } from "./services/filter";
+import { changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   console.log("products body onload Fn started");
@@ -80,33 +82,34 @@ function renderProductlist() {
     //Adds eventlistener
     productButton.addEventListener("click", () => {
       addProductToCart(products[i], amountOfProducts);
-      changeQuantityInProducts(i, products[i], productAmount.value);
+      changeQuantityInProducts(i, products[i], productAmount.value, products);
       putUserCartInLS(productsPageUserCart);
     });
   }
 }
 
-//Put in LS
-export function putUserCartInLS(userProducts: ProductTemplate[]) {
-  localStorage.setItem("userCart", JSON.stringify(userProducts));
-}
+// //Put in LS
+// export function putUserCartInLS(userProducts: ProductTemplate[]) {
+//   localStorage.setItem("userCart", JSON.stringify(userProducts));
+// }
 
-// Get from LS
-export function getUserCartFromLS() {
-  let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
-  console.log(userCartLS);
-  return userCartLS;
-}
+// // Get from LS
+// export function getUserCartFromLS() {
+//   let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
+//   console.log(userCartLS);
+//   return userCartLS;
+// }
 
 export function changeQuantityInProducts(
   listPosition: number,
   product: ProductTemplate,
-  value: string
+  value: string,
+  list: ProductTemplate[]
 ) {
-  for (let i = 0; i < products.length; i++) {
+  for (let i = 0; i < list.length; i++) {
     if (i === listPosition) {
       product.quantity = Number(value);
-      console.log(productsPageUserCart);
+      console.log(list);
     }
   }
 }
