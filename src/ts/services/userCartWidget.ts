@@ -1,4 +1,4 @@
-import { getUserCartFromLS } from "../localStorage";
+import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { ProductTemplate } from "../models/ProductTemplate";
 
 let userCartBtn: HTMLButtonElement = document.querySelector(
@@ -106,4 +106,5 @@ export function removeItemfromUserCart(
   console.log(userCartInWidget);
   removeUserCartHtml();
   renderUserCartinWidget();
+  putUserCartInLS(userCartInWidget);
 }

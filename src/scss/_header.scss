@@ -86,14 +86,14 @@ nav {
 #hamburgerButton {
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: col.$color-accent-purple;
   width: 80px;
   border: none;
   cursor: pointer;
   z-index: 100;
 
   &:hover {
-    background-color: grey;
+    background-color: col.$color-grey-light;
   }
 
   @include mixins.desktop {
@@ -133,9 +133,22 @@ nav {
     align-items: center;
   }
 
+  .hamburger-menu-item {
+    width: 100vw;
+    height: 3em;
+    background-color: col.$color-grey-dark;
+    display: flex;
+    justify-content: center;
+  }
+
   .menu-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
-    color: white;
+    color: col.$color-text-light;
+    width: 100vw;
+    font-size: 1.5rem;
 
     &:hover {
       color: grey;
@@ -144,7 +157,7 @@ nav {
 
   &.showMenu {
     transform: translateY(0);
-    background-color: lightblue;
+    background-color: col.$color-accent-purple;
     display: flex;
   }
 
