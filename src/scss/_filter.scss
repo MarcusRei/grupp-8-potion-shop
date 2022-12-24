@@ -34,11 +34,15 @@
 
   #filter-btn {
     color: col.$color-text-light;
-    width: 7em;
+    width: 4em;
     background-color: col.$color-accent-purple;
     border: none;
     height: 3em;
     border-radius: 5px;
+  }
+
+  #filter-btn:hover {
+    background-color: col.$color-grey-very-light;
   }
 
   .menu-btn {
