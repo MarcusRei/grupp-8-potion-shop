@@ -31,12 +31,12 @@ Vi kommer att använda den agila arbetsmetoden "Scrum" för att hålla ett flexi
 - parcel
 - scss
 
-### Medlemmar i vårt utvecklingsteam
+### Vårt utvecklingsteam
 - Marcus Reineck
 - Jennifer McAllister
 - Carolina Warntorp
 
-### Våra produktägare är:
+### Våra produktägare
 - Linda Mossberg
 - Sebastian Tegel
 
