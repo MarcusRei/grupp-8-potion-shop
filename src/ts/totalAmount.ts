@@ -13,7 +13,7 @@ export function sumTotalPrice() {
   ) as HTMLParagraphElement;
   for (let i = 0; i < userCart.length; i++) {
     // let amount: number = 1;
-    if (userCart.length > 1) {
+    if (userCart.length >= 1) {
       sum = sum + userCart[i].price * userCart[i].quantity;
     } else {
       sum = 0;
