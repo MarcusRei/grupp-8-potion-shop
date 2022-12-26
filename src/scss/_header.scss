@@ -14,6 +14,7 @@ header {
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: top center;
+  background-color: col.$color-grey-very-dark;
 
   @include mixins.tablet {
     background-image: url("../assets/images/TabletHangingSign.png");
@@ -44,17 +45,14 @@ nav {
       left: 6vw;
       mix-blend-mode: multiply;
 
-      // height: 7vh;
       height: 7%;
       @include mixins.tablet {
         left: 2vw;
         top: 15px;
-
-        // font-size: 4rem;
-        // color: white;
       }
       @include mixins.desktop {
         left: 2vw;
+        top: 25px;
 
         // font-size: 4rem;
         // color: white;
