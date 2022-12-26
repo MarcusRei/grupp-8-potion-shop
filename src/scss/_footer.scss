@@ -63,7 +63,16 @@ footer {
     margin: 0;
   }
 }
+.logotype-img {
+  width: 30vw;
 
+  @include mixins.tablet {
+    width: 20vw;
+  }
+  @include mixins.desktop {
+    width: 10vw;
+  }
+}
 // copyright layout
 .copyright-container {
   display: flex;

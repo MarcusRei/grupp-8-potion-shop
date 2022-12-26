@@ -6,11 +6,23 @@ header {
   justify-content: flex-end;
   display: flex;
   height: 10vh;
-  background-color: col.$color-accent-purple;
   position: fixed;
   width: 100vw;
   top: 0;
   z-index: 100;
+  background-image: url("../assets/images/MobileHangingSign.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-position: top center;
+
+  @include mixins.tablet {
+    background-image: url("../assets/images/TabletHangingSign.png");
+  }
+  @include mixins.desktop {
+    background-image: url("../assets/images/DesktopHangingSign.png");
+
+    // background-color: col.$color-accent-purple;
+  }
 }
 
 //layout navigation bar
@@ -19,14 +31,34 @@ nav {
 
   .logo-container {
     display: flex;
-    width: 5em;
+    // width: 5em;
+    height: 100px;
+    width: 5vw;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
-    .icon {
-      font-size: 4rem;
-      color: white;
+    .logo-icon {
+      position: fixed;
+      top: 3vh;
+      left: 6vw;
+      mix-blend-mode: multiply;
+
+      // height: 7vh;
+      height: 7%;
+      @include mixins.tablet {
+        left: 2vw;
+        top: 15px;
+
+        // font-size: 4rem;
+        // color: white;
+      }
+      @include mixins.desktop {
+        left: 2vw;
+
+        // font-size: 4rem;
+        // color: white;
+      }
     }
   }
 
