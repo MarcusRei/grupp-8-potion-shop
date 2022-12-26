@@ -8,10 +8,19 @@
   justify-content: center;
   background-color: col.$color-grey-very-dark;
   gap: 1em;
+  margin-top: 10vh;
 
-  height: 80vh; //ändra efter header och footer är insatta
+  // height: 80vh; //ändra efter header och footer är insatta
 }
+#shoppingCart-title {
+  font-size: 1.8em;
+  margin: 15px 0px 5px 0px;
 
+  @include mix.desktop {
+    font-size: 2em;
+    // margin: 15px 0px 5px 0px;
+  }
+}
 .shoppingCart {
   display: flex;
   flex-direction: column;
@@ -107,5 +116,6 @@
     padding: 5px;
     height: 8vh;
     width: 20%;
+    margin-bottom: 20px;
   }
 }

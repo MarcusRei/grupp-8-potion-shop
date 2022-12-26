@@ -30,32 +30,45 @@ header {
 nav {
   width: 100%;
 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 70px;
+
   .logo-container {
     display: flex;
     // width: 5em;
-    height: 100px;
-    width: 5vw;
+    height: 10vh;
+    width: 10vw;
     justify-content: center;
     align-items: center;
     cursor: pointer;
 
     .logo-icon {
-      position: fixed;
-      top: 3vh;
-      left: 6vw;
+      // position: fixed;
+      margin-left: 20vw;
+      margin-top: 3vh;
+      // top: 3vh;
+      // // align-self: center;
+      // left: 6vw;
       mix-blend-mode: multiply;
 
-      height: 7%;
+      height: 7vh;
       @include mixins.tablet {
         left: 2vw;
         top: 15px;
       }
       @include mixins.desktop {
-        left: 2vw;
-        top: 25px;
+        margin-left: 2vw;
+        // left: 2vw;
+        // top: 2vh; //25px;;
 
         // font-size: 4rem;
         // color: white;
+      }
+
+      &:hover {
+        mix-blend-mode: soft-light; //soft-light eller color-burn
       }
     }
   }
@@ -66,12 +79,6 @@ nav {
     flex-direction: row;
     justify-content: center;
   }
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 70px;
-
   .desktopnav-menu {
     display: none;
     flex-direction: column;
@@ -91,23 +98,69 @@ nav {
 
   .menu-link {
     text-decoration: none;
-    color: white;
+    color: col.$color-burned;
+    mix-blend-mode: multiply;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
 
     &:hover {
-      color: grey;
+      mix-blend-mode: color-burn; //soft-light eller color-burn
+      color: rgb(200, 200, 200);
     }
   }
 
   .shoppingcart-container {
     display: flex;
-    width: 80px;
+    width: 10vw;
+    height: 10vh;
+    // width: 80px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    display: flex;
 
-    .icon {
-      font-size: 4rem;
-      color: white;
+    // @include mixins.desktop {
+    //   // padding-left: 30px;
+    //   padding-right: 0px;
+    // }
+
+    .cart-icon {
+      // margin-left: 10vw;
+      // margin-top: 1vh;
+      // margin-left: 20vw;
+      margin-top: 2vh;
+      // position: fixed;
+      // top: 2vh;
+      mix-blend-mode: multiply;
+
+      // height: 7%;
+      // position: fixed;
+      // top: 3vh;
+      // align-self: center;
+      // left: 6vw;
+      margin-right: 12vw;
+
+      mix-blend-mode: multiply;
+      height: 7vh;
+
+      // height: 50px;
+      @include mixins.tablet {
+        right: 2vw;
+        top: 15px;
+      }
+      @include mixins.desktop {
+        // top: 1.5vh; //25px;
+        margin-right: 2vw;
+        margin-top: 1.5vh;
+
+        // left: 2vw;
+        // top: 2vh;//25px;;
+        // font-size: 4rem;
+        // color: white;
+      }
+      &:hover {
+        mix-blend-mode: soft-light; //soft-light eller color-burn
+      }
     }
   }
 }
@@ -116,14 +169,22 @@ nav {
 #hamburgerButton {
   justify-content: center;
   align-items: center;
-  background-color: col.$color-accent-purple;
-  width: 80px;
+  // background-color: col.$color-accent-purple;
+  background-color: transparent;
+  // width: 80px;
   border: none;
   cursor: pointer;
   z-index: 100;
 
+  padding-top: 2vh;
+  padding-right: 5vw;
+
+  color: col.$color-burned;
+  mix-blend-mode: multiply;
+
   &:hover {
-    background-color: col.$color-grey-light;
+    background-color: transparent; //col.$color-grey-light;
+    mix-blend-mode: soft-light; //soft-light eller color-burn
   }
 
   @include mixins.desktop {
@@ -132,7 +193,7 @@ nav {
 
   .icon {
     font-size: 4rem;
-    color: white;
+    // // color: white;
   }
 
   #closeIcon {
@@ -141,14 +202,14 @@ nav {
 }
 
 .mobilenav-container {
-  background-color: lightgreen;
+  // background-color: lightgreen;
   display: none;
   flex-direction: column;
   transform: translateY(-100%);
   transition: transform 0.2s;
   position: absolute;
   width: 100vw;
-  top: 10vh;
+  top: 8vh;
 
   @include mixins.desktop {
     display: none;
@@ -165,8 +226,14 @@ nav {
 
   .hamburger-menu-item {
     width: 100vw;
-    height: 3em;
-    background-color: col.$color-grey-dark;
+    height: 10vh;
+    // top: 10vh;
+    // background-color: col.$color-grey-dark;
+    background-image: url(../assets/images/MobileHangingSign.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 100vw;
+
     display: flex;
     justify-content: center;
   }
@@ -176,18 +243,24 @@ nav {
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: col.$color-text-light;
+    // color: col.$color-text-light;
+    color: col.$color-burned;
+    mix-blend-mode: multiply;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
     width: 100vw;
     font-size: 1.5rem;
+    margin-top: 10px;
 
     &:hover {
-      color: grey;
+      mix-blend-mode: color-burn; //soft-light eller color-burn
+      color: rgb(200, 200, 200);
     }
   }
 
   &.showMenu {
     transform: translateY(0);
-    background-color: col.$color-accent-purple;
+    // background-color: col.$color-accent-purple;
     display: flex;
   }
 
