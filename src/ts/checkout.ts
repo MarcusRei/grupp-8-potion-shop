@@ -39,69 +39,75 @@ console.log(userCart);
 //skapa html för varukorg
 export function showShoppingCart() {
   console.log("showShoppingCart started");
-  (document.querySelector("#shoppingCart") as HTMLElement).innerHTML = "";
+  (document.querySelector("#shoppingCart") as HTMLElement).innerText =
+    "You have not selected any potions";
+
   let sumCheckout = document.getElementById(
     "sumOfShoppingCart"
   ) as HTMLParagraphElement;
   sumCheckout.innerText = "0 G";
-  for (let i = 0; i < userCart.length; i++) {
-    console.log("loop started");
-    //create article for product
-    let itemRow = document.createElement("article");
-    itemRow.classList.add("itemRow");
-    document.querySelector("#shoppingCart")?.appendChild(itemRow);
+  let cartLength = userCart.length;
+  if (cartLength !== 0) {
+    (document.querySelector("#shoppingCart") as HTMLElement).innerText = "";
+    for (let i = 0; i < userCart.length; i++) {
+      console.log("loop started");
+      //create article for product
+      let itemRow = document.createElement("article");
+      itemRow.classList.add("itemRow");
+      document.querySelector("#shoppingCart")?.appendChild(itemRow);
 
-    //create img for product img
-    let productImg = document.createElement("img");
-    productImg.classList.add("itemRow__Img");
-    productImg.alt = userCart[i].name;
-    productImg.src = userCart[i].image;
-    itemRow.appendChild(productImg);
+      //create img for product img
+      let productImg = document.createElement("img");
+      productImg.classList.add("itemRow__Img");
+      productImg.alt = userCart[i].name;
+      productImg.src = userCart[i].image;
+      itemRow.appendChild(productImg);
 
-    //create ptag for productname
-    let productName = document.createElement("p");
-    productName.classList.add("itemRow__productName");
-    productName.innerText = userCart[i].name;
-    itemRow.appendChild(productName);
+      //create ptag for productname
+      let productName = document.createElement("p");
+      productName.classList.add("itemRow__productName");
+      productName.innerText = userCart[i].name;
+      itemRow.appendChild(productName);
 
-    //create ptag for product price
-    let productPrice = document.createElement("p");
-    productPrice.classList.add("itemRow__productPrice");
-    productPrice.innerText = userCart[i].price.toString();
-    productPrice.innerText += " G";
-    itemRow.appendChild(productPrice);
+      //create ptag for product price
+      let productPrice = document.createElement("p");
+      productPrice.classList.add("itemRow__productPrice");
+      productPrice.innerText = userCart[i].price.toString();
+      productPrice.innerText += " G";
+      itemRow.appendChild(productPrice);
 
-    //create label for quantity input
-    let productLabel = document.createElement("label");
-    productLabel.setAttribute("for", "productQuantity");
-    productLabel.id = "quantityContainer";
-    itemRow.appendChild(productLabel);
+      //create label for quantity input
+      let productLabel = document.createElement("label");
+      productLabel.setAttribute("for", "productQuantity");
+      productLabel.id = "quantityContainer";
+      itemRow.appendChild(productLabel);
 
-    //create input for quantity
-    let productQuantityInput = document.createElement("input");
-    productQuantityInput.type = "number";
-    productQuantityInput.id = "productQuantity";
-    productQuantityInput.value = userCart[i].quantity.toString();
-    productLabel.appendChild(productQuantityInput);
+      //create input for quantity
+      let productQuantityInput = document.createElement("input");
+      productQuantityInput.type = "number";
+      productQuantityInput.id = "productQuantity";
+      productQuantityInput.value = userCart[i].quantity.toString();
+      productLabel.appendChild(productQuantityInput);
 
-    //create checkBtn for submiting changes to quantity
-    let deleteBtn = document.createElement("button");
-    deleteBtn.innerHTML = "&times;";
-    deleteBtn.classList.add("itemRow__deleteQuantityBtn");
-    productLabel.appendChild(deleteBtn);
+      //create checkBtn for submiting changes to quantity
+      let deleteBtn = document.createElement("button");
+      deleteBtn.innerHTML = "&times;";
+      deleteBtn.classList.add("itemRow__deleteQuantityBtn");
+      productLabel.appendChild(deleteBtn);
 
-    //eventListener for adding more of a product(inputValue)
-    productQuantityInput.addEventListener("change", () => {
-      changeQuantity(i, userCart[i], productQuantityInput.value, userCart);
-      showShoppingCart();
-      putUserCartInLS(userCart);
-    });
-    deleteBtn.addEventListener("click", () => {
-      deleteFromCart(i, userCart);
-      showShoppingCart();
-      putUserCartInLS(userCart);
-    });
-    sumTotalPrice();
+      //eventListener for adding more of a product(inputValue)
+      productQuantityInput.addEventListener("change", () => {
+        changeQuantity(i, userCart[i], productQuantityInput.value, userCart);
+        showShoppingCart();
+        putUserCartInLS(userCart);
+      });
+      deleteBtn.addEventListener("click", () => {
+        deleteFromCart(i, userCart);
+        showShoppingCart();
+        putUserCartInLS(userCart);
+      });
+      sumTotalPrice();
+    }
   }
 
   // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout

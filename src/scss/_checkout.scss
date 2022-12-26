@@ -5,10 +5,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   background-color: col.$color-grey-very-dark;
   gap: 1em;
   margin-top: 10vh;
+  // min-height: 80vh;
+  min-height: 100vh;
 
   // height: 80vh; //ändra efter header och footer är insatta
 }
@@ -110,12 +112,12 @@
   background-color: col.$color-accent-purple;
   border: none;
   color: col.$color-text-light;
+  margin-bottom: 20px;
 
   @include mix.desktop {
     font-size: large;
     padding: 5px;
     height: 8vh;
     width: 20%;
-    margin-bottom: 20px;
   }
 }
