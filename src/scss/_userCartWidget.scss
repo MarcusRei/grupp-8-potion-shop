@@ -2,7 +2,7 @@
 @use "colors" as col;
 
 #user-cart__container {
-  background-color: col.$color-grey-very-light;
+  // background-color: col.$color-grey-very-light;
   border: 1px solid black;
   width: 100vw;
   height: auto;
@@ -27,12 +27,21 @@
 }
 
 .user-cart-item__container {
-  width: 90%;
+  // width: 90%;
+  width: 100vw;
   padding: 0.5em;
   display: flex;
   gap: 1em;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.837);
+  // border-bottom: 1px solid rgba(0, 0, 0, 0.837);
+
+  background-image: url(../assets/images/MobileHangingSign.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100vw;
+
+  display: flex;
+  justify-content: center;
 
   .user-cart-item__image {
     width: 10%;
