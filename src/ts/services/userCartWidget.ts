@@ -3,8 +3,6 @@ import { ProductTemplate } from "../models/ProductTemplate";
 
 // addEventListenern för userCartBtn ligger nu i main.ts
 // eftersom den behöver skapas på alla sidor när sidorna laddas och main.ts är länkade till alla sidor
-// den anropar bara funktionen som gör korgen synlig eller osynlig
-// html för varukorgen skapas nu när sidorna laddas om
 
 // let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
 
@@ -12,26 +10,54 @@ let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
 ) as HTMLDivElement;
 
+
+// shows and hides usercartwidget and also makes hamburgermenu invisible
 export function toggleUserCartWidget() {
-  if (userCartWidget.classList.contains("user-cart__invisible")) {
-    userCartWidget.classList.replace(
-      "user-cart__invisible",
-      "user-cart__visible"
-    );
+  const mobileMenu = document.getElementById("mobilenav") as HTMLUListElement;
+  const closeIcon = document.getElementById("closeIcon") as HTMLSpanElement;
+  const menuIcon = document.getElementById("menuIcon") as HTMLSpanElement;
 
-    // userCartInWidget = getUserCartFromLS();
-    // renderUserCartWidget();
+  if (mobileMenu.classList.contains("showMenu")) {
+    mobileMenu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "flex";
 
-    console.log("userCart is open");
+    userCartWidget.classList.remove("user-cart__invisible");
+    userCartWidget.classList.add("user-cart__visible");
   } else {
-    userCartWidget.className = "user-cart__invisible";
+    
+    if (userCartWidget.classList.contains("user-cart__visible")) {
 
-    // removeUserCartHtml();
+      userCartWidget.classList.remove("user-cart__visible");
+      userCartWidget.classList.add("user-cart__invisible");
 
-    console.log("userCart is closed");
+    } else {
+      userCartWidget.classList.remove("user-cart__invisible");
+      userCartWidget.classList.add("user-cart__visible");
+    }
   }
+
+
+  // if (userCartWidget.classList.contains("user-cart__invisible")) {
+  //   userCartWidget.classList.replace(
+  //     "user-cart__invisible",
+  //     "user-cart__visible"
+  //   );
+
+  //   // userCartInWidget = getUserCartFromLS();
+  //   // renderUserCartWidget();
+
+  //   console.log("userCart is open");
+  // } else {
+  //   userCartWidget.className = "user-cart__invisible";
+
+  //   // removeUserCartHtml();
+
+  //   console.log("userCart is closed");
+  // }
 }
 
+// creates html for products in shoppingcart in usercartwidget
 export function renderUserCartinWidget() {
   let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
   userCartWidget.innerHTML = "";
@@ -97,6 +123,7 @@ export function removeUserCartHtml() {
   userCartWidget.innerHTML = "";
 }
 
+// removes deleted products from shoppingbag and updates localstorage
 export function removeItemfromUserCart(
   userCartItem: ProductTemplate,
   userCartPosition: number,
