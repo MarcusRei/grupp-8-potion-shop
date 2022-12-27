@@ -1,13 +1,10 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { ProductTemplate } from "../models/ProductTemplate";
 
-let userCartBtn: HTMLButtonElement = document.querySelector(
-  ".shoppingcart-container"
-) as HTMLButtonElement;
-
-userCartBtn.addEventListener("click", () => {
-  toggleUserCartWidget();
-});
+// addEventListenern för userCartBtn ligger nu i main.ts
+// eftersom den behöver skapas på alla sidor när sidorna laddas och main.ts är länkade till alla sidor
+// den anropar bara funktionen som gör korgen synlig eller osynlig
+// html för varukorgen skapas nu när sidorna laddas om
 
 let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
 
@@ -22,20 +19,22 @@ export function toggleUserCartWidget() {
       "user-cart__visible"
     );
 
-    userCartInWidget = getUserCartFromLS();
-    renderUserCartinWidget();
+    // userCartInWidget = getUserCartFromLS();
+    // renderUserCartWidget();
 
     console.log("userCart is open");
   } else {
     userCartWidget.className = "user-cart__invisible";
 
-    removeUserCartHtml();
+    // removeUserCartHtml();
 
     console.log("userCart is closed");
   }
 }
 
 export function renderUserCartinWidget() {
+  userCartWidget.innerHTML = "";
+  console.log("usercart was updated");
   if (userCartInWidget.length === 0) {
     let emptyCart = document.createElement("div");
     emptyCart.classList.add("empty-cart");
@@ -104,7 +103,6 @@ export function removeItemfromUserCart(
   console.log("Du vill ta bort " + userCartItem.name);
   userCartInWidget.splice(userCartPosition, 1);
   console.log(userCartInWidget);
-  removeUserCartHtml();
-  renderUserCartinWidget();
   putUserCartInLS(userCartInWidget);
+  renderUserCartinWidget();
 }

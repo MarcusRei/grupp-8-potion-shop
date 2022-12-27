@@ -1,7 +1,18 @@
+import { renderUserCartinWidget, toggleUserCartWidget } from "./services/userCartWidget";
+
+// usercart button
+let userCartBtn: HTMLButtonElement = document.querySelector(
+  ".shoppingcart-container"
+) as HTMLButtonElement;
+
+userCartBtn.addEventListener("click", () => {
+  toggleUserCartWidget();
+  // renderUserCartinWidget();
+  console.log("user cart was clicked");
+});
+
+
 // hamburgermenu button
-
-import { toggleUserCartWidget } from "./services/userCartWidget";
-
 document.getElementById("hamburgerButton")?.addEventListener("click", () => {
   toggleHamburgerMenu();
 });
@@ -22,3 +33,7 @@ function toggleHamburgerMenu() {
     menuIcon.style.display = "none";
   }
 }
+
+// här anropas funktionen som skapar html i varukorgen
+// då skapas html för varukorgen när sidorna laddas om
+renderUserCartinWidget();
