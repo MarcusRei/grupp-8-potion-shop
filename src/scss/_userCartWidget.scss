@@ -27,8 +27,8 @@
 }
 
 .user-cart-item__container {
-  // width: 90%;
-  width: 100vw;
+  width: 90%;
+  // width: 100vw;
   padding: 0.5em;
   display: flex;
   gap: 1em;
@@ -38,10 +38,14 @@
   background-image: url(../assets/images/MobileHangingSign.png);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: 100vw;
+  background-size: cover; //100vw;
 
   display: flex;
   justify-content: center;
+
+  @include mixins.desktop {
+    padding-top: 1em;
+  }
 
   .user-cart-item__image {
     width: 10%;
