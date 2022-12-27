@@ -7,7 +7,7 @@ let userCartBtn: HTMLButtonElement = document.querySelector(
 
 userCartBtn.addEventListener("click", () => {
   toggleUserCartWidget();
-  // renderUserCartinWidget();
+  renderUserCartinWidget();
   console.log("user cart was clicked");
 });
 
@@ -36,4 +36,4 @@ function toggleHamburgerMenu() {
 
 // här anropas funktionen som skapar html i varukorgen
 // då skapas html för varukorgen när sidorna laddas om
-renderUserCartinWidget();
+// renderUserCartinWidget();

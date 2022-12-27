@@ -6,7 +6,7 @@ import { ProductTemplate } from "../models/ProductTemplate";
 // den anropar bara funktionen som gör korgen synlig eller osynlig
 // html för varukorgen skapas nu när sidorna laddas om
 
-let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
+// let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
 
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
@@ -33,6 +33,7 @@ export function toggleUserCartWidget() {
 }
 
 export function renderUserCartinWidget() {
+  let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
   userCartWidget.innerHTML = "";
   console.log("usercart was updated");
   if (userCartInWidget.length === 0) {
@@ -86,7 +87,7 @@ export function renderUserCartinWidget() {
       userItemContainer.appendChild(userItemRemoveBtn);
 
       userItemRemoveBtn.addEventListener("click", () => {
-        removeItemfromUserCart(userCartInWidget[i], i);
+        removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
     }
   }
@@ -98,7 +99,8 @@ export function removeUserCartHtml() {
 
 export function removeItemfromUserCart(
   userCartItem: ProductTemplate,
-  userCartPosition: number
+  userCartPosition: number,
+  userCartInWidget: ProductTemplate[]
 ) {
   console.log("Du vill ta bort " + userCartItem.name);
   userCartInWidget.splice(userCartPosition, 1);
