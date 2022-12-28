@@ -74,32 +74,53 @@ export function renderUserCartinWidget() {
       userItemContainer.classList.add("user-cart-item__container");
       userCartWidget.appendChild(userItemContainer);
 
+      //Create container for image
+      let imgContainer = document.createElement("div");
+      imgContainer.classList.add("img-container");
+      userItemContainer.appendChild(imgContainer);
+
       //Creates element for item image
       let userItemImg = document.createElement("img");
       userItemImg.classList.add("user-cart-item__image");
       userItemImg.src = userCartInWidget[i].product.image;
       userItemImg.alt = "Picture of product";
-      userItemContainer.appendChild(userItemImg);
+      imgContainer.appendChild(userItemImg);
 
+      //Create container for name
+      let nameContainer = document.createElement("div");
+      nameContainer.classList.add("name-container");
+      userItemContainer.appendChild(nameContainer);
       //Creates element for item name
       let userItemName = document.createElement("p");
       userItemName.classList.add("user-cart-item-name");
       userItemName.innerHTML = userCartInWidget[i].product.name;
-      userItemContainer.appendChild(userItemName);
+      nameContainer.appendChild(userItemName);
+
+      //Create container for quantity, price and remove btn
+      let productChangeContainer = document.createElement("div");
+      productChangeContainer.classList.add("product-change-container");
+      userItemContainer.appendChild(productChangeContainer);
+
+      //create input for quantity
+      let productQuantityInput = document.createElement("input");
+      productQuantityInput.type = "number";
+      productQuantityInput.id = "productQuantityCartWidget";
+      productQuantityInput.value = userCartInWidget[i].quantity.toString();
+      productChangeContainer.appendChild(productQuantityInput);
 
       //Creates element for item quantity
-      let userItemQuantity = document.createElement("p");
-      userItemQuantity.classList.add("user-cart-item-quantity");
-      userItemQuantity.innerHTML =
-        "x" + userCartInWidget[i].quantity.toString();
-      userItemContainer.appendChild(userItemQuantity);
+      // let userItemQuantity = document.createElement("p");
+      // userItemQuantity.classList.add("user-cart-item-quantity");
+      // userItemQuantity.innerHTML =
+      //   "x" + userCartInWidget[i].quantity.toString();
+      // userItemContainer.appendChild(userItemQuantity);
 
       //Creates element for item price
       let userItemPrice = document.createElement("p");
       userItemPrice.classList.add("user-cart-item-price");
       userItemPrice.innerHTML =
         userCartInWidget[i].product.price.toString() + "G";
-      userItemContainer.appendChild(userItemPrice);
+      productChangeContainer.appendChild(userItemPrice);
 
       //Creates Remove button
       let userItemRemoveBtn = document.createElement("button");
@@ -107,7 +128,7 @@ export function renderUserCartinWidget() {
       userItemRemoveBtn.innerHTML = `<span class="material-symbols-rounded">
     delete
     </span>`;
-      userItemContainer.appendChild(userItemRemoveBtn);
+      productChangeContainer.appendChild(userItemRemoveBtn);
 
       userItemRemoveBtn.addEventListener("click", () => {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);

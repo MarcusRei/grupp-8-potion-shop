@@ -15,6 +15,11 @@
   }
 }
 
+.empty-cart-text {
+  color: col.$color-burned;
+  mix-blend-mode: multiply;
+}
+
 .user-cart__invisible {
   display: none;
 }
@@ -26,60 +31,127 @@
   position: absolute;
 }
 
+.user-cart-item__container:first-child {
+  @include mixins.desktop {
+    margin-top: 0em;
+  }
+}
 .user-cart-item__container {
-  width: 90%;
-  // width: 100vw;
-  padding: 0.5em;
+  // width: 90%;
+  width: 100vw;
+  height: 50px;
+  // padding: 0.5em;
+  padding-top: 1em;
   display: flex;
-  gap: 1em;
+  // gap: 1em;
+  justify-content: space-around;
   align-items: center;
   // border-bottom: 1px solid rgba(0, 0, 0, 0.837);
 
   background-image: url(../assets/images/MobileHangingSign.png);
   background-repeat: no-repeat;
   background-position: top center;
-  background-size: cover; //100vw;
-
-  display: flex;
-  justify-content: center;
+  background-size: 100vw; //cover;
 
   @include mixins.desktop {
-    padding-top: 1em;
-  }
+    background-image: url(../assets/images/TabletHangingSign.png);
+    padding-top: 0;
+    width: 90%;
 
-  .user-cart-item__image {
-    width: 10%;
-    height: 10%;
+    margin-top: 0px;
+    margin-left: 2em;
+    background-size: cover;
+    height: 50px;
   }
-
-  .user-cart-item__info-name {
-    width: 41%;
-  }
-
-  .user-cart-item__info-quantity {
-    width: 20.5%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .user-cart-item__info-price {
-    width: 20.5%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .user-cart-item__remove-btn {
-    width: 8%;
+  .img-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: col.$color-grey-very-dark;
-    border: none;
-    border-radius: 5px;
-    color: col.$color-text-light;
+
+    width: 10%;
+    height: 100%;
+    padding-left: 1em;
+    // padding-left: 1.5em;
 
     @include mixins.desktop {
-      width: 6%;
+      padding-left: 1em;
+      margin-top: 0.5em;
+    }
+
+    .user-cart-item__image {
+      width: auto;
+      height: 75%; //10%;
+      // margin-left: 1em;
+      // margin-right: 0.3em;
+      @include mixins.desktop {
+        height: 55%;
+        // margin-right: 1.5em;
+      }
+    }
+  }
+  .name-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    @include mixins.desktop {
+      margin-top: 0.5em;
+    }
+    .user-cart-item__info-name {
+      width: 41%;
+    }
+  }
+  .product-change-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 35%;
+    @include mixins.desktop {
+      margin-top: 0.7em;
+      width: 30%;
+    }
+    // height: 100%;
+    // .user-cart-item__info-quantity {
+    //   width: 20.5%;
+    //   display: flex;
+    //   justify-content: center;
+    // }
+    #productQuantityCartWidget {
+      width: 10%;
+      height: 100%;
+      font-size: large;
+      @include mixins.desktop {
+        // margin-top: 0.3em;
+        width: 20%;
+        font-size: medium;
+        height: 100%;
+      }
+    }
+
+    .user-cart-item__info-price {
+      width: 20.5%;
+      display: flex;
+      justify-content: center;
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .user-cart-item__remove-btn {
+      width: 20%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: col.$color-grey-very-dark;
+      border: none;
+      border-radius: 5px;
+      margin-right: 1.5em;
+      color: col.$color-text-light;
+      mix-blend-mode: soft-light;
+
+      @include mixins.desktop {
+        width: 10%;
+      }
     }
   }
 }
