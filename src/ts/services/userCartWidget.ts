@@ -90,6 +90,7 @@ export function renderUserCartinWidget() {
       let nameContainer = document.createElement("div");
       nameContainer.classList.add("name-container");
       userItemContainer.appendChild(nameContainer);
+
       //Creates element for item name
       let userItemName = document.createElement("p");
       userItemName.classList.add("user-cart-item-name");

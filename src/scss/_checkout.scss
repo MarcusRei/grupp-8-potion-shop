@@ -47,7 +47,7 @@
   @include mix.desktop {
     width: 80%;
     height: 10vh;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: larger;
   }
 
@@ -67,24 +67,80 @@
     }
   }
   #productQuantity {
-    width: 5vw;
+    width: 10%;
     @include mix.desktop {
-      width: 10vw;
+      width: 20%;
     }
   }
 
-  //delete Btn
-  &__deleteQuantityBtn {
-    font-size: small;
-    font-weight: bold;
-    margin-left: 5px;
-    @include mix.desktop {
-      font-size: medium;
-      font-weight: 400;
-      padding: 0;
-      width: 2vw;
-      margin-left: 5px;
-    }
+  // //delete Btn
+  // &__deleteQuantityBtn {
+  //   font-size: small;
+  //   padding: 0 1% 0 1%;
+  //   font-weight: bold;
+  //   margin-left: 5px;
+  //   width: 10%;
+  //   @include mix.desktop {
+  //     font-size: medium;
+  //     font-weight: 400;
+  //     padding: 0;
+  //     height: 100%;
+  //     width: 10%;
+  //     margin-left: 5px;
+  //   }
+  // }
+}
+.user-cart-item__remove-btn {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: col.$color-grey-very-dark;
+  border: none;
+  border-radius: 5px;
+  // margin-right: 1.5em;
+  color: col.$color-text-light;
+  mix-blend-mode: soft-light;
+
+  @include mix.desktop {
+    width: 10%;
+  }
+}
+.itemRow:last-child {
+  margin: 5px 5px 0 5px;
+  // padding: 0 5px 0 5px;
+}
+.checkout-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  padding-left: 3%;
+  @include mix.desktop {
+    width: 10%;
+    padding-left: 0;
+  }
+}
+.checkout-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  @include mix.desktop {
+    width: 55%;
+  }
+}
+.checkout-product-change-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  padding-right: 1%;
+  @include mix.desktop {
+    width: 30%;
+    padding-right: 0;
+    justify-content: space-evenly;
   }
 }
 
@@ -92,7 +148,7 @@
 .sumContainer {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 2vh;
+  // margin-top: 2vh;
   background-color: col.$color-grey-light;
   border-radius: 10px;
   width: 80%;
