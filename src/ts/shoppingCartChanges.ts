@@ -8,6 +8,10 @@ export function addProductToCart(
   product: ProductTemplate,
   value: string
 ) {
+  if (localStorage.getItem("userCart") === null) {
+    let emptyList: CartProductTemplate[] = [];
+    putUserCartInLS(emptyList);
+  }
   let nrValue = Number(value);
   if (isNaN(nrValue) || nrValue <= 0) {
     alert("You need to write a number higher than 0");
