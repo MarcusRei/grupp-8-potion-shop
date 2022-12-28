@@ -67,3 +67,8 @@ if (localStorage.getItem("userCart") === null) {
   getUserCartFromLS();
 }
 // renderUserCartinWidget();
+
+let btnToShop = document.getElementById("btnToShop") as HTMLDivElement;
+btnToShop.addEventListener("click", () => {
+  window.location.replace("./html/products.html");
+});
