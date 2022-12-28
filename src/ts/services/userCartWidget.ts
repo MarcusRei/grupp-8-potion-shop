@@ -130,10 +130,23 @@ export function renderUserCartinWidget() {
     </span>`;
       productChangeContainer.appendChild(userItemRemoveBtn);
 
+      
+
       userItemRemoveBtn.addEventListener("click", () => {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
     }
+      // Creates container for checkoutbutton in usercart
+    const checkoutbuttonContainer = document.createElement("div");
+    checkoutbuttonContainer.classList.add("user-cart-item__container");
+    userCartWidget.appendChild(checkoutbuttonContainer);
+    
+    //Creates link too checkout 
+    const checkoutlink = document.createElement("a");
+    checkoutlink.classList.add("checkout-link");
+    checkoutlink.setAttribute("href", "./html/checkout.html");
+    checkoutlink.innerHTML = `CHECKOUT`;
+    checkoutbuttonContainer.appendChild(checkoutlink);
   }
 }
 
