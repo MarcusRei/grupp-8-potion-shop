@@ -1,4 +1,4 @@
-import { putUserCartInLS } from "./localStorage";
+import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
 import { CartProductTemplate } from "./models/CartProductTemplate";
 import {
   renderUserCartinWidget,
@@ -60,5 +60,10 @@ function toggleHamburgerMenu() {
     }
   }
 }
-
+if (localStorage.getItem("userCart") === null) {
+  let emptyList: CartProductTemplate[] = [];
+  putUserCartInLS(emptyList);
+} else {
+  getUserCartFromLS();
+}
 // renderUserCartinWidget();
