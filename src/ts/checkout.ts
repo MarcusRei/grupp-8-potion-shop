@@ -1,4 +1,5 @@
 import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
+import { CartProductTemplate } from "./models/CartProductTemplate";
 import { ProductTemplate } from "./models/ProductTemplate";
 import {
   changeModalVisability,
@@ -31,7 +32,7 @@ import { sumTotalPrice } from "./totalAmount";
     });
   };
 
-export let userCart: ProductTemplate[] = getUserCartFromLS();
+export let userCart: CartProductTemplate[] = getUserCartFromLS();
 
 console.log("Checkout " + userCart);
 console.log(userCart);
@@ -59,20 +60,20 @@ export function showShoppingCart() {
       //create img for product img
       let productImg = document.createElement("img");
       productImg.classList.add("itemRow__Img");
-      productImg.alt = userCart[i].name;
-      productImg.src = userCart[i].image;
+      productImg.alt = userCart[i].product.name;
+      productImg.src = userCart[i].product.image;
       itemRow.appendChild(productImg);
 
       //create ptag for productname
       let productName = document.createElement("p");
       productName.classList.add("itemRow__productName");
-      productName.innerText = userCart[i].name;
+      productName.innerText = userCart[i].product.name;
       itemRow.appendChild(productName);
 
       //create ptag for product price
       let productPrice = document.createElement("p");
       productPrice.classList.add("itemRow__productPrice");
-      productPrice.innerText = userCart[i].price.toString();
+      productPrice.innerText = userCart[i].product.price.toString();
       productPrice.innerText += " G";
       itemRow.appendChild(productPrice);
 

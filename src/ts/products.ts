@@ -1,4 +1,5 @@
-import { putUserCartInLS } from "./localStorage";
+import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
+import { CartProductTemplate } from "./models/CartProductTemplate";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
 import { toggleFilterMenu } from "./services/filter";
@@ -8,7 +9,7 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
   console.log("products body onload Fn started");
   renderProductlist();
 };
-let productsPageUserCart: ProductTemplate[] = [];
+let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
 console.log(productsPageUserCart);
 
 function renderProductlist() {

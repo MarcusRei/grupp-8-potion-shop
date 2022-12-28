@@ -1,4 +1,5 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
+import { CartProductTemplate } from "../models/CartProductTemplate";
 import { ProductTemplate } from "../models/ProductTemplate";
 
 // addEventListenern för userCartBtn ligger nu i main.ts
@@ -9,7 +10,6 @@ import { ProductTemplate } from "../models/ProductTemplate";
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
 ) as HTMLDivElement;
-
 
 // shows and hides usercartwidget and also makes hamburgermenu invisible
 export function toggleUserCartWidget() {
@@ -25,18 +25,14 @@ export function toggleUserCartWidget() {
     userCartWidget.classList.remove("user-cart__invisible");
     userCartWidget.classList.add("user-cart__visible");
   } else {
-    
     if (userCartWidget.classList.contains("user-cart__visible")) {
-
       userCartWidget.classList.remove("user-cart__visible");
       userCartWidget.classList.add("user-cart__invisible");
-
     } else {
       userCartWidget.classList.remove("user-cart__invisible");
       userCartWidget.classList.add("user-cart__visible");
     }
   }
-
 
   // if (userCartWidget.classList.contains("user-cart__invisible")) {
   //   userCartWidget.classList.replace(
@@ -59,7 +55,7 @@ export function toggleUserCartWidget() {
 
 // creates html for products in shoppingcart in usercartwidget
 export function renderUserCartinWidget() {
-  let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
+  let userCartInWidget: CartProductTemplate[] = getUserCartFromLS();
   userCartWidget.innerHTML = "";
   console.log("usercart was updated");
   if (userCartInWidget.length === 0) {
@@ -81,14 +77,14 @@ export function renderUserCartinWidget() {
       //Creates element for item image
       let userItemImg = document.createElement("img");
       userItemImg.classList.add("user-cart-item__image");
-      userItemImg.src = userCartInWidget[i].image;
+      userItemImg.src = userCartInWidget[i].product.image;
       userItemImg.alt = "Picture of product";
       userItemContainer.appendChild(userItemImg);
 
       //Creates element for item name
       let userItemName = document.createElement("p");
       userItemName.classList.add("user-cart-item-name");
-      userItemName.innerHTML = userCartInWidget[i].name;
+      userItemName.innerHTML = userCartInWidget[i].product.name;
       userItemContainer.appendChild(userItemName);
 
       //Creates element for item quantity
@@ -101,7 +97,8 @@ export function renderUserCartinWidget() {
       //Creates element for item price
       let userItemPrice = document.createElement("p");
       userItemPrice.classList.add("user-cart-item-price");
-      userItemPrice.innerHTML = userCartInWidget[i].price.toString() + "G";
+      userItemPrice.innerHTML =
+        userCartInWidget[i].product.price.toString() + "G";
       userItemContainer.appendChild(userItemPrice);
 
       //Creates Remove button
@@ -125,11 +122,11 @@ export function removeUserCartHtml() {
 
 // removes deleted products from shoppingbag and updates localstorage
 export function removeItemfromUserCart(
-  userCartItem: ProductTemplate,
+  userCartItem: CartProductTemplate,
   userCartPosition: number,
-  userCartInWidget: ProductTemplate[]
+  userCartInWidget: CartProductTemplate[]
 ) {
-  console.log("Du vill ta bort " + userCartItem.name);
+  console.log("Du vill ta bort " + userCartItem.product.name);
   userCartInWidget.splice(userCartPosition, 1);
   console.log(userCartInWidget);
   putUserCartInLS(userCartInWidget);
