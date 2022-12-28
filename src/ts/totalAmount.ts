@@ -22,7 +22,6 @@ export function sumTotalPrice() {
 
   // skriver ut total priset i checkout och modal
   let totalPrice: string = sum.toString();
-  sumModal.innerText = totalPrice + " G";
   sumCheckout.innerText = totalPrice + " G";
-  sumModal.innerText = "Att debiteras: " + totalPrice + " G";
+  sumModal.innerText = "Your total: " + totalPrice + " G";
 }

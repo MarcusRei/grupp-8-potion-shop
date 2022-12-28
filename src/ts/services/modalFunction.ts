@@ -17,13 +17,13 @@ export function startModalFunctionality() {
     "modalContent__sum"
   ) as HTMLParagraphElement;
   if (userCart.length === 0) {
-    modalContentText.innerText = "Din varukorg är tom";
+    modalContentText.innerText = "You don't have anything in your cart";
 
     // total beloppet för checkout sidan ändras nu istället i funktionen sumTotalPrice
 
     sumModal.innerText = "0 G";
   } else {
-    modalContentText.innerText = "Ditt köp har gått igenom";
+    modalContentText.innerHTML = `Our ghast has taken what you owe! <br/> <br/>Your products will be sent as soon as a witch is free.`;
 
     setTimeout(() => {
       emptyShoppingCart(userCart);
