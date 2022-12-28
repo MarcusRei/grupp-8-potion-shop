@@ -64,7 +64,7 @@ export function renderUserCartinWidget() {
   console.log("usercart was updated");
   if (userCartInWidget.length === 0) {
     let emptyCart = document.createElement("div");
-    emptyCart.classList.add("empty-cart");
+    emptyCart.classList.add("user-cart-item__container");
     userCartWidget.appendChild(emptyCart);
 
     let emptyCartText = document.createElement("h4");
