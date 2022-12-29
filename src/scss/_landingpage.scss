@@ -1,12 +1,19 @@
 @use "colors" as col;
 
+#landing-page-body {
+  background-image: url(../assets/images/Wall.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+}
+
 // landingpage layout
 .content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: col.$color-grey-very-dark;
+  // background-color: col.$color-grey-very-dark;
   height: 100vh;
 }
 

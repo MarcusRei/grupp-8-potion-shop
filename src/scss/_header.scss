@@ -14,7 +14,7 @@ header {
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: top center;
-  background-color: col.$color-grey-very-dark;
+  // background-color: col.$color-grey-very-dark;
 
   @include mixins.tablet {
     background-image: url("../assets/images/TabletHangingSign.png");
@@ -88,6 +88,10 @@ nav {
     padding: 0;
     list-style-type: none;
 
+    &__checkout {
+      margin-right: 2rem;
+    }
+
     @include mixins.desktop {
       display: flex;
       flex-direction: row;
@@ -119,6 +123,10 @@ nav {
     align-items: center;
     cursor: pointer;
     display: flex;
+
+    &__checkout {
+      display: none;
+    }
 
     // @include mixins.desktop {
     //   // padding-left: 30px;
@@ -222,6 +230,10 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include mixins.desktop {
+      display: none;
+    }
   }
 
   .hamburger-menu-item {
@@ -266,5 +278,25 @@ nav {
 
   @include mixins.desktop {
     display: none;
+  }
+}
+
+.checkout-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  // color: col.$color-text-light;
+  color: col.$color-burned;
+  mix-blend-mode: multiply;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+  width: 100vw;
+  font-size: 1.5rem;
+  margin-top: 10px;
+
+  &:hover {
+    mix-blend-mode: color-burn; //soft-light eller color-burn
+    color: rgb(200, 200, 200);
   }
 }

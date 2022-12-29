@@ -1,4 +1,5 @@
 import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
+import { CartProductTemplate } from "./models/CartProductTemplate";
 import { ProductTemplate } from "./models/ProductTemplate";
 import {
   changeModalVisability,
@@ -31,7 +32,7 @@ import { sumTotalPrice } from "./totalAmount";
     });
   };
 
-export let userCart: ProductTemplate[] = getUserCartFromLS();
+export let userCart: CartProductTemplate[] = getUserCartFromLS();
 
 console.log("Checkout " + userCart);
 console.log(userCart);
@@ -56,44 +57,66 @@ export function showShoppingCart() {
       itemRow.classList.add("itemRow");
       document.querySelector("#shoppingCart")?.appendChild(itemRow);
 
+      //Create container for image
+      let imgContainer = document.createElement("div");
+      imgContainer.classList.add("checkout-img-container");
+      itemRow.appendChild(imgContainer);
+
       //create img for product img
       let productImg = document.createElement("img");
       productImg.classList.add("itemRow__Img");
-      productImg.alt = userCart[i].name;
-      productImg.src = userCart[i].image;
-      itemRow.appendChild(productImg);
+      productImg.alt = userCart[i].product.name;
+      productImg.src = userCart[i].product.image;
+      imgContainer.appendChild(productImg);
+
+      //Create container for name
+      let nameContainer = document.createElement("div");
+      nameContainer.classList.add("checkout-name-container");
+      itemRow.appendChild(nameContainer);
 
       //create ptag for productname
       let productName = document.createElement("p");
       productName.classList.add("itemRow__productName");
-      productName.innerText = userCart[i].name;
-      itemRow.appendChild(productName);
+      productName.innerText = userCart[i].product.name;
+      nameContainer.appendChild(productName);
+
+      //Create container for quantity, price and remove btn
+      let productChangeContainer = document.createElement("div");
+      productChangeContainer.classList.add("checkout-product-change-container");
+      itemRow.appendChild(productChangeContainer);
 
       //create ptag for product price
       let productPrice = document.createElement("p");
       productPrice.classList.add("itemRow__productPrice");
-      productPrice.innerText = userCart[i].price.toString();
+      productPrice.innerText = userCart[i].product.price.toString();
       productPrice.innerText += " G";
-      itemRow.appendChild(productPrice);
+      productChangeContainer.appendChild(productPrice);
 
       //create label for quantity input
       let productLabel = document.createElement("label");
       productLabel.setAttribute("for", "productQuantity");
       productLabel.id = "quantityContainer";
-      itemRow.appendChild(productLabel);
+      productChangeContainer.appendChild(productLabel);
 
       //create input for quantity
       let productQuantityInput = document.createElement("input");
       productQuantityInput.type = "number";
       productQuantityInput.id = "productQuantity";
       productQuantityInput.value = userCart[i].quantity.toString();
-      productLabel.appendChild(productQuantityInput);
+      productChangeContainer.appendChild(productQuantityInput);
 
-      //create checkBtn for submiting changes to quantity
+      // //create checkBtn for submiting changes to quantity
+      // let deleteBtn = document.createElement("button");
+      // deleteBtn.innerHTML = "&times;";
+      // deleteBtn.classList.add("itemRow__deleteQuantityBtn");
+      // productChangeContainer.appendChild(deleteBtn);
+      //Creates Remove button
       let deleteBtn = document.createElement("button");
-      deleteBtn.innerHTML = "&times;";
-      deleteBtn.classList.add("itemRow__deleteQuantityBtn");
-      productLabel.appendChild(deleteBtn);
+      deleteBtn.classList.add("user-cart-item__remove-btn");
+      deleteBtn.innerHTML = `<span class="material-symbols-rounded">
+delete
+</span>`;
+      productChangeContainer.appendChild(deleteBtn);
 
       //eventListener for adding more of a product(inputValue)
       productQuantityInput.addEventListener("change", () => {

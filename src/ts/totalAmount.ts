@@ -14,7 +14,7 @@ export function sumTotalPrice() {
   for (let i = 0; i < userCart.length; i++) {
     // let amount: number = 1;
     if (userCart.length >= 1) {
-      sum = sum + userCart[i].price * userCart[i].quantity;
+      sum = sum + userCart[i].product.price * userCart[i].quantity;
     } else {
       sum = 0;
     }
@@ -22,7 +22,6 @@ export function sumTotalPrice() {
 
   // skriver ut total priset i checkout och modal
   let totalPrice: string = sum.toString();
-  sumModal.innerText = totalPrice + " G"; 
   sumCheckout.innerText = totalPrice + " G";
-  sumModal.innerText = "Att debiteras: " + totalPrice + " G";
+  sumModal.innerText = "Your total: " + totalPrice + " G";
 }
