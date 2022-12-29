@@ -4,7 +4,6 @@ export class ProductTemplate {
     public price: number,
     public size: string,
     public type: string,
-    public image: string,
-    public quantity: number
+    public image: string
   ) {}
 }
