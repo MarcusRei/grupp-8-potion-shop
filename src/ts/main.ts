@@ -68,6 +68,6 @@ if (localStorage.getItem("userCart") === null) {
 }
 // renderUserCartinWidget();
 
-// document.getElementById("hamburgerButton")?.addEventListener("click", () => {
-//   toggleHamburgerMenu();
-// });
+document.getElementById("btnToShop")?.addEventListener("click", () => {
+  document.location.replace("./html/products.html");
+});
