@@ -158,16 +158,17 @@
     align-items: center;
     text-decoration: none;
     // color: col.$color-text-light;
-    color: col.$color-burned;
-    mix-blend-mode: multiply;
-    font-family: "Cinzel", serif;
-    font-weight: bold;
+    // color: col.$color-burned;
+    // mix-blend-mode: multiply;
+    // font-family: "Cinzel", serif;
+    // font-weight: bold;
+    @include mix.menu--font;
     font-size: 1.5rem;
     padding-right: 3em;
     border-right: 1px solid;
     border-color: col.$color-burned;
 
-    @include mixins.desktop {
+    @include mix.desktop {
       border: none;
       padding-left: 2em;
       padding-right: 2em;
