@@ -67,3 +67,7 @@ if (localStorage.getItem("userCart") === null) {
   getUserCartFromLS();
 }
 // renderUserCartinWidget();
+
+// document.getElementById("hamburgerButton")?.addEventListener("click", () => {
+//   toggleHamburgerMenu();
+// });

@@ -14,7 +14,7 @@ header {
   background-repeat: no-repeat;
   background-size: 100vw;
   background-position: top center;
-  background-color: col.$color-grey-very-dark;
+  // background-color: col.$color-grey-very-dark;
 
   @include mixins.tablet {
     background-image: url("../assets/images/TabletHangingSign.png");
