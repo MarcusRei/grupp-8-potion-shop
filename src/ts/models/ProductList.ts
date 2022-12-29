@@ -18,7 +18,6 @@ export const products: ProductTemplate[] = [
     image: HealthSmall,
     size: "small",
     type: "healing",
-    quantity: 1,
   },
   {
     name: "Medium healing potion",
@@ -26,7 +25,6 @@ export const products: ProductTemplate[] = [
     image: HealthMedium,
     size: "medium",
     type: "healing",
-    quantity: 1,
   },
   {
     name: "Large healing potion",
@@ -34,7 +32,6 @@ export const products: ProductTemplate[] = [
     image: HealthLarge,
     size: "large",
     type: "healing",
-    quantity: 1,
   },
   {
     name: "Small mana potion",
@@ -42,7 +39,6 @@ export const products: ProductTemplate[] = [
     image: ManaSmall,
     size: "small",
     type: "mana",
-    quantity: 1,
   },
   {
     name: "Medium mana potion",
@@ -50,7 +46,6 @@ export const products: ProductTemplate[] = [
     image: ManaMedium,
     size: "medium",
     type: "mana",
-    quantity: 1,
   },
   {
     name: "Large mana potion",
@@ -58,7 +53,6 @@ export const products: ProductTemplate[] = [
     image: ManaLarge,
     size: "large",
     type: "mana",
-    quantity: 1,
   },
   {
     name: "Small stamina potion",
@@ -66,7 +60,6 @@ export const products: ProductTemplate[] = [
     image: StaminaSmall,
     size: "small",
     type: "stamina",
-    quantity: 1,
   },
   {
     name: "Medium stamina potion",
@@ -74,7 +67,6 @@ export const products: ProductTemplate[] = [
     image: StaminaMedium,
     size: "medium",
     type: "stamina",
-    quantity: 1,
   },
   {
     name: "Large stamina potion",
@@ -82,7 +74,6 @@ export const products: ProductTemplate[] = [
     image: StaminaLarge,
     size: "large",
     type: "stamina",
-    quantity: 1,
   },
 ];
 
