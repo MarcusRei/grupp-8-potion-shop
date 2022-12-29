@@ -1,11 +1,19 @@
+@use "mixins";
 @use "colors" as col;
 
 #landing-page-body {
-  background-color: #505050;
-  background-image: url(../assets/images/Wall.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top left;
+  background-color: #3d3d3d;
+  background-image: url(../assets/images/PhoneWall.png);
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: center top;
+
+  @include mixins.desktop {
+    background-image: url(../assets/images/Wall.png);
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-position: center top;
+  }
 }
 
 // landingpage layout
