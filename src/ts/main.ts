@@ -49,6 +49,7 @@ function toggleHamburgerMenu() {
     }
   }
 }
+
 if (localStorage.getItem("userCart") === null) {
   let emptyList: CartProductTemplate[] = [];
   putUserCartInLS(emptyList);

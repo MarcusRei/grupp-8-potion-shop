@@ -33,7 +33,7 @@ import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: CartProductTemplate[] = getUserCartFromLS();
 
-//skapa html för varukorg
+//Renders the usercart
 export function showShoppingCart() {
   (document.querySelector("#shoppingCart") as HTMLElement).innerText =
     "You have not selected any potions";
@@ -79,7 +79,7 @@ export function showShoppingCart() {
       productChangeContainer.classList.add("checkout-product-change-container");
       itemRow.appendChild(productChangeContainer);
 
-      //create ptag for product price
+      //create p-tag for product price
       let productPrice = document.createElement("p");
       productPrice.classList.add("itemRow__productPrice");
       productPrice.innerText = userCart[i].product.price.toString();

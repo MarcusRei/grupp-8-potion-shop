@@ -8,6 +8,8 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   renderProductlist(products);
 };
+
+//Gets LS list
 let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
 
 export function renderProductlist(listToRender: ProductTemplate[]) {

@@ -280,25 +280,3 @@ nav {
     display: none;
   }
 }
-
-.checkout-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  // color: col.$color-text-light;
-  @include mix.burned--text-btn;
-  @include mix.menu--font;
-  // color: col.$color-burned;
-  // mix-blend-mode: multiply;
-  // font-family: var.$font-menu;
-  // font-weight: bold;
-  width: 100vw;
-  font-size: 1.5rem;
-  margin-top: 10px;
-
-  // &:hover {
-  //   mix-blend-mode: color-burn; //soft-light eller color-burn
-  //   color: rgb(200, 200, 200);
-  // }
-}
