@@ -125,7 +125,12 @@ export function renderUserCartinWidget() {
     //Creates link too checkout
     const checkoutlink = document.createElement("a");
     checkoutlink.classList.add("checkout-link");
-    checkoutlink.setAttribute("href", "./html/checkout.html");
+    if (window.location.href.indexOf("index") > -1) {
+      checkoutlink.setAttribute("href", "./html/checkout.html");
+    } else {
+      checkoutlink.setAttribute("href", "./checkout.html");
+    }
+    // checkoutlink.setAttribute("href", "./html/checkout.html");
     checkoutlink.innerHTML = `CHECKOUT`;
     checkoutbuttonContainer.appendChild(checkoutlink);
   }
