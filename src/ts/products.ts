@@ -7,14 +7,14 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   console.log("products body onload Fn started");
-  renderProductlist();
+  renderProductlist(products);
 };
 let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
 console.log(productsPageUserCart);
 
-function renderProductlist() {
+export function renderProductlist(listToRender: ProductTemplate[]) {
   (document.querySelector(".product__list") as HTMLElement).innerHTML = "";
-  for (let i = 0; i < products.length; i++) {
+  for (let i = 0; i < listToRender.length; i++) {
     //Creates container for a product
     let productContainer = document.createElement("div");
     productContainer.classList.add("product__container");
@@ -23,7 +23,7 @@ function renderProductlist() {
     //Creates element for product image
     let productImg = document.createElement("img");
     productImg.classList.add("product__container-image");
-    productImg.src = products[i].image;
+    productImg.src = listToRender[i].image;
     productImg.alt = "Picture of product";
     productContainer.appendChild(productImg);
 
@@ -40,13 +40,13 @@ function renderProductlist() {
     //Creates element for product name
     let productName = document.createElement("p");
     productName.classList.add("product__info-name");
-    productName.innerHTML = products[i].name;
+    productName.innerHTML = listToRender[i].name;
     productinfoTextContainer.appendChild(productName);
 
     //Creates element for product price
     let productPrice = document.createElement("p");
     productPrice.classList.add("product__info-price");
-    productPrice.innerHTML = products[i].price.toString() + "G"; //la till toString, men vet inte om det funkar just nu
+    productPrice.innerHTML = listToRender[i].price.toString() + "G"; //la till toString, men vet inte om det funkar just nu
     productinfoTextContainer.appendChild(productPrice);
 
     //Creates inputs container
@@ -56,7 +56,7 @@ function renderProductlist() {
 
     //Creates input field
     let productAmount = document.createElement("input");
-    productAmount.setAttribute("id", `add-${products[i].name}-input`);
+    productAmount.setAttribute("id", `add-${listToRender[i].name}-input`);
     productAmount.type = "number";
     productAmount.value = "1";
     productAmount.classList.add("product__info-amount");
@@ -70,14 +70,18 @@ function renderProductlist() {
     productInputs.appendChild(productAddToCartBtn);
 
     let productButton: HTMLButtonElement = document.getElementById(
-      `add-${products[i].name}-button`
+      `add-${listToRender[i].name}-button`
     ) as HTMLButtonElement;
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
       // let newQuantity = productAmount.value;
       // original addProductToCart function
-      addProductToCart(productsPageUserCart, products[i], productAmount.value);
+      addProductToCart(
+        productsPageUserCart,
+        listToRender[i],
+        productAmount.value
+      );
 
       // //trial and error addProductToCart function
       // addProductToCart(
