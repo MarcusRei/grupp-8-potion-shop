@@ -46,7 +46,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     //Creates element for product price
     let productPrice = document.createElement("p");
     productPrice.classList.add("product__info-price");
-    productPrice.innerHTML = listToRender[i].price.toString() + "G"; //la till toString, men vet inte om det funkar just nu
+    productPrice.innerHTML = listToRender[i].price.toString() + "G";
     productinfoTextContainer.appendChild(productPrice);
 
     //Creates inputs container
@@ -97,32 +97,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
   }
 }
 
-// //Put in LS
-// export function putUserCartInLS(userProducts: ProductTemplate[]) {
-//   localStorage.setItem("userCart", JSON.stringify(userProducts));
-// }
-
-// // Get from LS
-// export function getUserCartFromLS() {
-//   let userCartLS = JSON.parse(localStorage.getItem("userCart")!);
-//   console.log(userCartLS);
-//   return userCartLS;
-// }
-
-// export function changeQuantityInProducts(
-//   listPosition: number,
-//   product: ProductTemplate,
-//   value: string,
-//   list: ProductTemplate[]
-// ) {
-//   for (let i = 0; i < list.length; i++) {
-//     if (i === listPosition) {
-//       product.quantity = Number(value);
-//       console.log(list);
-//     }
-//   }
-// }
-
+//Filter button eventlistener
 let filterBtn: HTMLButtonElement = document.getElementById(
   "filter-btn"
 ) as HTMLButtonElement;
