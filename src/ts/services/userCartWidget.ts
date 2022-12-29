@@ -1,12 +1,13 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { CartProductTemplate } from "../models/CartProductTemplate";
 import { changeQuantity } from "../shoppingCartChanges";
+import { sumTotalPrice } from "../totalAmount";
 
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
 ) as HTMLDivElement;
 
-// shows and hides usercartwidget and also makes hamburgermenu invisible
+// Toggles usercart widget and also makes hamburgermenu invisible
 export function toggleUserCartWidget() {
   const mobileMenu = document.getElementById("mobilenav") as HTMLUListElement;
   const closeIcon = document.getElementById("closeIcon") as HTMLSpanElement;
@@ -74,12 +75,12 @@ export function renderUserCartinWidget() {
       userItemName.innerHTML = userCartInWidget[i].product.name;
       nameContainer.appendChild(userItemName);
 
-      //Create container for quantity, price and remove btn
+      //Creates container for quantity, price and remove btn
       let productChangeContainer = document.createElement("div");
       productChangeContainer.classList.add("product-change-container");
       userItemContainer.appendChild(productChangeContainer);
 
-      //create input for quantity
+      //Creates input for quantity
       let productQuantityInput = document.createElement("input");
       productQuantityInput.type = "number";
       productQuantityInput.id = "productQuantityCartWidget";
@@ -109,7 +110,6 @@ export function renderUserCartinWidget() {
           productQuantityInput.value,
           userCartInWidget
         );
-        // showShoppingCart();
         putUserCartInLS(userCartInWidget);
       });
 
@@ -117,21 +117,36 @@ export function renderUserCartinWidget() {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
     }
-    // Creates container for checkoutbutton in usercart
-    const checkoutbuttonContainer = document.createElement("div");
-    checkoutbuttonContainer.classList.add("user-cart-item__container");
-    userCartWidget.appendChild(checkoutbuttonContainer);
 
-    //Creates link too checkout
-    const checkoutlink = document.createElement("a");
-    checkoutlink.classList.add("checkout-link");
+    // Creates container for checkoutbutton in usercart
+    const checkoutButtonContainer = document.createElement("div");
+    checkoutButtonContainer.classList.add(
+      "user-cart-item__container",
+      "checkout-btn-container"
+    );
+    userCartWidget.appendChild(checkoutButtonContainer);
+
+    //Creates link to checkout
+    const checkoutLink = document.createElement("a");
+    checkoutLink.classList.add("checkout-link");
     if (window.location.href.indexOf("index") > -1) {
-      checkoutlink.setAttribute("href", "./html/checkout.html");
+      checkoutLink.setAttribute("href", "./html/checkout.html");
     } else {
-      checkoutlink.setAttribute("href", "./checkout.html");
+      checkoutLink.setAttribute("href", "./checkout.html");
     }
-    checkoutlink.innerHTML = `CHECKOUT`;
-    checkoutbuttonContainer.appendChild(checkoutlink);
+    checkoutLink.innerHTML = `CHECKOUT`;
+    checkoutButtonContainer.appendChild(checkoutLink);
+
+    //Creates usercart total
+    let usercartTotal = document.createElement("div");
+    usercartTotal.classList.add("checkout-total");
+    let usercartTotalSum = 0;
+
+    for (let i = 0; i < userCartInWidget.length; i++) {
+      usercartTotalSum += userCartInWidget[i].product.price;
+    }
+    usercartTotal.innerHTML = usercartTotalSum.toString() + "G";
+    checkoutButtonContainer.appendChild(usercartTotal);
   }
 }
 

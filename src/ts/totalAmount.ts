@@ -6,9 +6,11 @@ export function sumTotalPrice() {
   let sumCheckout = document.getElementById(
     "sumOfShoppingCart"
   ) as HTMLParagraphElement;
+
   let sumModal = document.getElementById(
     "modalContent__sum"
   ) as HTMLParagraphElement;
+
   for (let i = 0; i < userCart.length; i++) {
     if (userCart.length >= 1) {
       sum = sum + userCart[i].product.price * userCart[i].quantity;

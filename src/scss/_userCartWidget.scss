@@ -3,7 +3,6 @@
 
 #user-cart__container {
   // background-color: col.$color-grey-very-light;
-  border: 1px solid black;
   width: 100vw;
   height: auto;
   z-index: 100;
@@ -106,20 +105,17 @@
     justify-content: space-between;
     align-items: center;
     width: 35%;
+
     @include mixins.desktop {
       margin-top: 0.7em;
       width: 30%;
     }
-    // height: 100%;
-    // .user-cart-item__info-quantity {
-    //   width: 20.5%;
-    //   display: flex;
-    //   justify-content: center;
-    // }
+
     #productQuantityCartWidget {
       width: 10%;
       height: 100%;
       font-size: large;
+
       @include mixins.desktop {
         // margin-top: 0.3em;
         width: 20%;
@@ -156,7 +152,33 @@
   }
 }
 
-//Have to be after #user-cart__container
-#user-cart__container:last-child {
-  border: none;
+.checkout-btn-container {
+  display: flex;
+
+  .checkout-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    // color: col.$color-text-light;
+    color: col.$color-burned;
+    mix-blend-mode: multiply;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 3em;
+    border-right: 1px solid;
+    border-color: col.$color-burned;
+
+    @include mixins.desktop {
+      border: none;
+      padding-left: 2em;
+      padding-right: 2em;
+    }
+
+    &:hover {
+      mix-blend-mode: color-burn; //soft-light eller color-burn
+      color: rgb(200, 200, 200);
+    }
+  }
 }
