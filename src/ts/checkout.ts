@@ -17,12 +17,13 @@ import { sumTotalPrice } from "./totalAmount";
     ) as HTMLButtonElement;
 
     checkoutBtn.addEventListener("click", () => {
+      console.log("i've been clicked");
       startModalFunctionality();
     });
 
     // krysset i modal
     let closeCross = document.getElementsByClassName(
-      "modalContent__close"
+      "modal-content__close"
     )[0] as HTMLSpanElement;
 
     closeCross.addEventListener("click", () => {

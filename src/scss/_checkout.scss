@@ -2,15 +2,9 @@
 @use "colors" as col;
 
 #checkout-body {
-  background-color: #3d3d3d;
-  background-image: url(../assets/images/PhoneWall.png);
-  background-repeat: repeat-y;
-  background-size: contain;
-  background-position: center top;
-
-  @include mix.desktop {
-    background-image: url(../assets/images/Wall.png);
-  }
+  @include mix.background--mobile;
+  @include mix.background--tablet;
+  @include mix.background--desktop;
 }
 
 #checkout {
@@ -18,13 +12,10 @@
   flex-direction: column;
   align-items: center;
   // justify-content: center;
-  // background-color: col.$color-grey-very-dark;
   gap: 1em;
   margin-top: 10vh;
   // min-height: 80vh;
   min-height: 100vh;
-
-  // height: 80vh; //ändra efter header och footer är insatta
 }
 #shoppingCart-title {
   font-size: 1.8em;
@@ -54,7 +45,8 @@
   width: 95%;
   justify-content: space-between;
   border-radius: 5px;
-  background-color: col.$color-grey-light;
+  background-color: col.$color-grey-dark;
+  color: col.$color-text-light;
 
   @include mix.desktop {
     width: 80%;
@@ -84,23 +76,6 @@
       width: 20%;
     }
   }
-
-  // //delete Btn
-  // &__deleteQuantityBtn {
-  //   font-size: small;
-  //   padding: 0 1% 0 1%;
-  //   font-weight: bold;
-  //   margin-left: 5px;
-  //   width: 10%;
-  //   @include mix.desktop {
-  //     font-size: medium;
-  //     font-weight: 400;
-  //     padding: 0;
-  //     height: 100%;
-  //     width: 10%;
-  //     margin-left: 5px;
-  //   }
-  // }
 }
 .user-cart-item__remove-btn {
   width: 20%;
@@ -108,12 +83,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: col.$color-grey-very-dark;
+  background-color: col.$color-grey-light;
   border: none;
   border-radius: 5px;
-  // margin-right: 1.5em;
-  color: col.$color-text-light;
-  mix-blend-mode: soft-light;
+  @include mix.burned--icon;
+  // color: col.$color-text-light;
+  // mix-blend-mode: soft-light;
 
   @include mix.desktop {
     width: 10%;
@@ -161,7 +136,7 @@
   display: flex;
   justify-content: space-evenly;
   // margin-top: 2vh;
-  background-color: col.$color-grey-light;
+  background-color: col.$color-grey-dark;
   border-radius: 10px;
   width: 80%;
   color: col.$color-text-light;

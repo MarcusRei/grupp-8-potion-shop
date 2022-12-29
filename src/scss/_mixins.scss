@@ -1,4 +1,5 @@
 @use "variables" as var;
+@use "colors" as col;
 
 @mixin tablet {
   @media screen and (min-width: var.$tablet) {
@@ -10,10 +11,84 @@
     @content;
   }
 }
+//background
+@mixin background--mobile {
+  background-color: col.$color-background-grey;
+  background-image: url(../assets/images/PhoneWall.png);
+  background-repeat: repeat-y;
+  background-size: contain;
+  background-position: center top;
+}
 
-// @mixin hangingPlank {
-//   background-image: url(../assets/images/MobileHangingSign.png);
-//   background-repeat: no-repeat;
-//   background-position: top center;
-//   background-size: 100vw;
-// }
+@mixin background--tablet {
+  @media screen and (min-width: var.$tablet) {
+    background-color: col.$color-background-grey;
+    background-image: url(../assets/images/Wall.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+  }
+}
+@mixin background--desktop {
+  @media screen and (min-width: var.$desktop) {
+    background-color: col.$color-background-grey;
+    background-image: url(../assets/images/Wall.png);
+    background-repeat: repeat-y;
+    background-size: contain;
+    background-position: center top;
+  }
+}
+
+//hanging-plank
+@mixin hanging-plank--mobile {
+  background-image: url(../assets/images/MobileHangingSign.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100vw;
+}
+
+@mixin hanging-plank--tablet {
+  @media screen and (min-width: var.$tablet) {
+    background-image: url("../assets/images/TabletHangingSign.png");
+  }
+}
+
+@mixin hanging-plank--desktop {
+  @media screen and (min-width: var.$desktop) {
+    background-image: url("../assets/images/DesktopHangingSign.png");
+  }
+}
+
+//burned images
+@mixin burned--img {
+  mix-blend-mode: multiply;
+  &:hover {
+    mix-blend-mode: soft-light;
+  }
+}
+
+//burned text & icons
+@mixin burned--text {
+  color: col.$color-burned;
+  mix-blend-mode: multiply;
+}
+@mixin burned--text-btn {
+  color: col.$color-burned;
+  mix-blend-mode: multiply;
+  &:hover {
+    background-color: transparent;
+    mix-blend-mode: soft-light;
+    color: col.$color-grey-light;
+  }
+}
+@mixin burned--icon {
+  color: col.$color-text-light;
+  mix-blend-mode: soft-light;
+}
+
+//menu
+@mixin menu--font {
+  font-family: var.$font-menu;
+  font-weight: bold;
+  font-variant: small-caps;
+}

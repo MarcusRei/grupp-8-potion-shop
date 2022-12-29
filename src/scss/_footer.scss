@@ -1,4 +1,4 @@
-@use "mixins";
+@use "mixins" as mix;
 @use "colors" as col;
 
 // footer layout
@@ -17,7 +17,7 @@ footer {
   flex-direction: row;
   height: 175px;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     justify-content: space-around;
   }
 }
@@ -30,7 +30,7 @@ footer {
   gap: 10px;
   margin: 1.5em;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     width: auto;
   }
 
@@ -51,7 +51,7 @@ footer {
   gap: 0.5em;
   margin: 1.5em;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     width: auto;
   }
 
@@ -66,10 +66,10 @@ footer {
 .logotype-img {
   width: 30vw;
 
-  @include mixins.tablet {
+  @include mix.tablet {
     width: 20vw;
   }
-  @include mixins.desktop {
+  @include mix.desktop {
     width: 10vw;
   }
 }

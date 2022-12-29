@@ -1,4 +1,4 @@
-@use "mixins";
+@use "mixins" as mix;
 @use "colors" as col;
 
 #products {
@@ -9,17 +9,10 @@
   // background-color: col.$color-grey-very-dark;
   color: col.$color-text-light;
   margin-top: 6em;
-  background-color: #3d3d3d;
-  background-image: url(../assets/images/PhoneWall.png);
-  background-repeat: repeat-y;
-  background-size: contain;
-  background-position: center top;
 
-  @include mixins.desktop {
-    display: flex;
-    justify-content: center;
-    background-image: url(../assets/images/Wall.png);
-  }
+  @include mix.background--mobile;
+  @include mix.background--tablet;
+  @include mix.background--desktop;
 }
 
 .product__list {
@@ -32,7 +25,7 @@
   margin-top: 1em;
   margin-bottom: 5em;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     flex-direction: row;
     flex-wrap: wrap;
     width: 70vw;
@@ -49,14 +42,14 @@
   padding: 1em;
   width: 60%;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     width: 25%;
   }
 
   .product__container-image {
     width: 90%;
 
-    @include mixins.desktop {
+    @include mix.desktop {
       width: 90%;
     }
   }

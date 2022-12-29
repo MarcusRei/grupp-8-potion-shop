@@ -1,4 +1,4 @@
-@use "mixins";
+@use "mixins" as mix;
 @use "colors" as col;
 
 #user-cart__container {
@@ -10,14 +10,15 @@
   top: 10vh;
   color: col.$color-text-light;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     width: 40%;
   }
 }
 
 .empty-cart-text {
-  color: col.$color-burned;
-  mix-blend-mode: multiply;
+  // color: col.$color-burned;
+  // mix-blend-mode: multiply;
+  @include mix.burned--text;
 }
 
 .user-cart__invisible {
@@ -32,7 +33,7 @@
 }
 
 .user-cart-item__container:first-child {
-  @include mixins.desktop {
+  @include mix.desktop {
     margin-top: 0em;
   }
 }
@@ -47,21 +48,18 @@
   justify-content: space-around;
   align-items: center;
   // border-bottom: 1px solid rgba(0, 0, 0, 0.837);
-
-  background-image: url(../assets/images/MobileHangingSign.png);
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100vw; //cover;
-
-  @include mixins.desktop {
-    background-image: url(../assets/images/TabletHangingSign.png);
+  @include mix.hanging-plank--mobile;
+  // background-image: url(../assets/images/MobileHangingSign.png);
+  // background-repeat: no-repeat;
+  // background-position: top center;
+  // background-size: 100vw; //cover;
+  @include mix.desktop {
+    @include mix.hanging-plank--tablet;
+    background-size: contain; //cover;
     padding-top: 0;
-    width: 90%;
-
-    margin-top: 0px;
+    width: 95%;
+    margin-top: -0.5%;
     margin-left: 2em;
-    background-size: cover;
-    height: 50px;
   }
   .img-container {
     display: flex;
@@ -72,7 +70,7 @@
     padding-left: 1em;
     // padding-left: 1.5em;
 
-    @include mixins.desktop {
+    @include mix.desktop {
       padding-left: 1em;
       margin-top: 0.5em;
     }
@@ -82,7 +80,7 @@
       height: 75%; //10%;
       // margin-left: 1em;
       // margin-right: 0.3em;
-      @include mixins.desktop {
+      @include mix.desktop {
         height: 55%;
         // margin-right: 1.5em;
       }
@@ -94,7 +92,7 @@
     align-items: center;
     width: 50%;
     height: 100%;
-    @include mixins.desktop {
+    @include mix.desktop {
       margin-top: 0.5em;
     }
     .user-cart-item__info-name {
@@ -106,7 +104,7 @@
     justify-content: space-between;
     align-items: center;
     width: 35%;
-    @include mixins.desktop {
+    @include mix.desktop {
       margin-top: 0.7em;
       width: 30%;
     }
@@ -120,7 +118,7 @@
       width: 10%;
       height: 100%;
       font-size: large;
-      @include mixins.desktop {
+      @include mix.desktop {
         // margin-top: 0.3em;
         width: 20%;
         font-size: medium;
@@ -146,10 +144,11 @@
       border: none;
       border-radius: 5px;
       margin-right: 1.5em;
-      color: col.$color-text-light;
-      mix-blend-mode: soft-light;
+      // color: col.$color-text-light;
+      // mix-blend-mode: soft-light;
+      @include mix.burned--icon;
 
-      @include mixins.desktop {
+      @include mix.desktop {
         width: 10%;
       }
     }

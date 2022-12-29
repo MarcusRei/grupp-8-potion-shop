@@ -1,4 +1,5 @@
-@use "mixins";
+@use "mixins" as mix;
+@use "variables" as var;
 @use "colors" as col;
 
 // layout header
@@ -10,20 +11,9 @@ header {
   width: 100vw;
   top: 0;
   z-index: 100;
-  background-image: url("../assets/images/MobileHangingSign.png");
-  background-repeat: no-repeat;
-  background-size: 100vw;
-  background-position: top center;
-  // background-color: col.$color-grey-very-dark;
-
-  @include mixins.tablet {
-    background-image: url("../assets/images/TabletHangingSign.png");
-  }
-  @include mixins.desktop {
-    background-image: url("../assets/images/DesktopHangingSign.png");
-
-    // background-color: col.$color-accent-purple;
-  }
+  @include mix.hanging-plank--mobile;
+  @include mix.hanging-plank--tablet;
+  @include mix.hanging-plank--desktop;
 }
 
 //layout navigation bar
@@ -54,11 +44,11 @@ nav {
       mix-blend-mode: multiply;
 
       height: 7vh;
-      @include mixins.tablet {
+      @include mix.tablet {
         left: 2vw;
         top: 15px;
       }
-      @include mixins.desktop {
+      @include mix.desktop {
         margin-left: 2vw;
         // left: 2vw;
         // top: 2vh; //25px;;
@@ -92,7 +82,7 @@ nav {
       margin-right: 2rem;
     }
 
-    @include mixins.desktop {
+    @include mix.desktop {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -102,11 +92,14 @@ nav {
   }
 
   .menu-link {
+    //finns en til menu-link längre ned för mobile!!
     text-decoration: none;
-    color: col.$color-burned;
-    mix-blend-mode: multiply;
-    font-family: "Cinzel", serif;
-    font-weight: bold;
+    // color: col.$color-burned;
+    // mix-blend-mode: multiply;
+    // font-family: "Cinzel", serif;
+    // font-weight: bold;
+    @include mix.burned--text-btn;
+    @include mix.menu--font;
 
     &:hover {
       mix-blend-mode: color-burn; //soft-light eller color-burn
@@ -140,7 +133,6 @@ nav {
       margin-top: 2vh;
       // position: fixed;
       // top: 2vh;
-      mix-blend-mode: multiply;
 
       // height: 7%;
       // position: fixed;
@@ -148,16 +140,16 @@ nav {
       // align-self: center;
       // left: 6vw;
       margin-right: 12vw;
-
-      mix-blend-mode: multiply;
+      @include mix.burned--img;
+      // mix-blend-mode: multiply;
       height: 7vh;
 
       // height: 50px;
-      @include mixins.tablet {
+      @include mix.tablet {
         right: 2vw;
         top: 15px;
       }
-      @include mixins.desktop {
+      @include mix.desktop {
         // top: 1.5vh; //25px;
         margin-right: 2vw;
         margin-top: 1.5vh;
@@ -167,9 +159,9 @@ nav {
         // font-size: 4rem;
         // color: white;
       }
-      &:hover {
-        mix-blend-mode: soft-light; //soft-light eller color-burn
-      }
+      // &:hover {
+      //   mix-blend-mode: soft-light; //soft-light eller color-burn
+      // }
     }
   }
 }
@@ -188,15 +180,16 @@ nav {
   padding-top: 2vh;
   padding-right: 5vw;
 
-  color: col.$color-burned;
-  mix-blend-mode: multiply;
+  @include mix.burned--text-btn;
+  // color: col.$color-burned;
+  // mix-blend-mode: multiply;
 
-  &:hover {
-    background-color: transparent; //col.$color-grey-light;
-    mix-blend-mode: soft-light; //soft-light eller color-burn
-  }
+  // &:hover {
+  //   background-color: transparent; //col.$color-grey-light;
+  //   mix-blend-mode: soft-light; //soft-light eller color-burn
+  // }
 
-  @include mixins.desktop {
+  @include mix.desktop {
     display: none;
   }
 
@@ -219,7 +212,7 @@ nav {
   width: 100vw;
   top: 8vh;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     display: none;
   }
 
@@ -231,7 +224,7 @@ nav {
     justify-content: center;
     align-items: center;
 
-    @include mixins.desktop {
+    @include mix.desktop {
       display: none;
     }
   }
@@ -241,33 +234,40 @@ nav {
     height: 10vh;
     // top: 10vh;
     // background-color: col.$color-grey-dark;
-    background-image: url(../assets/images/MobileHangingSign.png);
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 100vw;
+    // background-image: url(../assets/images/MobileHangingSign.png);
+    // background-repeat: no-repeat;
+    // background-position: top center;
+    // background-size: 100vw;
+
+    @include mix.hanging-plank--mobile;
+    @include mix.hanging-plank--tablet;
 
     display: flex;
     justify-content: center;
   }
 
-  .menu-link {
+  .menu-link-mobile {
+    //finns en til menu-link längre upp för desktop!!
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     // color: col.$color-text-light;
-    color: col.$color-burned;
-    mix-blend-mode: multiply;
-    font-family: "Cinzel", serif;
-    font-weight: bold;
+
+    @include mix.burned--text-btn;
+    // color: col.$color-burned;
+    // mix-blend-mode: multiply;
+    // font-family: var.$font-menu;
+    // font-weight: bold;
+    @include mix.menu--font;
     width: 100vw;
     font-size: 1.5rem;
     margin-top: 10px;
 
-    &:hover {
-      mix-blend-mode: color-burn; //soft-light eller color-burn
-      color: rgb(200, 200, 200);
-    }
+    // &:hover {
+    //   mix-blend-mode: color-burn; //soft-light eller color-burn
+    //   color: rgb(200, 200, 200);
+    // }
   }
 
   &.showMenu {
@@ -276,7 +276,7 @@ nav {
     display: flex;
   }
 
-  @include mixins.desktop {
+  @include mix.desktop {
     display: none;
   }
 }
@@ -287,16 +287,18 @@ nav {
   align-items: center;
   text-decoration: none;
   // color: col.$color-text-light;
-  color: col.$color-burned;
-  mix-blend-mode: multiply;
-  font-family: "Cinzel", serif;
-  font-weight: bold;
+  @include mix.burned--text-btn;
+  @include mix.menu--font;
+  // color: col.$color-burned;
+  // mix-blend-mode: multiply;
+  // font-family: var.$font-menu;
+  // font-weight: bold;
   width: 100vw;
   font-size: 1.5rem;
   margin-top: 10px;
 
-  &:hover {
-    mix-blend-mode: color-burn; //soft-light eller color-burn
-    color: rgb(200, 200, 200);
-  }
+  // &:hover {
+  //   mix-blend-mode: color-burn; //soft-light eller color-burn
+  //   color: rgb(200, 200, 200);
+  // }
 }

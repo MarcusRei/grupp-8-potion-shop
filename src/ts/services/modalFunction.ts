@@ -29,6 +29,6 @@ export function startModalFunctionality() {
 export function changeModalVisability() {
   let modal = document.getElementById("checkoutModal") as HTMLDivElement;
 
-  modal.classList.toggle("modalVisible");
-  modal.classList.toggle("modalInvisible");
+  modal.classList.toggle("modal-content--visible");
+  modal.classList.toggle("modal-content--invisible");
 }
