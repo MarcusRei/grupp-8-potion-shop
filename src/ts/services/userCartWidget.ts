@@ -130,7 +130,6 @@ export function renderUserCartinWidget() {
     } else {
       checkoutlink.setAttribute("href", "./checkout.html");
     }
-    // checkoutlink.setAttribute("href", "./html/checkout.html");
     checkoutlink.innerHTML = `CHECKOUT`;
     checkoutbuttonContainer.appendChild(checkoutlink);
   }
