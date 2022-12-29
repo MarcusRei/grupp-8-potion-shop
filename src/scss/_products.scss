@@ -6,9 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: col.$color-grey-very-dark;
+  // background-color: col.$color-grey-very-dark;
   color: col.$color-text-light;
   margin-top: 6em;
+  background-image: url(../assets/images/Wall.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
 
   @include mixins.desktop {
     display: flex;
