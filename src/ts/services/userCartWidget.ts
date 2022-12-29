@@ -113,6 +113,7 @@ export function renderUserCartinWidget() {
         putUserCartInLS(userCartInWidget);
       });
 
+      // Creates eventListener for removing an item from the usercart
       userItemRemoveBtn.addEventListener("click", () => {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
