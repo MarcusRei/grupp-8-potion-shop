@@ -1,6 +1,7 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { CartProductTemplate } from "../models/CartProductTemplate";
 import { ProductTemplate } from "../models/ProductTemplate";
+import { changeQuantity } from "../shoppingCartChanges";
 
 // addEventListenern för userCartBtn ligger nu i main.ts
 // eftersom den behöver skapas på alla sidor när sidorna laddas och main.ts är länkade till alla sidor
@@ -131,7 +132,12 @@ export function renderUserCartinWidget() {
     </span>`;
       productChangeContainer.appendChild(userItemRemoveBtn);
 
-      
+      // Creates AddEventListener for changing qauntity
+      productQuantityInput.addEventListener("change", () => {
+        changeQuantity(i, userCartInWidget[i], productQuantityInput.value, userCartInWidget);
+        // showShoppingCart();
+        putUserCartInLS(userCartInWidget);
+      });
 
       userItemRemoveBtn.addEventListener("click", () => {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
