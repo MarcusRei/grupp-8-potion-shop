@@ -157,12 +157,8 @@
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    // color: col.$color-text-light;
-    // color: col.$color-burned;
-    // mix-blend-mode: multiply;
-    // font-family: "Cinzel", serif;
-    // font-weight: bold;
     @include mix.menu--font;
+    @include mix.burned--text-btn;
     font-size: 1.5rem;
     padding-right: 3em;
     border-right: 1px solid;
