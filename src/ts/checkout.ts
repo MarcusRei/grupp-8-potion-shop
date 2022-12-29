@@ -1,6 +1,5 @@
 import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
 import { CartProductTemplate } from "./models/CartProductTemplate";
-import { ProductTemplate } from "./models/ProductTemplate";
 import {
   changeModalVisability,
   startModalFunctionality,
@@ -10,7 +9,6 @@ import { sumTotalPrice } from "./totalAmount";
 
 (document.querySelector("#checkout-body") as HTMLBodyElement).onload =
   function () {
-    console.log("checkout-body onload Fn started");
     showShoppingCart();
 
     // checkoutbutton
@@ -34,12 +32,8 @@ import { sumTotalPrice } from "./totalAmount";
 
 export let userCart: CartProductTemplate[] = getUserCartFromLS();
 
-console.log("Checkout " + userCart);
-console.log(userCart);
-
 //skapa html för varukorg
 export function showShoppingCart() {
-  console.log("showShoppingCart started");
   (document.querySelector("#shoppingCart") as HTMLElement).innerText =
     "You have not selected any potions";
 
@@ -51,7 +45,6 @@ export function showShoppingCart() {
   if (cartLength !== 0) {
     (document.querySelector("#shoppingCart") as HTMLElement).innerText = "";
     for (let i = 0; i < userCart.length; i++) {
-      console.log("loop started");
       //create article for product
       let itemRow = document.createElement("article");
       itemRow.classList.add("itemRow");
@@ -105,11 +98,6 @@ export function showShoppingCart() {
       productQuantityInput.value = userCart[i].quantity.toString();
       productChangeContainer.appendChild(productQuantityInput);
 
-      // //create checkBtn for submiting changes to quantity
-      // let deleteBtn = document.createElement("button");
-      // deleteBtn.innerHTML = "&times;";
-      // deleteBtn.classList.add("itemRow__deleteQuantityBtn");
-      // productChangeContainer.appendChild(deleteBtn);
       //Creates Remove button
       let deleteBtn = document.createElement("button");
       deleteBtn.classList.add("user-cart-item__remove-btn");
@@ -132,33 +120,4 @@ delete
       sumTotalPrice();
     }
   }
-
-  // har tagit bort anropet till startModalFunctionality den anropas istället när man trycker på knappen checkout
 }
-
-// export function changeQuantity(
-//   listPosition: number,
-//   product: ProductTemplate,
-//   value: string
-// ) {
-//   for (let i = 0; i < userCart.length; i++) {
-//     if (i === listPosition) {
-//       product.quantity = Number(value);
-//       console.log(userCart);
-//     }
-//   }
-//   showShoppingCart();
-//   putUserCartInLS(userCart); // la till den här funktionen så att LS uppdateras när man ändrar på quantity i checkout
-// }
-
-// export function emptyShoppingCart() {
-//   console.log(userCart);
-//   for (let i = 0; i < userCart.length; i++) {
-//     console.log(userCart.length);
-//     let listLength = userCart.length;
-//     if (i < listLength) {
-//       userCart.splice(i, listLength);
-//     }
-//   }
-//   console.log(userCart);
-// }

@@ -16,7 +16,6 @@ export function addProductToCart(
       if (list[i].product === product) {
         list[i].quantity += nrValue;
         putUserCartInLS(list);
-        console.log(list);
         return;
       }
     }
@@ -24,11 +23,9 @@ export function addProductToCart(
       product,
       nrValue
     );
-    console.log(list);
     list.push(newArticle);
 
     putUserCartInLS(list);
-    console.log(list);
   }
 }
 
@@ -42,10 +39,8 @@ export function changeQuantity(
   for (let i = 0; i < list.length; i++) {
     if (i === listPosition) {
       product.quantity = Number(value);
-      console.log(list);
     }
   }
-  // putUserCartInLS(list);
 }
 
 //delete specific object/product from cart
@@ -56,19 +51,14 @@ export function deleteFromCart(
   for (let i = 0; i < list.length; i++) {
     if (i === listPosition) {
       list.splice(i, 1);
-      console.log(list);
     }
   }
-  // putUserCartInLS(list);
 }
 
 //delete all objects/products from cart
 export function emptyShoppingCart(list: CartProductTemplate[]) {
-  console.log(list);
   for (let i = 0; i < list.length; i++) {
-    console.log(list.length);
     list.splice(i, list.length);
   }
-  console.log(list);
   putUserCartInLS(list);
 }

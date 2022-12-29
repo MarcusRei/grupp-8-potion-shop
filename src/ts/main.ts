@@ -13,7 +13,6 @@ let userCartBtn: HTMLButtonElement = document.querySelector(
 userCartBtn.addEventListener("click", () => {
   toggleUserCartWidget();
   renderUserCartinWidget();
-  console.log("user cart was clicked");
 });
 
 // hamburgermenu button
@@ -29,16 +28,6 @@ function toggleHamburgerMenu() {
   let usercartContainer = document.getElementById(
     "user-cart__container"
   ) as HTMLDivElement;
-
-  // if (mobileMenu.classList.contains("showMenu")) {
-  //   mobileMenu.classList.remove("showMenu");
-  //   closeIcon.style.display = "none";
-  //   menuIcon.style.display = "flex";
-  // } else {
-  //   mobileMenu.classList.add("showMenu");
-  //   closeIcon.style.display = "flex";
-  //   menuIcon.style.display = "none";
-  // }
 
   // toggle usercartwidget and hamburgermenu if hamburgermenu is clicked
   if (usercartContainer.classList.contains("user-cart__visible")) {
@@ -66,7 +55,6 @@ if (localStorage.getItem("userCart") === null) {
 } else {
   getUserCartFromLS();
 }
-// renderUserCartinWidget();
 
 document.getElementById("btnToShop")?.addEventListener("click", () => {
   document.location.replace("./html/products.html");

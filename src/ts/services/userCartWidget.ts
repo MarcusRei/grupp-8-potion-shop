@@ -1,12 +1,6 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { CartProductTemplate } from "../models/CartProductTemplate";
-import { ProductTemplate } from "../models/ProductTemplate";
 import { changeQuantity } from "../shoppingCartChanges";
-
-// addEventListenern för userCartBtn ligger nu i main.ts
-// eftersom den behöver skapas på alla sidor när sidorna laddas och main.ts är länkade till alla sidor
-
-// let userCartInWidget: ProductTemplate[] = getUserCartFromLS();
 
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
@@ -34,24 +28,6 @@ export function toggleUserCartWidget() {
       userCartWidget.classList.add("user-cart__visible");
     }
   }
-
-  // if (userCartWidget.classList.contains("user-cart__invisible")) {
-  //   userCartWidget.classList.replace(
-  //     "user-cart__invisible",
-  //     "user-cart__visible"
-  //   );
-
-  //   // userCartInWidget = getUserCartFromLS();
-  //   // renderUserCartWidget();
-
-  //   console.log("userCart is open");
-  // } else {
-  //   userCartWidget.className = "user-cart__invisible";
-
-  //   // removeUserCartHtml();
-
-  //   console.log("userCart is closed");
-  // }
 }
 
 // creates html for products in shoppingcart in usercartwidget
@@ -110,13 +86,6 @@ export function renderUserCartinWidget() {
       productQuantityInput.value = userCartInWidget[i].quantity.toString();
       productChangeContainer.appendChild(productQuantityInput);
 
-      //Creates element for item quantity
-      // let userItemQuantity = document.createElement("p");
-      // userItemQuantity.classList.add("user-cart-item-quantity");
-      // userItemQuantity.innerHTML =
-      //   "x" + userCartInWidget[i].quantity.toString();
-      // userItemContainer.appendChild(userItemQuantity);
-
       //Creates element for item price
       let userItemPrice = document.createElement("p");
       userItemPrice.classList.add("user-cart-item-price");
@@ -134,7 +103,12 @@ export function renderUserCartinWidget() {
 
       // Creates AddEventListener for changing qauntity
       productQuantityInput.addEventListener("change", () => {
-        changeQuantity(i, userCartInWidget[i], productQuantityInput.value, userCartInWidget);
+        changeQuantity(
+          i,
+          userCartInWidget[i],
+          productQuantityInput.value,
+          userCartInWidget
+        );
         // showShoppingCart();
         putUserCartInLS(userCartInWidget);
       });
@@ -143,12 +117,12 @@ export function renderUserCartinWidget() {
         removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
     }
-      // Creates container for checkoutbutton in usercart
+    // Creates container for checkoutbutton in usercart
     const checkoutbuttonContainer = document.createElement("div");
     checkoutbuttonContainer.classList.add("user-cart-item__container");
     userCartWidget.appendChild(checkoutbuttonContainer);
-    
-    //Creates link too checkout 
+
+    //Creates link too checkout
     const checkoutlink = document.createElement("a");
     checkoutlink.classList.add("checkout-link");
     checkoutlink.setAttribute("href", "./html/checkout.html");
@@ -167,9 +141,7 @@ export function removeItemfromUserCart(
   userCartPosition: number,
   userCartInWidget: CartProductTemplate[]
 ) {
-  console.log("Du vill ta bort " + userCartItem.product.name);
   userCartInWidget.splice(userCartPosition, 1);
-  console.log(userCartInWidget);
   putUserCartInLS(userCartInWidget);
   renderUserCartinWidget();
 }

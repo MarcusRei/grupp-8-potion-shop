@@ -84,7 +84,6 @@ export const products: ProductTemplate[] = [
 //     image: placeholder_square,
 //     size: "small",
 //     type: "healing",
-//     quantity: 5,
 //   },
 //   {
 //     name: "Medium healing potion",
@@ -92,7 +91,6 @@ export const products: ProductTemplate[] = [
 //     image: placeholder_square,
 //     size: "medium",
 //     type: "healing",
-//     quantity: 4,
 //   },
 //   {
 //     name: "Large healing potion",
@@ -100,6 +98,5 @@ export const products: ProductTemplate[] = [
 //     image: placeholder_square,
 //     size: "large",
 //     type: "healing",
-//     quantity: 2,
 //   },
 // ];

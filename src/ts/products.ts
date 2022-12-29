@@ -6,11 +6,9 @@ import { toggleFilterMenu } from "./services/filter";
 import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
-  console.log("products body onload Fn started");
   renderProductlist(products);
 };
 let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
-console.log(productsPageUserCart);
 
 export function renderProductlist(listToRender: ProductTemplate[]) {
   (document.querySelector(".product__list") as HTMLElement).innerHTML = "";
@@ -75,23 +73,12 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
-      // let newQuantity = productAmount.value;
-      // original addProductToCart function
       addProductToCart(
         productsPageUserCart,
         listToRender[i],
         productAmount.value
       );
 
-      // //trial and error addProductToCart function
-      // addProductToCart(
-      //   products,
-      //   i,
-      //   products[i],
-      //   newQuantity,
-      //   productsPageUserCart
-      // );
-      //changeQuantity(i, products[i], productAmount.value, productsPageUserCart);
       putUserCartInLS(productsPageUserCart);
     });
   }
