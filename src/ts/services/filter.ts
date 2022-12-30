@@ -313,13 +313,13 @@ let filterMenu: HTMLDivElement = document.getElementById(
   "filter-menu"
 ) as HTMLDivElement;
 
-let clearFilterBtn: HTMLButtonElement = document.getElementById(
-  "clear-filter"
-) as HTMLButtonElement;
+// let clearFilterBtn: HTMLButtonElement = document.getElementById(
+//   "clear-filter"
+// ) as HTMLButtonElement;
 
-clearFilterBtn.addEventListener("click", () => {
-  renderProductlist(products);
-});
+// clearFilterBtn.addEventListener("click", () => {
+//   renderProductlist(products);
+// });
 
 export function toggleFilterMenu() {
   if (filterMenu.classList.contains("filter-menu__invisible")) {

@@ -88,15 +88,16 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 }
 
 //Code for out first filter (button eventlistener)
-let filterBtn: HTMLButtonElement = document.getElementById(
-  "filter-btn"
-) as HTMLButtonElement;
-filterBtn.addEventListener("click", () => {
-  toggleFilterMenu();
-});
+
+// let filterBtn: HTMLButtonElement = document.getElementById(
+//   "filter-btn"
+// ) as HTMLButtonElement;
+// filterBtn.addEventListener("click", () => {
+//   toggleFilterMenu();
+// });
 
 // Filter button for new filter function
-const filterButton: HTMLButtonElement = document.getElementById("new-filter-btn")as HTMLButtonElement;
+const filterButton: HTMLButtonElement = document.getElementById("filter-btn")as HTMLButtonElement;
 const filterBackground: HTMLDivElement = document.getElementById("filter-background")as HTMLDivElement;
 
 
