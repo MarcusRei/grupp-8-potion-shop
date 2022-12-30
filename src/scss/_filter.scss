@@ -1,6 +1,54 @@
 @use "colors" as col;
 @use "mixins";
 
+#filter-background {
+  position: absolute;
+  display: none;
+  height: 100vh;
+  background-color: rgba(72, 72, 72, 0.4);
+  width: 100vw;
+  left: 20vw;
+}
+
+#filter-container {
+  position: fixed;
+  height: 100vh;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  background-color: col.$color-grey-very-light;
+ 
+  width: 60vw;
+  z-index: 200;
+  left: 0;
+
+  @include mixins.desktop {
+    width: 20vw;
+  }
+}
+
+.filter-category {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__selection {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+}
+
+
 .filter-menu__invisible {
   display: none;
 }

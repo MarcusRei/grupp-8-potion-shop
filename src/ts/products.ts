@@ -2,7 +2,7 @@ import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
 import { CartProductTemplate } from "./models/CartProductTemplate";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
-import { toggleFilterMenu } from "./services/filter";
+import { closeFilter, showFilter, toggleFilterMenu, toggleHealing, toggleLarge, toggleMana, toggleMedium, toggleSmall, toggleStamina } from "./services/filter";
 import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
@@ -18,6 +18,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     //Creates container for a product
     let productContainer = document.createElement("div");
     productContainer.classList.add("product__container");
+    productContainer.setAttribute("id", listToRender[i].name);
     document.querySelector(".product__list")?.appendChild(productContainer);
 
     //Creates element for product image
@@ -86,10 +87,80 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
   }
 }
 
-//Filter button eventlistener
+//Code for out first filter (button eventlistener)
 let filterBtn: HTMLButtonElement = document.getElementById(
   "filter-btn"
 ) as HTMLButtonElement;
 filterBtn.addEventListener("click", () => {
   toggleFilterMenu();
 });
+
+// Filter button for new filter function
+const filterButton: HTMLButtonElement = document.getElementById("new-filter-btn")as HTMLButtonElement;
+const filterBackground: HTMLDivElement = document.getElementById("filter-background")as HTMLDivElement;
+
+
+filterButton.addEventListener("click", ()=> {
+  showFilter();
+  console.log("filter was clicked");
+});
+
+filterBackground.addEventListener("click", ()=> {
+  closeFilter();
+});
+
+
+// filter checkboxes 
+
+// small
+let checkboxSmall :HTMLInputElement= document.getElementById("checkbox-small") as HTMLInputElement;
+checkboxSmall.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleSmall(checkboxSmall);
+});
+
+// medium
+let checkboxMedium :HTMLInputElement= document.getElementById("checkbox-medium") as HTMLInputElement;
+checkboxMedium.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleMedium(checkboxMedium);
+})
+
+// large
+let checkboxLarge :HTMLInputElement= document.getElementById("checkbox-large") as HTMLInputElement;
+checkboxLarge.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleLarge(checkboxLarge);
+})
+
+// healing
+let checkboxHealing :HTMLInputElement= document.getElementById("checkbox-healing") as HTMLInputElement;
+checkboxHealing.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleHealing(checkboxHealing);
+})
+
+// mana
+let checkboxMana :HTMLInputElement= document.getElementById("checkbox-mana") as HTMLInputElement;
+checkboxMana.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleMana(checkboxMana);
+})
+
+// stamina
+let checkboxStamina :HTMLInputElement= document.getElementById("checkbox-stamina") as HTMLInputElement;
+checkboxStamina.addEventListener("change", (e)=> {
+  e.preventDefault();
+  toggleStamina(checkboxStamina);
+})
+
+window.addEventListener("load", (e) => {
+  checkboxSmall.checked = false;
+  checkboxMedium.checked = false;
+  checkboxLarge.checked = false;
+  checkboxHealing.checked = false;
+  checkboxMana.checked = false;
+  checkboxStamina.checked = false;
+  console.log("i was triggerd");
+})
+
