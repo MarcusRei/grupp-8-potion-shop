@@ -19,7 +19,6 @@ header {
 //layout navigation bar
 nav {
   width: 100%;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,7 +40,8 @@ nav {
       // top: 3vh;
       // // align-self: center;
       // left: 6vw;
-      mix-blend-mode: multiply;
+      // mix-blend-mode: multiply;
+      @include mix.burned--img;
 
       height: 7vh;
       @include mix.tablet {
@@ -55,10 +55,6 @@ nav {
 
         // font-size: 4rem;
         // color: white;
-      }
-
-      &:hover {
-        mix-blend-mode: soft-light; //soft-light eller color-burn
       }
     }
   }
