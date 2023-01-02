@@ -173,6 +173,6 @@ export function userCartTotal(
     usercartTotalSum +=
       userCartInWidget[i].product.price * usercartQuantity.valueAsNumber;
   }
-  usercartTotal.innerHTML = usercartTotalSum.toString() + "G";
+  usercartTotal.innerHTML = "Your total: " + usercartTotalSum.toString() + "G";
   checkoutButtonContainer.appendChild(usercartTotal);
 }
