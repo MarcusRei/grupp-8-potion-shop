@@ -29,7 +29,7 @@ footer {
     display: flex;
     flex-direction: column;
     width: 50%;
-    gap: 10px;
+    gap: 1em;
     margin: 1.5em;
 
     @include mix.desktop {

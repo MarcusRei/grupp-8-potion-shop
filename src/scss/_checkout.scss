@@ -99,6 +99,12 @@
     width: 10%;
   }
 }
+
+.user-cart-item__remove-btn:hover {
+  background-color: col.$color-grey-very-light;
+  cursor: pointer;
+}
+
 .itemRow:last-child {
   margin: 5px 5px 0 5px;
   // padding: 0 5px 0 5px;
@@ -142,7 +148,6 @@
 .sumContainer {
   display: flex;
   justify-content: space-evenly;
-  // margin-top: 2vh;
   background-color: col.$color-grey-dark;
   border-radius: 10px;
   width: 80%;
@@ -173,4 +178,9 @@
     height: 8vh;
     width: 20%;
   }
+}
+
+#checkoutBtn:hover {
+  cursor: pointer;
+  background-color: col.$color-grey-very-light;
 }
