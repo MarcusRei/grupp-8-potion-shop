@@ -1,6 +1,7 @@
 @use "variables" as var;
 @use "colors" as col;
 
+//Screen size
 @mixin tablet {
   @media screen and (min-width: var.$tablet) {
     @content;
@@ -11,6 +12,7 @@
     @content;
   }
 }
+
 //background
 @mixin background--mobile {
   background-color: col.$color-background-grey;
@@ -102,7 +104,7 @@
 
 //menu
 @mixin menu--font {
-  font-family: var.$font-menu;
+  font-family: var.$font-main;
   font-weight: bold;
   font-variant: small-caps;
 }

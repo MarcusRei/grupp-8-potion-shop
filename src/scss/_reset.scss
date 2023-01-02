@@ -1,8 +1,12 @@
+@use "variables" as var;
+@use "mixins" as mix;
+
 body {
   margin: 0;
   overflow-x: hidden;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
+  font-family: var.$font-main;
 
   &::-webkit-scrollbar {
     display: none; /* Safari and Chrome */

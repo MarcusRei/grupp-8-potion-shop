@@ -1,5 +1,6 @@
 @use "mixins" as mix;
 @use "colors" as col;
+@use "variables" as var;
 
 #checkout-body {
   @include mix.background--mobile;
@@ -17,6 +18,7 @@
   // min-height: 80vh;
   min-height: 100vh;
 }
+
 #shoppingCart-title {
   font-size: 1.8em;
   margin: 15px 0px 5px 0px;
@@ -26,6 +28,7 @@
     // margin: 15px 0px 5px 0px;
   }
 }
+
 .shoppingCart {
   display: flex;
   flex-direction: column;
@@ -34,8 +37,10 @@
   width: 90%;
   @include mix.desktop {
     width: 70%;
+    font-size: 1.3em;
   }
 }
+
 // produkt row
 .itemRow {
   display: flex;
@@ -94,6 +99,12 @@
     width: 10%;
   }
 }
+
+.user-cart-item__remove-btn:hover {
+  background-color: col.$color-grey-very-light;
+  cursor: pointer;
+}
+
 .itemRow:last-child {
   margin: 5px 5px 0 5px;
   // padding: 0 5px 0 5px;
@@ -109,6 +120,7 @@
     padding-left: 0;
   }
 }
+
 .checkout-name-container {
   display: flex;
   justify-content: center;
@@ -118,6 +130,7 @@
     width: 55%;
   }
 }
+
 .checkout-product-change-container {
   display: flex;
   justify-content: space-between;
@@ -135,7 +148,6 @@
 .sumContainer {
   display: flex;
   justify-content: space-evenly;
-  // margin-top: 2vh;
   background-color: col.$color-grey-dark;
   border-radius: 10px;
   width: 80%;
@@ -146,6 +158,7 @@
     width: 50%;
   }
 }
+
 #checkoutBtn {
   padding: 5px;
   height: 50px;
@@ -156,6 +169,8 @@
   border: none;
   color: col.$color-text-light;
   margin-bottom: 20px;
+  font-family: var.$font-main;
+  font-weight: 600;
 
   @include mix.desktop {
     font-size: large;
@@ -163,4 +178,9 @@
     height: 8vh;
     width: 20%;
   }
+}
+
+#checkoutBtn:hover {
+  cursor: pointer;
+  background-color: col.$color-grey-very-light;
 }

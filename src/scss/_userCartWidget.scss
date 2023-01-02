@@ -52,73 +52,49 @@
   }
 }
 .user-cart-item__container {
-  // width: 90%;
   width: 100vw;
   height: 50px;
-  // padding: 0.5em;
   padding-top: 1em;
   display: flex;
-  // gap: 1em;
-  // justify-content: space-around;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  // width: 90%;
+  // padding: 0.5em;
+  // gap: 1em;
   // border-bottom: 1px solid rgba(0, 0, 0, 0.837);
+
   @include mix.hanging-plank--mobile;
   // background-image: url(../assets/images/MobileHangingSign.png);
   // background-repeat: no-repeat;
   // background-position: top center;
   // background-size: 100vw; //cover;
-  @include mix.tablet {
+
+  @include mix.desktop {
     @include mix.hanging-plank--tablet;
     background-size: contain; //cover;
     width: 60%;
     // margin-right: 1em;
     padding-top: 0;
-    margin-top: -0.6%;
-  }
-  @include mix.desktop {
-    @include mix.hanging-plank--tablet;
-    // background-size: contain; //cover;
-    // padding-top: 0;
-    justify-content: space-around;
-    width: 100%;
-    margin-top: -1%;
-    // margin-left: 2em;
+    width: 95%;
+    margin-top: -0.5%;
   }
   .img-container {
     display: flex;
     align-items: center;
-
     width: 10%;
     height: 100%;
-    margin-left: 0.5em;
-    // padding-left: 1.5em;
-    @include mix.tablet {
-      margin-left: 1.5em;
-    }
+
     @include mix.desktop {
-      // padding-left: 1em;
-      // margin: 0;
-      // margin-top: 0.5em;
-      // margin-left: 1.2em;
-      margin: 0;
-      width: 5%;
+      padding-left: 1em;
     }
 
     .user-cart-item__image {
       width: auto;
       height: 75%; //10%;
-      // margin-left: 1em;
-      // margin-right: 0.3em;
-      @include mix.tablet {
-        height: 50%;
-        // margin-right: 1.5em;
-        // margin-bottom: 0.1em;
-      }
+
       @include mix.desktop {
         height: 55%;
-        // margin-right: 1.5em;
-        margin-bottom: 0.1em;
       }
     }
   }
@@ -126,16 +102,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 40%;
     height: 100%;
 
     @include mix.tablet {
       justify-content: flex-start;
     }
     @include mix.desktop {
-      // margin-top: 0.5em;
-      // margin-bottom: 0.1em;
-      width: 25%;
     }
     .user-cart-item__info-name {
       width: 41%;
@@ -143,14 +116,13 @@
   }
   .product-change-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1em;
     align-items: center;
     width: 35%;
     margin-right: 0.5em;
     @include mix.desktop {
-      // margin-top: 0.7em;
-      margin: 0;
-      width: 20%;
+      width: 30%;
     }
 
     #productQuantityCartWidget {
@@ -176,6 +148,7 @@
     }
 
     .user-cart-item__remove-btn {
+      position: relative;
       width: 20%;
       height: 100%;
       margin-right: 0.5em;
@@ -185,28 +158,33 @@
       background-color: col.$color-grey-very-dark;
       border: none;
       border-radius: 5px;
-      // margin-right: 1.5em;
+      margin-right: 1.5em;
+      bottom: 0.2em;
       // color: col.$color-text-light;
       // mix-blend-mode: soft-light;
       @include mix.burned--icon;
-      @include mix.tablet {
-        margin-right: 1.2em;
-        width: 15%;
+
+      @include mix.desktop {
+        width: 10%;
+        bottom: 0;
       }
-      // @include mix.desktop {
-      //   width: 20px;
-      //   margin-right: 1.5em;
-      // }
+    }
+
+    .user-cart-item__remove-btn:hover {
+      background-color: col.$color-burned;
     }
   }
 }
 
 .checkout-btn-container {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+
+  @include mix.desktop {
+    gap: 15em;
+  }
 
   .checkout-link {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -214,15 +192,15 @@
     @include mix.menu--font;
     @include mix.burned--text-btn;
     font-size: 1.5rem;
-    // padding-right: 3em;
-    padding: 0.01em 0.3em 0.01em 0.3em;
-    border: 1px solid;
+    padding-right: 3em;
     border-color: col.$color-burned;
     border-radius: 0.5em;
 
-    @include mix.tablet {
-      padding: 0.01em 0.3em 0.01em 0.3em;
-      font-size: large;
+    @include mix.desktop {
+      border: none;
+      padding-left: 2em;
+      padding-right: 2em;
+      left: 4.5em;
     }
 
     // @include mix.desktop {

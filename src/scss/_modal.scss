@@ -1,7 +1,9 @@
 @use "mixins" as mix;
 @use "colors" as col;
+@use "variables" as var;
 
 .modal {
+  font-family: var.$font-main;
   position: fixed;
   z-index: 1;
   padding-top: 50vh; /*location of box on screen*/
@@ -32,7 +34,7 @@
       font-size: x-large;
       color: col.$color-text-light;
       font-weight: bolder;
-      margin-left: 5px;
+      margin-left: 0.5em;
 
       &:hover,
       &:focus {
