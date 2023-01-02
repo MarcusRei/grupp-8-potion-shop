@@ -3,7 +3,7 @@
 @use "variables" as var;
 
 .modal {
-  font-family: var.$font-menu;
+  font-family: var.$font-main;
   position: fixed;
   z-index: 1;
   padding-top: 50vh; /*location of box on screen*/
