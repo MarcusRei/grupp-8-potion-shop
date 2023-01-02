@@ -144,9 +144,11 @@ export function renderUserCartinWidget() {
     let usercartTotalSum = 0;
 
     for (let i = 0; i < userCartInWidget.length; i++) {
-      usercartTotalSum += userCartInWidget[i].product.price;
+      usercartTotalSum +=
+        userCartInWidget[i].product.price * userCartInWidget[i].quantity;
     }
-    usercartTotal.innerHTML = usercartTotalSum.toString() + "G";
+    usercartTotal.innerHTML =
+      "Your total: " + usercartTotalSum.toString() + "G";
     checkoutButtonContainer.appendChild(usercartTotal);
   }
 }

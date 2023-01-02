@@ -4,13 +4,15 @@
 
 // layout header
 header {
-  justify-content: flex-end;
   display: flex;
-  height: 10vh;
+  justify-content: flex-end;
+  // height: 10vh;
   position: fixed;
+  align-items: center;
   width: 100vw;
   top: 0;
   z-index: 100;
+  @include mix.header;
   @include mix.hanging-plank--mobile;
   @include mix.hanging-plank--tablet;
   @include mix.hanging-plank--desktop;
@@ -22,39 +24,64 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 70px;
+  // // align-items: center;
+  // gap: 70px;
+  @include mix.tablet {
+    justify-content: flex-end;
+  }
+  @include mix.desktop {
+    justify-content: space-between;
+  }
 
   .logo-container {
     display: flex;
-    // width: 5em;
-    height: 10vh;
-    width: 10vw;
     justify-content: center;
-    align-items: center;
+    align-self: center;
+    // width: 5em;
+    width: 30vw;
+    // height: 100%;
+
+    height: var.$header-height--mobile;
     cursor: pointer;
+    @include mix.tablet {
+      height: var.$header-height--tablet;
+      width: 70vw;
+      justify-content: flex-start;
+    }
+    @include mix.desktop {
+      width: 10vw;
+      height: var.$header-height--desktop;
+    }
+    a {
+      display: flex;
+      align-items: center;
 
-    .logo-icon {
-      // position: fixed;
-      margin-left: 20vw;
-      margin-top: 3vh;
-      // top: 3vh;
-      // // align-self: center;
-      // left: 6vw;
-      // mix-blend-mode: multiply;
-      @include mix.burned--img;
+      .logo-icon {
+        // position: fixed;
+        // margin-left: 20vw;
+        // margin-top: 3vh;
+        // top: 3vh;
+        // align-self: center;
+        // left: 6vw;
+        // mix-blend-mode: multiply;
+        // display: flex;
+        // align-self: center;
+        height: 60%;
+        @include mix.burned--img;
 
-      height: 7vh;
-      @include mix.tablet {
-        left: 2vw;
-        top: 15px;
-      }
-      @include mix.desktop {
-        margin-left: 2vw;
-        // left: 2vw;
-        // top: 2vh; //25px;;
+        @include mix.tablet {
+          // margin-left: 0; //??
+          // left: 2vw;
+          // top: 15px;
+        }
+        @include mix.desktop {
+          margin-left: 0;
+          margin-left: 2em;
+          // top: 2vh; //25px;;
 
-        // font-size: 4rem;
-        // color: white;
+          // font-size: 4rem;
+          // color: white;
+        }
       }
     }
   }
@@ -73,6 +100,7 @@ nav {
     gap: 30px;
     padding: 0;
     list-style-type: none;
+    margin: 0;
 
     &__checkout {
       margin-right: 2rem;
@@ -105,13 +133,24 @@ nav {
 
   .shoppingcart-container {
     display: flex;
-    width: 10vw;
-    height: 10vh;
+    // width: 10vw;
+    // height: 100%;
+    height: var.$header-height--mobile;
     // width: 80px;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     cursor: pointer;
     display: flex;
+    width: 40vw;
+    @include mix.tablet {
+      height: var.$header-height--tablet;
+      width: 10vw;
+      justify-content: center;
+    }
+    @include mix.desktop {
+      height: var.$header-height--desktop;
+      width: 10vw;
+    }
 
     &__checkout {
       display: none;
@@ -123,32 +162,32 @@ nav {
     // }
 
     .cart-icon {
+      // margin-top: 2vh;
+      // margin-right: 12vw;
       // margin-left: 10vw;
       // margin-top: 1vh;
       // margin-left: 20vw;
-      margin-top: 2vh;
       // position: fixed;
       // top: 2vh;
-
-      // height: 7%;
+      // padding: 1em;
+      height: 60%;
       // position: fixed;
       // top: 3vh;
       // align-self: center;
       // left: 6vw;
-      margin-right: 12vw;
       @include mix.burned--img;
       // mix-blend-mode: multiply;
-      height: 7vh;
+      // height: 90%;
 
       // height: 50px;
       @include mix.tablet {
-        right: 2vw;
-        top: 15px;
+        // right: 2vw;
+        // top: 15px;
       }
       @include mix.desktop {
+        // margin-right: 2vw;
+        // margin-top: 1.5vh;
         // top: 1.5vh; //25px;
-        margin-right: 2vw;
-        margin-top: 1.5vh;
 
         // left: 2vw;
         // top: 2vh;//25px;;
@@ -164,6 +203,7 @@ nav {
 
 // layout and styling hamburger-menu
 #hamburgerButton {
+  display: flex; //
   justify-content: center;
   align-items: center;
   // background-color: col.$color-accent-purple;
@@ -173,8 +213,18 @@ nav {
   cursor: pointer;
   z-index: 100;
 
-  padding-top: 2vh;
-  padding-right: 5vw;
+  // padding-top: 2vh;
+  // padding-right: 5vw;
+  padding: 0;
+  // width: 10vw;
+  width: 30vw;
+
+  @include mix.tablet {
+    width: 15vw;
+  }
+  @include mix.desktop {
+    width: 10vw;
+  }
 
   @include mix.burned--text-btn;
   // color: col.$color-burned;
@@ -225,6 +275,14 @@ nav {
     }
   }
 
+  .hamburger-menu-item:first-child {
+    margin-top: 0.2em;
+
+    @include mix.tablet {
+      // margin-top: 0em;
+      margin-top: 0.75em;
+    }
+  }
   .hamburger-menu-item {
     width: 100vw;
     height: 10vh;
@@ -241,7 +299,6 @@ nav {
     display: flex;
     justify-content: center;
   }
-
   .menu-link-mobile {
     //finns en til menu-link längre upp för desktop!!
     display: flex;

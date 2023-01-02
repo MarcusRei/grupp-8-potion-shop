@@ -25,7 +25,8 @@
     <!-- header -->
     <header>
       <nav>
-        <div class="logo-container home-button">
+        <div class="logo-container">
+          <!-- home-button -->
           <a href="./index.html"
             ><img
               src="./assets/images/burnedCauldron.png"
@@ -52,27 +53,35 @@
             />
           </div>
         </div>
+        <!-- hamburger-button -->
+        <button id="hamburgerButton" type="button">
+          <span class="material-symbols-rounded icon" id="menuIcon">menu</span>
+          <span class="material-symbols-rounded icon" id="closeIcon"
+            >close</span
+          >
+        </button>
+
+        <!-- mobilenav -->
+        <div class="mobilenav-container" id="mobilenav">
+          <ul class="mobilenav-menu">
+            <li class="hamburger-menu-item">
+              <a href="./html/products.html" class="menu-link-mobile"
+                >Products</a
+              >
+            </li>
+            <li class="hamburger-menu-item">
+              <a href="./html/checkout.html" class="menu-link-mobile"
+                >Checkout</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- usercart widget  -->
+        <article
+          id="user-cart__container"
+          class="user-cart__invisible"
+        ></article>
       </nav>
-
-      <!-- hamburger-button -->
-      <button id="hamburgerButton" type="button">
-        <span class="material-symbols-rounded icon" id="menuIcon">menu</span>
-        <span class="material-symbols-rounded icon" id="closeIcon">close</span>
-      </button>
-
-      <!-- mobilenav -->
-      <div class="mobilenav-container" id="mobilenav">
-        <ul class="mobilenav-menu">
-          <li class="hamburger-menu-item">
-            <a href="./html/products.html" class="menu-link-mobile">Products</a>
-          </li>
-          <li class="hamburger-menu-item">
-            <a href="./html/checkout.html" class="menu-link-mobile">Checkout</a>
-          </li>
-        </ul>
-      </div>
-      <!-- usercart widget  -->
-      <article id="user-cart__container" class="user-cart__invisible"></article>
     </header>
 
     <!-- main-content -->
