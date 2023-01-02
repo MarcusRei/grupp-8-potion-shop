@@ -90,13 +90,13 @@
     align-items: center;
     width: 10%;
     height: 100%;
-    margin-left: 0.5em;
+    margin-left: 1em;
     @include mix.tablet {
       margin-left: 1.5em;
     }
-    @include mix.desktop {
-      padding-left: 1em;
-    }
+    // @include mix.desktop {
+    //   margin-left: 1em;
+    // }
 
     .user-cart-item__image {
       width: auto;
@@ -130,7 +130,7 @@
     justify-content: space-between; //justify-content: center;
     align-items: center;
     gap: 1em;
-    width: 40%; //35%;
+    width: 35%;
     margin-right: 1em;
     @include mix.tablet {
       margin-right: 1.5em;
@@ -163,7 +163,7 @@
     }
 
     .user-cart-item__remove-btn {
-      position: relative;
+      // position: relative;
       width: 20%;
       height: 100%;
       // margin-right: 0.5em;
