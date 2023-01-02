@@ -146,7 +146,7 @@ export function renderUserCartinWidget() {
     let usercartTotal = document.createElement("div");
     usercartTotal.classList.add("checkout-total");
     usercartTotal.setAttribute("id", "usercart-total-amount");
-    usercartTotal.innerHTML = sumUsercart + " G";
+    usercartTotal.innerHTML = "Your total: " + sumUsercart + " G";
     checkoutButtonContainer.appendChild(usercartTotal);
     //Creates usercart total amount
     // userCartTotal(userCartInWidget, checkoutButtonContainer);
