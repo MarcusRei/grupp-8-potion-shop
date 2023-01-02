@@ -1,45 +1,62 @@
 @use "mixins" as mix;
 @use "colors" as col;
+@use "variables" as var;
 
 // footer layout
 footer {
   display: flex;
   flex-direction: column;
-  height: 225px;
   width: 100vw;
-
   background-color: col.$color-accent-purple;
   color: col.$color-text-light;
 }
 
 .information-container {
   display: flex;
-  flex-direction: row;
-  height: 175px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 
   @include mix.desktop {
     justify-content: space-around;
-  }
-}
-
-// customerservice layout
-.customerservice-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 10px;
-  margin: 1.5em;
-
-  @include mix.desktop {
-    width: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
   }
 
-  .customerservice-title {
-    margin: 0;
-  }
+  // customerservice layout
+  .customerservice-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 10px;
+    margin: 1.5em;
 
-  .customerservice-info {
-    margin: 0;
+    @include mix.desktop {
+      width: auto;
+    }
+
+    .customerservice-title {
+      margin: 0;
+      font-size: 1em;
+      text-align: center;
+
+      @include mix.desktop {
+        text-align: left;
+        font-size: 1em;
+      }
+    }
+
+    .customerservice-info {
+      margin: 0;
+      font-family: var.$font-body;
+      font-weight: 400;
+      font-size: 1.1em;
+
+      @include mix.desktop {
+        font-size: 1.2em;
+      }
+    }
   }
 }
 
@@ -57,12 +74,39 @@ footer {
 
   .contact-title {
     margin: 0;
+    font-size: 1em;
+    text-align: center;
+
+    @include mix.desktop {
+      text-align: left;
+      font-size: 1.3em;
+    }
   }
 
   .contact-info {
     margin: 0;
+    font-size: 0.8em;
+    text-align: center;
+
+    @include mix.desktop {
+      text-align: left;
+      font-size: 1em;
+    }
+  }
+
+  .contact-info__body {
+    font-family: var.$font-body;
+    font-weight: 400;
+    font-size: 1.1em;
+    text-align: center;
+
+    @include mix.desktop {
+      font-size: 1.2em;
+      text-align: left;
+    }
   }
 }
+
 .logotype-img {
   width: 30vw;
 
@@ -70,9 +114,11 @@ footer {
     width: 20vw;
   }
   @include mix.desktop {
+    display: flex;
     width: 10vw;
   }
 }
+
 // copyright layout
 .copyright-container {
   display: flex;
