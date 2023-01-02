@@ -34,6 +34,7 @@ export function toggleUserCartWidget() {
 // creates html for products in shoppingcart in usercartwidget
 export function renderUserCartinWidget() {
   let userCartInWidget: CartProductTemplate[] = getUserCartFromLS();
+  let sumUsercart: string = sumUsercartTotal(userCartInWidget);
   userCartWidget.innerHTML = "";
   console.log("usercart was updated");
   if (userCartInWidget.length === 0) {
@@ -111,6 +112,7 @@ export function renderUserCartinWidget() {
           userCartInWidget
         );
         putUserCartInLS(userCartInWidget);
+        renderUserCartinWidget();
       });
 
       // Creates eventListener for removing an item from the usercart
@@ -138,8 +140,16 @@ export function renderUserCartinWidget() {
     checkoutLink.innerHTML = `CHECKOUT`;
     checkoutButtonContainer.appendChild(checkoutLink);
 
+    //Creates html for total amount
+
+    console.log(sumUsercart);
+    let usercartTotal = document.createElement("div");
+    usercartTotal.classList.add("checkout-total");
+    usercartTotal.setAttribute("id", "usercart-total-amount");
+    usercartTotal.innerHTML = sumUsercart + " G";
+    checkoutButtonContainer.appendChild(usercartTotal);
     //Creates usercart total amount
-    userCartTotal(userCartInWidget, checkoutButtonContainer);
+    // userCartTotal(userCartInWidget, checkoutButtonContainer);
   }
 }
 
@@ -158,21 +168,36 @@ export function removeItemfromUserCart(
   renderUserCartinWidget();
 }
 
-export function userCartTotal(
-  userCartInWidget: CartProductTemplate[],
-  checkoutButtonContainer: HTMLDivElement
-) {
-  let usercartTotal = document.createElement("div");
-  usercartTotal.classList.add("checkout-total");
-  let usercartTotalSum = 0;
-
+// Counts out the total price in usercart
+function sumUsercartTotal(userCartInWidget: CartProductTemplate[]) {
+  let sum: number = 0;
   for (let i = 0; i < userCartInWidget.length; i++) {
-    let usercartQuantity: HTMLInputElement = document.getElementById(
-      "productQuantityCartWidget"
-    ) as HTMLInputElement;
-    usercartTotalSum +=
-      userCartInWidget[i].product.price * usercartQuantity.valueAsNumber;
+    if (userCartInWidget.length >= 1) {
+      sum =
+        sum + userCartInWidget[i].product.price * userCartInWidget[i].quantity;
+    } else {
+      sum = 0;
+    }
   }
-  usercartTotal.innerHTML = "Your total: " + usercartTotalSum.toString() + "G";
-  checkoutButtonContainer.appendChild(usercartTotal);
+  let totalPrice: string = sum.toString();
+  return totalPrice;
 }
+
+// export function userCartTotal(
+//   userCartInWidget: CartProductTemplate[],
+//   checkoutButtonContainer: HTMLDivElement
+// ) {
+//   let usercartTotal = document.createElement("div");
+//   usercartTotal.classList.add("checkout-total");
+//   let usercartTotalSum = 0;
+
+//   for (let i = 0; i < userCartInWidget.length; i++) {
+//     let usercartQuantity: HTMLInputElement = document.getElementById(
+//       "productQuantityCartWidget"
+//     ) as HTMLInputElement;
+//     usercartTotalSum +=
+//       userCartInWidget[i].product.price * usercartQuantity.valueAsNumber;
+//   }
+//   usercartTotal.innerHTML = usercartTotalSum.toString() + "G";
+//   checkoutButtonContainer.appendChild(usercartTotal);
+// }

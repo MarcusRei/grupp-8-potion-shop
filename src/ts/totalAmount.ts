@@ -23,4 +23,5 @@ export function sumTotalPrice() {
   let totalPrice: string = sum.toString();
   sumCheckout.innerText = totalPrice + " G";
   sumModal.innerText = "Your total: " + totalPrice + " G";
+
 }
