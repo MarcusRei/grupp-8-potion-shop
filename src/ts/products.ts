@@ -2,7 +2,7 @@ import { getUserCartFromLS, putUserCartInLS } from "./localStorage";
 import { CartProductTemplate } from "./models/CartProductTemplate";
 import { products } from "./models/ProductList";
 import { ProductTemplate } from "./models/ProductTemplate";
-import { closeFilter, showFilter, toggleFilterMenu, toggleHealing, toggleLarge, toggleMana, toggleMedium, toggleSmall, toggleStamina } from "./services/filter";
+import { clearFilter, closeFilter, showFilter, toggleFilterMenu, toggleHealing, toggleLarge, toggleMana, toggleMedium, toggleSmall, toggleStamina } from "./services/filter";
 import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
@@ -87,14 +87,21 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
   }
 }
 
-//Code for out first filter (button eventlistener)
+//Clear filter button 
 
-// let filterBtn: HTMLButtonElement = document.getElementById(
-//   "filter-btn"
-// ) as HTMLButtonElement;
-// filterBtn.addEventListener("click", () => {
-//   toggleFilterMenu();
-// });
+let filterBtn: HTMLButtonElement = document.getElementById(
+  "clear-filter"
+) as HTMLButtonElement;
+filterBtn.addEventListener("click", () => {
+  checkboxSmall.checked = false;
+  checkboxMedium.checked = false;
+  checkboxLarge.checked = false;
+  checkboxHealing.checked = false;
+  checkboxMana.checked = false;
+  checkboxStamina.checked = false;
+  
+  clearFilter();
+});
 
 // Filter button for new filter function
 const filterButton: HTMLButtonElement = document.getElementById("filter-btn")as HTMLButtonElement;
