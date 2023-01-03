@@ -70,6 +70,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    //fixa mått som stämmer när text är insatt
   }
 }
 #store-sign--message {
@@ -100,22 +101,6 @@
     width: 25vw;
   }
 }
-// #store-window {
-//   background-image: url("../assets/images/window.png");
-//   background-size: contain;
-//   background-position: center top;
-//   background-repeat: no-repeat;
-//   height: 40vh;
-//   width: 25vw;
-// }
-// #store-help {
-//   background-image: url("../assets/images/MonsterWSign.png");
-//   background-size: contain;
-//   background-position: center top;
-//   background-repeat: no-repeat;
-//   height: 40vh;
-//   width: 25vw;
-// }
 #store-side {
   display: none;
   @include mix.desktop {
