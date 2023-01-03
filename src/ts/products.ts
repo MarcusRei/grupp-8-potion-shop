@@ -19,17 +19,20 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   renderProductlist(products);
 };
-
+// function clearLocalStorage() {
+//   localStorage.clear();
+// }
 //Gets LS list
 let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
 
+// clearLocalStorage();
 export function renderProductlist(listToRender: ProductTemplate[]) {
   (document.querySelector(".product__list") as HTMLElement).innerHTML = "";
   for (let i = 0; i < listToRender.length; i++) {
     //Creates container for a product
     let productContainer = document.createElement("div");
     productContainer.classList.add("product__container");
-    productContainer.setAttribute("id", listToRender[i].name);
+    productContainer.setAttribute("id", listToRender[i].id);
     document.querySelector(".product__list")?.appendChild(productContainer);
 
     //Creates element for product image
@@ -58,7 +61,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     //Creates element for product price
     let productPrice = document.createElement("p");
     productPrice.classList.add("product__info-price");
-    productPrice.innerHTML = listToRender[i].price.toString() + "G";
+    productPrice.innerHTML = listToRender[i].price.toString() + " G";
     productinfoTextContainer.appendChild(productPrice);
 
     //Creates inputs container
@@ -68,7 +71,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 
     //Creates input field
     let productAmount = document.createElement("input");
-    productAmount.setAttribute("id", `add-${listToRender[i].name}-input`);
+    productAmount.setAttribute("id", `add-${listToRender[i].id}-input`);
     productAmount.type = "number";
     productAmount.value = "1";
     productAmount.classList.add("product__info-amount");
@@ -76,14 +79,15 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 
     //Creates "add to cart" button
     let productAddToCartBtn = document.createElement("button");
-    productAddToCartBtn.setAttribute("id", `add-${products[i].name}-button`);
+    productAddToCartBtn.setAttribute("id", `add-${listToRender[i].id}-button`);
     productAddToCartBtn.classList.add("product__info-buy-btn");
     productAddToCartBtn.innerText = "Add to cart";
     productInputs.appendChild(productAddToCartBtn);
 
     let productButton: HTMLButtonElement = document.getElementById(
-      `add-${listToRender[i].name}-button`
+      `add-${listToRender[i].id}-button`
     ) as HTMLButtonElement;
+    console.log(productButton.id + productAmount.id + " 've been made");
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
@@ -92,6 +96,7 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
         listToRender[i],
         productAmount.value
       );
+      console.log(productButton.id + "'ve been clicked");
 
       putUserCartInLS(productsPageUserCart);
     });

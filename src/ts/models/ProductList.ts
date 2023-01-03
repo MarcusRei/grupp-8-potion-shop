@@ -39,6 +39,7 @@ export const products: ProductTemplate[] = [
     size: "small",
     type: "healing",
     shelfImage: ShelfSHealth,
+    id: "health_s",
   },
   {
     name: "Medium healing potion",
@@ -47,6 +48,7 @@ export const products: ProductTemplate[] = [
     size: "medium",
     type: "healing",
     shelfImage: ShelfMHealth,
+    id: "health_m",
   },
   {
     name: "Large healing potion",
@@ -55,6 +57,7 @@ export const products: ProductTemplate[] = [
     size: "large",
     type: "healing",
     shelfImage: ShelfLHealth,
+    id: "health_l",
   },
   {
     name: "Small mana potion",
@@ -63,6 +66,7 @@ export const products: ProductTemplate[] = [
     size: "small",
     type: "mana",
     shelfImage: ShelfSMana,
+    id: "mana_s",
   },
   {
     name: "Medium mana potion",
@@ -71,6 +75,7 @@ export const products: ProductTemplate[] = [
     size: "medium",
     type: "mana",
     shelfImage: ShelfMMana,
+    id: "mana_m",
   },
   {
     name: "Large mana potion",
@@ -79,6 +84,7 @@ export const products: ProductTemplate[] = [
     size: "large",
     type: "mana",
     shelfImage: ShelfLMana,
+    id: "mana_l",
   },
   {
     name: "Small stamina potion",
@@ -87,6 +93,7 @@ export const products: ProductTemplate[] = [
     size: "small",
     type: "stamina",
     shelfImage: ShelfSStamina,
+    id: "stamina_s",
   },
   {
     name: "Medium stamina potion",
@@ -95,6 +102,7 @@ export const products: ProductTemplate[] = [
     size: "medium",
     type: "stamina",
     shelfImage: ShelfMStamina,
+    id: "stamina_m",
   },
   {
     name: "Large stamina potion",
@@ -103,38 +111,43 @@ export const products: ProductTemplate[] = [
     size: "large",
     type: "stamina",
     shelfImage: ShelfLStamina,
+    id: "stamina_l",
   },
   {
     name: "Potion of Poison",
     price: 200,
     image: Poison,
     size: "medium",
-    type: "poison",
+    type: "other",
     shelfImage: ShelfPoison,
+    id: "poison_m",
   },
   {
     name: "Potion of Joy",
     price: 200,
     image: Joy,
     size: "medium",
-    type: "poison",
+    type: "other",
     shelfImage: ShelfJoy,
+    id: "joy_m",
   },
   {
     name: "Potion of Time",
     price: 200,
     image: Time,
     size: "medium",
-    type: "poison",
+    type: "other",
     shelfImage: ShelfTime,
+    id: "time_m",
   },
   {
     name: "Potion of Invisability",
     price: 200,
     image: Invisability,
     size: "medium",
-    type: "poison",
+    type: "other",
     shelfImage: ShelfInvisability,
+    id: "invis_m",
   },
 ];
 

@@ -49,6 +49,7 @@
 
   .product__container-image {
     width: 90%;
+    z-index: 1;
 
     @include mix.desktop {
       width: 90%;
@@ -70,7 +71,6 @@
     // padding-right: 0.5em;
     padding-bottom: 1em;
     margin-top: -1em;
-    z-index: -1;
     @include mix.desktop {
       width: 95%;
     }
@@ -125,6 +125,7 @@
       padding: 1em;
       font-family: var.$font-main;
       font-weight: 600;
+      cursor: pointer;
     }
 
     .product__info-buy-btn:hover {
