@@ -94,6 +94,14 @@ export const products: ProductTemplate[] = [
     type: "stamina",
     shelfImage: ShelfLStamina,
   },
+  {
+    name: "Poison potion",
+    price: 200,
+    image: StaminaMedium,
+    size: "medium",
+    type: "poison",
+    shelfImage: ShelfMStamina,
+  },
 ];
 
 // export let testList = [
