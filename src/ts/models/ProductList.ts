@@ -19,6 +19,16 @@ import ShelfSStamina from "../../assets/images/ShelfSStamina.png";
 import ShelfMStamina from "../../assets/images/ShelfMStamina.png";
 import ShelfLStamina from "../../assets/images/ShelfLStamina.png";
 
+import Poison from "../../assets/images/PotionOfPoison.png";
+import Joy from "../../assets/images/PotionOfJoy.png";
+import Time from "../../assets/images/PotionOfTime.png";
+import Invisability from "../../assets/images/PotionOfInvisability.png";
+
+import ShelfPoison from "../../assets/images/ShelfPotionOfPoison.png";
+import ShelfJoy from "../../assets/images/ShelfPotionOfJoy.png";
+import ShelfTime from "../../assets/images/ShelfPotionOfTime.png";
+import ShelfInvisability from "../../assets/images/ShelfPotionOfInvisability.png";
+
 //./../assets/images/placeholder_square.jpg
 
 export const products: ProductTemplate[] = [
@@ -95,12 +105,36 @@ export const products: ProductTemplate[] = [
     shelfImage: ShelfLStamina,
   },
   {
-    name: "Poison potion",
+    name: "Potion of Poison",
     price: 200,
-    image: StaminaMedium,
+    image: Poison,
     size: "medium",
     type: "poison",
-    shelfImage: ShelfMStamina,
+    shelfImage: ShelfPoison,
+  },
+  {
+    name: "Potion of Joy",
+    price: 200,
+    image: Joy,
+    size: "medium",
+    type: "poison",
+    shelfImage: ShelfJoy,
+  },
+  {
+    name: "Potion of Time",
+    price: 200,
+    image: Time,
+    size: "medium",
+    type: "poison",
+    shelfImage: ShelfTime,
+  },
+  {
+    name: "Potion of Invisability",
+    price: 200,
+    image: Invisability,
+    size: "medium",
+    type: "poison",
+    shelfImage: ShelfInvisability,
   },
 ];
 
