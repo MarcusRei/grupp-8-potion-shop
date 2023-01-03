@@ -26,6 +26,13 @@ export function closeFilter () {
     filterContainer.style.display = "none";
 }
 
+export function clearFilter () {
+  for(let i = 0; i < products.length; i++) {
+    let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+    productContainer.style.display = "flex";
+  }
+}
+
 
 export function toggleSmall (checkbox :HTMLInputElement) {
   if(checkbox.checked){
