@@ -9,6 +9,16 @@ import StaminaSmall from "../../assets/images/StaminaSmall.png";
 import StaminaMedium from "../../assets/images/StaminaMedium.png";
 import StaminaLarge from "../../assets/images/StaminaLarge.png";
 
+import ShelfSHealth from "../../assets/images/ShelfSHealth.png";
+import ShelfMHealth from "../../assets/images/ShelfMHealth.png";
+import ShelfLHealth from "../../assets/images/ShelfLHealth.png";
+import ShelfSMana from "../../assets/images/ShelfSMana.png";
+import ShelfMMana from "../../assets/images/ShelfMMana.png";
+import ShelfLMana from "../../assets/images/ShelfLMana.png";
+import ShelfSStamina from "../../assets/images/ShelfSStamina.png";
+import ShelfMStamina from "../../assets/images/ShelfMStamina.png";
+import ShelfLStamina from "../../assets/images/ShelfLStamina.png";
+
 //./../assets/images/placeholder_square.jpg
 
 export const products: ProductTemplate[] = [
@@ -18,6 +28,7 @@ export const products: ProductTemplate[] = [
     image: HealthSmall,
     size: "small",
     type: "healing",
+    shelfImage: ShelfSHealth,
   },
   {
     name: "Medium healing potion",
@@ -25,6 +36,7 @@ export const products: ProductTemplate[] = [
     image: HealthMedium,
     size: "medium",
     type: "healing",
+    shelfImage: ShelfMHealth,
   },
   {
     name: "Large healing potion",
@@ -32,6 +44,7 @@ export const products: ProductTemplate[] = [
     image: HealthLarge,
     size: "large",
     type: "healing",
+    shelfImage: ShelfLHealth,
   },
   {
     name: "Small mana potion",
@@ -39,6 +52,7 @@ export const products: ProductTemplate[] = [
     image: ManaSmall,
     size: "small",
     type: "mana",
+    shelfImage: ShelfSMana,
   },
   {
     name: "Medium mana potion",
@@ -46,6 +60,7 @@ export const products: ProductTemplate[] = [
     image: ManaMedium,
     size: "medium",
     type: "mana",
+    shelfImage: ShelfMMana,
   },
   {
     name: "Large mana potion",
@@ -53,6 +68,7 @@ export const products: ProductTemplate[] = [
     image: ManaLarge,
     size: "large",
     type: "mana",
+    shelfImage: ShelfLMana,
   },
   {
     name: "Small stamina potion",
@@ -60,6 +76,7 @@ export const products: ProductTemplate[] = [
     image: StaminaSmall,
     size: "small",
     type: "stamina",
+    shelfImage: ShelfSStamina,
   },
   {
     name: "Medium stamina potion",
@@ -67,6 +84,7 @@ export const products: ProductTemplate[] = [
     image: StaminaMedium,
     size: "medium",
     type: "stamina",
+    shelfImage: ShelfMStamina,
   },
   {
     name: "Large stamina potion",
@@ -74,6 +92,7 @@ export const products: ProductTemplate[] = [
     image: StaminaLarge,
     size: "large",
     type: "stamina",
+    shelfImage: ShelfLStamina,
   },
 ];
 

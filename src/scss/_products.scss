@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: col.$color-grey-dark;
+  // background-color: col.$color-grey-dark;
   border-radius: 10px;
   gap: 0.3em;
   padding: 1em;
@@ -60,20 +60,50 @@
     flex-direction: column;
     align-items: center;
     gap: 1em;
+    background-image: url(../assets/images/ProductSign.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    padding-top: 2em;
+    // padding-left: 0.5em;
+    // padding-right: 0.5em;
+    padding-bottom: 1em;
+    margin-top: -1em;
+    z-index: -1;
+    @include mix.desktop {
+      width: 95%;
+    }
 
     .product__info-name {
       font-weight: 600;
       width: 100%;
+      margin-top: 1.5em;
+      width: 70%;
+      align-self: center;
+
+      @include mix.desktop {
+        margin-bottom: 0;
+        margin-top: 2em;
+        width: 100%;
+        align-self: baseline;
+      }
     }
 
     .product__info-price {
       font-weight: 600;
+      padding-left: 1.8em;
+
+      @include mix.desktop {
+        padding-left: 0;
+      }
     }
 
     .product__inputs {
       display: flex;
       gap: 1em;
       align-items: center;
+      justify-content: center;
     }
 
     .product__info-amount {
@@ -86,8 +116,10 @@
     }
 
     .product__info-buy-btn {
-      background-color: col.$color-accent-purple;
-      color: col.$color-text-light;
+      // background-color: col.$color-accent-purple;
+      // color: col.$color-text-light;
+      background-color: col.$color-grey-very-dark;
+      @include mix.burned--icon;
       border: none;
       border-radius: 5px;
       padding: 1em;
