@@ -15,8 +15,11 @@
     top: (var.$header-height--tablet)-20px; //ändra
   }
   @include mix.desktop {
-    width: 40%;
-    // top: (var.$header-height--desktop) -10px; //ändra
+    // width: 40%;
+    width: 620px;
+    height: auto;
+    margin-right: 1vw;
+    top: 8.5vh;
   }
 }
 
@@ -48,7 +51,8 @@
     margin-top: 0.7em;
   }
   @include mix.desktop {
-    margin-top: 0.8em;
+    // top: 10vh;
+    // margin-top: 0.9em;
   }
 }
 .user-cart-item__container {
