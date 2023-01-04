@@ -1,6 +1,5 @@
 import { products } from "../models/ProductList";
-import { ProductTemplate } from "../models/ProductTemplate";
-import { renderProductlist } from "../products";
+
 
 let small :boolean = false;
 let medium :boolean = false;
@@ -8,6 +7,10 @@ let large :boolean = false;
 let healing :boolean = false;
 let mana :boolean = false;
 let stamina :boolean = false;
+let poison :boolean = false;
+let joy :boolean = false;
+let time :boolean = false;
+let invisibility :boolean = false;
 
 
 export function showFilter () {
@@ -31,6 +34,16 @@ export function clearFilter () {
     let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
     productContainer.style.display = "flex";
   }
+  small = false;
+  medium = false;
+  large = false;
+  healing = false;
+  mana = false;
+  stamina = false;
+  poison = false;
+  joy = false;
+  time = false;
+  invisibility = false;
 }
 
 
@@ -106,9 +119,57 @@ export function toggleStamina (checkbox :HTMLInputElement) {
   filterProducts();
 }
 
-function filterProducts () {
+export function togglePoison (checkbox :HTMLInputElement) {
+  if(checkbox.checked){
+    poison = true;
+    console.log(poison);
+  } 
+  if(!checkbox.checked){
+    poison = false;
+    console.log(poison);
+  }
+  filterProducts();
+}
+
+export function toggleJoy (checkbox :HTMLInputElement) {
+  if(checkbox.checked){
+    joy = true;
+    console.log(joy);
+  } 
+  if(!checkbox.checked){
+    joy = false;
+    console.log(joy);
+  }
+  filterProducts();
+}
+
+export function toggleTime (checkbox :HTMLInputElement) {
+  if(checkbox.checked){
+    time = true;
+    console.log(time);
+  } 
+  if(!checkbox.checked){
+    time = false;
+    console.log(time);
+  }
+  filterProducts();
+}
+
+export function toggleInvisibility (checkbox :HTMLInputElement) {
+  if(checkbox.checked){
+    invisibility = true;
+    console.log(invisibility);
+  } 
+  if(!checkbox.checked){
+    invisibility = false;
+    console.log(invisibility);
+  }
+  filterProducts();
+}
+
+export function filterProducts () {
   // shows all products if nothing is checked & shows only checked filter if one is checked
-  if(small || medium || large || healing || mana || stamina) {
+  if(small || medium || large || healing || mana || stamina || poison || joy || time || invisibility) {
     for(let i = 0; i < products.length; i++) {
       let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
       productContainer.style.display = "none";
@@ -121,7 +182,7 @@ function filterProducts () {
   }
 
   // checking of both a size and a type is checked
-  if((small || medium || large) && (healing || mana || stamina) ) {
+  if((small || medium || large) && (healing || mana || stamina || poison || joy || time || invisibility) ) {
     console.log("we have types and sizes on the list")
     for(let i = 0; i < products.length; i++) {
       
@@ -158,8 +219,43 @@ function filterProducts () {
               }
             }
           }
+          if(poison) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "small") && (products[i].type === "poison")) {
+                productContainer.style.display = "flex";
+                console.log("show me small poison")
+              }
+            }
+          }
+          if(joy) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "small") && (products[i].type === "joy")) {
+                productContainer.style.display = "flex";
+                console.log("show me small joy")
+              }
+            }
+          }
+          if(time) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "small") && (products[i].type === "time")) {
+                productContainer.style.display = "flex";
+                console.log("show me small time")
+              }
+            }
+          }
+          if(invisibility) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "small") && (products[i].type === "invisibility")) {
+                productContainer.style.display = "flex";
+                console.log("show me small invisibility")
+              }
+            }
+          }
         }
-
       }
 
       if(medium) { 
@@ -191,6 +287,42 @@ function filterProducts () {
               if((products[i].size === "medium") && (products[i].type === "stamina")) {
                 productContainer.style.display = "flex";
                 console.log("show me small stamina")
+              }
+            }
+          }
+          if(poison) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "medium") && (products[i].type === "poison")) {
+                productContainer.style.display = "flex";
+                console.log("show me medium poison")
+              }
+            }
+          }
+          if(joy) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "medium") && (products[i].type === "joy")) {
+                productContainer.style.display = "flex";
+                console.log("show me medium joy")
+              }
+            }
+          }
+          if(time) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "medium") && (products[i].type === "time")) {
+                productContainer.style.display = "flex";
+                console.log("show me medium time")
+              }
+            }
+          }
+          if(invisibility) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "medium") && (products[i].type === "invisibility")) {
+                productContainer.style.display = "flex";
+                console.log("show me medium invisibility")
               }
             }
           }
@@ -227,6 +359,42 @@ function filterProducts () {
               if((products[i].size === "large") && (products[i].type === "stamina")) {
                 productContainer.style.display = "flex";
                 console.log("show me small stamina")
+              }
+            }
+          }
+          if(poison) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "large") && (products[i].type === "poison")) {
+                productContainer.style.display = "flex";
+                console.log("show me large poison")
+              }
+            }
+          }
+          if(joy) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "large") && (products[i].type === "joy")) {
+                productContainer.style.display = "flex";
+                console.log("show me large joy")
+              }
+            }
+          }
+          if(time) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "large") && (products[i].type === "time")) {
+                productContainer.style.display = "flex";
+                console.log("show me large time")
+              }
+            }
+          }
+          if(invisibility) {
+            for(let i = 0; i < products.length; i++) {
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+              if((products[i].size === "large") && (products[i].type === "invisibility")) {
+                productContainer.style.display = "flex";
+                console.log("show me large invisibility")
               }
             }
           }
@@ -291,244 +459,63 @@ function filterProducts () {
         }
       }
     }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// First filter functionen 
-let filterMenu: HTMLDivElement = document.getElementById(
-  "filter-menu"
-) as HTMLDivElement;
-
-// let clearFilterBtn: HTMLButtonElement = document.getElementById(
-//   "clear-filter"
-// ) as HTMLButtonElement;
-
-// clearFilterBtn.addEventListener("click", () => {
-//   renderProductlist(products);
-// });
-
-export function toggleFilterMenu() {
-  if (filterMenu.classList.contains("filter-menu__invisible")) {
-    filterMenu.classList.replace(
-      "filter-menu__invisible",
-      "filter-menu__visible"
-    );
-
-    renderFilterMenu();
-    console.log("filter menu is open");
-  } else {
-    filterMenu.className = "filter-menu__invisible";
-
-    removeFilterMenu();
-
-    console.log("filter menu is closed");
-  }
-}
-
-export function renderFilterMenu() {
-  //creates size button
-  let sizeBtn = document.createElement("button");
-  sizeBtn.innerText = "Sort by Size";
-  sizeBtn.classList.add("menu-btn", "potion-size", "size-options-invisible");
-  filterMenu.appendChild(sizeBtn);
-
-  //creates size menu container
-  let sizeMenuContainer = document.createElement("div");
-  sizeMenuContainer.classList.add("size-menu-container", "invisible");
-  filterMenu.appendChild(sizeMenuContainer);
-
-  //creates type button
-  let typeBtn = document.createElement("button");
-  typeBtn.innerText = "Sort by Type";
-  typeBtn.classList.add("menu-btn", "potion-type", "type-options-invisible");
-  typeBtn.classList.add("potion-type");
-  filterMenu.appendChild(typeBtn);
-
-  //creates type menu container
-  let typeMenuContainer = document.createElement("div");
-  typeMenuContainer.classList.add("type-menu-container", "invisible");
-  filterMenu.appendChild(typeMenuContainer);
-
-  let priceBtn = document.createElement("button");
-  priceBtn.innerText = "Sort by Price";
-  priceBtn.classList.add("menu-btn");
-  priceBtn.classList.add("potion-price");
-  filterMenu.appendChild(priceBtn);
-
-  if ((filterMenu.className = "filter-menu__visible")) {
-    //Sort by size eventlistener
-    let sortBySizeBtn: HTMLButtonElement = document.querySelector(
-      ".potion-size"
-    ) as HTMLButtonElement;
-
-    sortBySizeBtn.addEventListener("click", () => {
-      if (sortBySizeBtn.classList.contains("size-options-visible")) {
-        sortBySizeBtn.classList.replace(
-          "size-options-visible",
-          "size-options-invisible"
-        );
-        removeSizeMenu(sizeMenuContainer);
-      } else {
-        sortBySizeBtn.classList.replace(
-          "size-options-invisible",
-          "size-options-visible"
-        );
-        sizeMenuContainer.classList.remove("invisible");
-        renderSizeMenu(sizeMenuContainer);
+    if (poison) {
+      console.log("show me poisen");
+      for (let i = 0; i < products.length; i++){
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+        if(products[i].type === "poison") {
+          productContainer.style.display = "flex";
+        }
       }
-    });
-
-    //Sort by type eventlistener
-
-    let sortByTypeBtn: HTMLButtonElement = document.querySelector(
-      ".potion-type"
-    ) as HTMLButtonElement;
-    sortByTypeBtn.addEventListener("click", () => {
-      if (sortByTypeBtn.classList.contains("type-options-visible")) {
-        sortByTypeBtn.classList.replace(
-          "type-options-visible",
-          "type-options-invisible"
-        );
-        removeTypeMenu(typeMenuContainer);
-      } else {
-        sortByTypeBtn.classList.replace(
-          "type-options-invisible",
-          "type-options-visible"
-        );
-        typeMenuContainer.classList.remove("invisible");
-        renderTypeMenu(typeMenuContainer);
-      }
-    });
-
-    //Sort by price eventlistener
-
-    /* let sortByPriceBtn: HTMLButtonElement = document.querySelector(
-      ".potion-price"
-    ) as HTMLButtonElement;
-    sortByPriceBtn.addEventListener("click", () => {
-      togglePriceMenu();
-    }); */
-  }
-}
-
-export function removeFilterMenu() {
-  filterMenu.innerHTML = "";
-}
-
-//Size functions
-
-function renderSizeMenu(sizeMenuContainer: HTMLDivElement) {
-  console.log("Du vill sortera efter storlek");
-
-  //creates small menu option
-  let smallBtn = document.createElement("button");
-  smallBtn.innerText = "sort by small";
-  smallBtn.classList.add("menu-btn", "small-size");
-
-  //creates medium menu option
-  let mediumBtn = document.createElement("button");
-  mediumBtn.innerText = "sort by medium";
-  mediumBtn.classList.add("menu-btn", "medium-size");
-  mediumBtn;
-
-  //creates large menu option
-  let largeBtn = document.createElement("button");
-  largeBtn.innerText = "sort by large";
-  largeBtn.classList.add("menu-btn", "large-size");
-  largeBtn;
-
-  sizeMenuContainer.appendChild(smallBtn);
-  sizeMenuContainer.appendChild(mediumBtn);
-  sizeMenuContainer.appendChild(largeBtn);
-
-  let sizeBtn: HTMLButtonElement = document.querySelector(
-    ".potion-size"
-  ) as HTMLButtonElement;
-
-  if (sizeBtn.classList.contains("size-options-visible")) {
-  }
-  smallBtn.addEventListener("click", () => {
-    sortList(products, "small", ".size");
-  });
-
-  mediumBtn.addEventListener("click", () => {
-    sortList(products, "medium", ".size");
-  });
-
-  largeBtn.addEventListener("click", () => {
-    sortList(products, "large", ".size");
-  });
-}
-
-function removeSizeMenu(sizeMenuContainer: HTMLDivElement) {
-  sizeMenuContainer.innerHTML = "";
-}
-
-export function renderTypeMenu(typeMenuContainer: HTMLDivElement) {
-  console.log("Du vill sortera efter typ");
-
-  //creates healing option
-  let healingBtn = document.createElement("button");
-  healingBtn.innerText = "sort by healing";
-  healingBtn.classList.add("menu-btn", "healing-type");
-
-  //creates stamina option
-  let staminaBtn = document.createElement("button");
-  staminaBtn.innerText = "sort by stamina";
-  staminaBtn.classList.add("menu-btn", "stamina-type");
-  staminaBtn;
-
-  //creates mana option
-  let manaBtn = document.createElement("button");
-  manaBtn.innerText = "sort by mana";
-  manaBtn.classList.add("menu-btn", "mana-type");
-  manaBtn;
-
-  typeMenuContainer.appendChild(healingBtn);
-  typeMenuContainer.appendChild(staminaBtn);
-  typeMenuContainer.appendChild(manaBtn);
-}
-
-function removeTypeMenu(sizeMenuContainer: HTMLDivElement) {
-  sizeMenuContainer.innerHTML = "";
-}
-
-export function togglePriceMenu() {
-  console.log("Du vill sortera efter pris");
-}
-
-function sortList(
-  listToSort: ProductTemplate[],
-  comparison: string,
-  filter: string
-) {
-  let filteredList = [];
-  for (let i = 0; i < listToSort.length; i++) {
-    if (listToSort[i].size === comparison) {
-      filteredList.push(listToSort[i]);
     }
-    console.log(filteredList);
+    if (joy) {
+      console.log("show me joy");
+      for (let i = 0; i < products.length; i++){
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+        if(products[i].type === "joy") {
+          productContainer.style.display = "flex";
+        }
+      }
+    }
+    if (time) {
+      console.log("show me time");
+      for (let i = 0; i < products.length; i++){
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+        if(products[i].type === "time") {
+          productContainer.style.display = "flex";
+        }
+      }
+    }
+    if (invisibility) {
+      console.log("show me poisen");
+      for (let i = 0; i < products.length; i++){
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
+        if(products[i].type === "invisibility") {
+          productContainer.style.display = "flex";
+        }
+      }
+    }
   }
-  renderProductlist(filteredList);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
