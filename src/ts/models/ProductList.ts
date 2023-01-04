@@ -19,15 +19,31 @@ import ShelfSStamina from "../../assets/images/ShelfSStamina.png";
 import ShelfMStamina from "../../assets/images/ShelfMStamina.png";
 import ShelfLStamina from "../../assets/images/ShelfLStamina.png";
 
-import Poison from "../../assets/images/PotionOfPoison.png";
-import Joy from "../../assets/images/PotionOfJoy.png";
-import Time from "../../assets/images/PotionOfTime.png";
-import Invisability from "../../assets/images/PotionOfInvisability.png";
+import PoisonS from "../../assets/images/PoisonSmall.png";
+import PoisonM from "../../assets/images/PoisonMedium.png";
+import PoisonL from "../../assets/images/PoisonLarge.png";
+import JoyS from "../../assets/images/JoySmall.png";
+import JoyM from "../../assets/images/JoyMedium.png";
+import JoyL from "../../assets/images/JoyLarge.png";
+import TimeS from "../../assets/images/TimeSmall.png";
+import TimeM from "../../assets/images/TimeMedium.png";
+import TimeL from "../../assets/images/TimeLarge.png";
+import InvisabilityS from "../../assets/images/InvisabilitySmall.png";
+import InvisabilityM from "../../assets/images/InvisabilityMedium.png";
+import InvisabilityL from "../../assets/images/InvisabilityLarge.png";
 
-import ShelfPoison from "../../assets/images/ShelfPotionOfPoison.png";
-import ShelfJoy from "../../assets/images/ShelfPotionOfJoy.png";
-import ShelfTime from "../../assets/images/ShelfPotionOfTime.png";
-import ShelfInvisability from "../../assets/images/ShelfPotionOfInvisability.png";
+import ShelfSPoison from "../../assets/images/ShelfSPoison.png";
+import ShelfMPoison from "../../assets/images/ShelfMPoison.png";
+import ShelfLPoison from "../../assets/images/ShelfLPoison.png";
+import ShelfSJoy from "../../assets/images/ShelfSJoy.png";
+import ShelfMJoy from "../../assets/images/ShelfMJoy.png";
+import ShelfLJoy from "../../assets/images/ShelfLJoy.png";
+import ShelfSTime from "../../assets/images/ShelfSTime.png";
+import ShelfMTime from "../../assets/images/ShelfMTime.png";
+import ShelfLTime from "../../assets/images/ShelfLTime.png";
+import ShelfSInvisability from "../../assets/images/ShelfSInvisability.png";
+import ShelfMInvisability from "../../assets/images/ShelfMInvisability.png";
+import ShelfLInvisability from "../../assets/images/ShelfLInvisability.png";
 
 //./../assets/images/placeholder_square.jpg
 
@@ -114,40 +130,112 @@ export const products: ProductTemplate[] = [
     id: "stamina_l",
   },
   {
-    name: "Potion of Poison",
+    name: "Small Potion of Poison",
     price: 200,
-    image: Poison,
+    image: PoisonS,
+    size: "small",
+    type: "other",
+    shelfImage: ShelfSPoison,
+    id: "poison_s",
+  },
+  {
+    name: "Medium Potion of Poison",
+    price: 200,
+    image: PoisonM,
     size: "medium",
     type: "other",
-    shelfImage: ShelfPoison,
+    shelfImage: ShelfMPoison,
     id: "poison_m",
   },
   {
-    name: "Potion of Joy",
+    name: "Large Potion of Poison",
     price: 200,
-    image: Joy,
+    image: PoisonL,
+    size: "large",
+    type: "other",
+    shelfImage: ShelfLPoison,
+    id: "poison_l",
+  },
+  {
+    name: "Small Potion of Joy",
+    price: 200,
+    image: JoyS,
+    size: "small",
+    type: "other",
+    shelfImage: ShelfSJoy,
+    id: "joy_s",
+  },
+  {
+    name: "Medium Potion of Joy",
+    price: 200,
+    image: JoyM,
     size: "medium",
     type: "other",
-    shelfImage: ShelfJoy,
+    shelfImage: ShelfMJoy,
     id: "joy_m",
   },
   {
-    name: "Potion of Time",
+    name: "Large Potion of Joy",
     price: 200,
-    image: Time,
+    image: JoyL,
+    size: "large",
+    type: "other",
+    shelfImage: ShelfLJoy,
+    id: "joy_l",
+  },
+  {
+    name: "Small Potion of Time",
+    price: 200,
+    image: TimeS,
+    size: "small",
+    type: "other",
+    shelfImage: ShelfSTime,
+    id: "time_s",
+  },
+  {
+    name: "Medium Potion of Time",
+    price: 200,
+    image: TimeM,
     size: "medium",
     type: "other",
-    shelfImage: ShelfTime,
+    shelfImage: ShelfMTime,
     id: "time_m",
   },
   {
-    name: "Potion of Invisability",
+    name: "Large Potion of Time",
     price: 200,
-    image: Invisability,
+    image: TimeL,
+    size: "large",
+    type: "other",
+    shelfImage: ShelfLTime,
+    id: "time_l",
+  },
+  {
+    name: "Small Potion of Invisability",
+    price: 200,
+    image: InvisabilityS,
+    size: "small",
+    type: "other",
+    shelfImage: ShelfSInvisability,
+    id: "invis_s",
+  },
+  {
+    name: "Medium Potion of Invisability",
+    price: 200,
+    image: InvisabilityM,
     size: "medium",
     type: "other",
-    shelfImage: ShelfInvisability,
+    shelfImage: ShelfMInvisability,
     id: "invis_m",
+  },
+  {
+    name: "Large Potion of Invisability",
+    price: 200,
+    image: InvisabilityL,
+    size: "large",
+    type: "other",
+    shelfImage: ShelfLInvisability,
+    id: "invis_l",
   },
 ];
 
