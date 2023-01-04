@@ -42,12 +42,12 @@
   }
 }
 
-.user-cart-item__container:first-child {
-  @include mix.tablet {
-    margin-top: 0.7em;
-  }
-}
 .user-cart-item__container {
+  &:first-child {
+    @include mix.tablet {
+      margin-top: 0.7em;
+    }
+  }
   width: 100vw;
   height: 50px;
   padding-top: 1em;
@@ -155,10 +155,10 @@
         width: 15%;
         bottom: 0;
       }
-    }
-
-    .user-cart-item__remove-btn:hover {
-      background-color: col.$color-burned;
+      &:hover {
+        background-color: col.$color-burned;
+        cursor: pointer;
+      }
     }
   }
 }
