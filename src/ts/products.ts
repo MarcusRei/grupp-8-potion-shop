@@ -97,13 +97,12 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
         productAmount.value
       );
         renderUserCartinWidget();
-      // putUserCartInLS(productsPageUserCart);
     });
   }
 }
 
-//Clear filter button
 
+// Clear filter button
 let filterBtn: HTMLButtonElement = document.getElementById(
   "clear-filter"
 ) as HTMLButtonElement;
@@ -122,26 +121,29 @@ filterBtn.addEventListener("click", () => {
   clearFilter();
 });
 
-// Filter button for new filter function
+
+// Filter button open
 const filterButton: HTMLButtonElement = document.getElementById(
   "filter-btn"
 ) as HTMLButtonElement;
-const filterBackground: HTMLDivElement = document.getElementById(
-  "filter-background"
-) as HTMLDivElement;
 
 filterButton.addEventListener("click", () => {
   showFilter();
   console.log("filter was clicked");
 });
 
+
+// Filter button close
+const filterBackground: HTMLDivElement = document.getElementById(
+  "filter-background"
+) as HTMLDivElement;
+
 filterBackground.addEventListener("click", () => {
   closeFilter();
 });
 
-// filter checkboxes
 
-// small
+// checkbox small
 let checkboxSmall: HTMLInputElement = document.getElementById(
   "checkbox-small"
 ) as HTMLInputElement;
@@ -150,7 +152,7 @@ checkboxSmall.addEventListener("change", (e) => {
   toggleSmall(checkboxSmall);
 });
 
-// medium
+// checkbox medium
 let checkboxMedium: HTMLInputElement = document.getElementById(
   "checkbox-medium"
 ) as HTMLInputElement;
@@ -159,7 +161,7 @@ checkboxMedium.addEventListener("change", (e) => {
   toggleMedium(checkboxMedium);
 });
 
-// large
+// checkbox large
 let checkboxLarge: HTMLInputElement = document.getElementById(
   "checkbox-large"
 ) as HTMLInputElement;
@@ -168,7 +170,7 @@ checkboxLarge.addEventListener("change", (e) => {
   toggleLarge(checkboxLarge);
 });
 
-// healing
+// checkbox healing
 let checkboxHealing: HTMLInputElement = document.getElementById(
   "checkbox-healing"
 ) as HTMLInputElement;
@@ -177,7 +179,7 @@ checkboxHealing.addEventListener("change", (e) => {
   toggleHealing(checkboxHealing);
 });
 
-// mana
+// checkbox mana
 let checkboxMana: HTMLInputElement = document.getElementById(
   "checkbox-mana"
 ) as HTMLInputElement;
@@ -186,7 +188,7 @@ checkboxMana.addEventListener("change", (e) => {
   toggleMana(checkboxMana);
 });
 
-// stamina
+// checkbox stamina
 let checkboxStamina: HTMLInputElement = document.getElementById(
   "checkbox-stamina"
 ) as HTMLInputElement;
@@ -195,7 +197,7 @@ checkboxStamina.addEventListener("change", (e) => {
   toggleStamina(checkboxStamina);
 });
 
-// poisen
+// checkbox poisen
 let checkboxPoison: HTMLInputElement = document.getElementById(
   "checkbox-poison"
 ) as HTMLInputElement;
@@ -204,7 +206,7 @@ checkboxPoison.addEventListener("change", (e) => {
   togglePoison(checkboxPoison);
 });
 
-// joy
+// checkbox joy
 let checkboxJoy: HTMLInputElement = document.getElementById(
   "checkbox-joy"
 ) as HTMLInputElement;
@@ -213,7 +215,7 @@ checkboxJoy.addEventListener("change", (e) => {
   toggleJoy(checkboxJoy);
 });
 
-// time
+// checkbox time
 let checkboxTime: HTMLInputElement = document.getElementById(
   "checkbox-time"
 ) as HTMLInputElement;
@@ -222,7 +224,7 @@ checkboxTime.addEventListener("change", (e) => {
   toggleTime(checkboxTime);
 });
 
-// invisibility
+// checkbox invisibility
 let checkboxInvisibility: HTMLInputElement = document.getElementById(
   "checkbox-invisibility"
 ) as HTMLInputElement;
@@ -231,6 +233,8 @@ checkboxInvisibility.addEventListener("change", (e) => {
   toggleInvisibility(checkboxInvisibility);
 });
 
+
+// resets filter when reloading browser
 window.addEventListener("load", (e) => {
   checkboxSmall.checked = false;
   checkboxMedium.checked = false;
@@ -242,5 +246,4 @@ window.addEventListener("load", (e) => {
   checkboxJoy.checked = false;
   checkboxTime.checked = false;
   checkboxInvisibility.checked = false;
-  console.log("i was triggerd");
 });
