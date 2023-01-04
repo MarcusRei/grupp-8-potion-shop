@@ -12,11 +12,13 @@ export function addProductToCart(
   let nrValue = Number(value);
   if (isNaN(nrValue) || nrValue <= 0) {
     alert("You need to write a number higher than 0");
+    console.log("i if");
   } else {
     for (let i = 0; i < list.length; i++) {
-      if (list[i].product === product) {
+      if (list[i].product.id === product.id) {
         list[i].quantity += nrValue;
         putUserCartInLS(list);
+        console.log("i else, i loop");
         return;
       }
     }
@@ -25,6 +27,7 @@ export function addProductToCart(
       nrValue
     );
     list.push(newArticle);
+    console.log("efter else");
 
     putUserCartInLS(list);
     renderUserCartinWidget();

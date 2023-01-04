@@ -22,11 +22,6 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
   renderProductlist(products);
 };
-// function clearLocalStorage() {
-//   localStorage.clear();
-// }
-//Gets LS list
-
 
 // clearLocalStorage();
 export function renderProductlist(listToRender: ProductTemplate[]) {
@@ -93,7 +88,8 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
-      let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
+      let productsPageUserCart: CartProductTemplate[] =
+        getUserCartFromLS() || "[]";
       addProductToCart(
         productsPageUserCart,
         listToRender[i],
@@ -233,7 +229,6 @@ checkboxInvisibility.addEventListener("change", (e) => {
   e.preventDefault();
   toggleInvisibility(checkboxInvisibility);
 });
-
 
 window.addEventListener("load", (e) => {
   checkboxSmall.checked = false;
