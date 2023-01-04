@@ -132,10 +132,10 @@ export function renderUserCartinWidget() {
     //Creates link to checkout
     const checkoutLink = document.createElement("a");
     checkoutLink.classList.add("checkout-link");
-    if (window.location.href.indexOf("index") > -1) {
-      checkoutLink.setAttribute("href", "./html/checkout.html");
-    } else {
+    if (window.location.href.indexOf("html/") > -1) {
       checkoutLink.setAttribute("href", "./checkout.html");
+    } else {
+      checkoutLink.setAttribute("href", "./html/checkout.html");
     }
     checkoutLink.innerHTML = `CHECKOUT`;
     checkoutButtonContainer.appendChild(checkoutLink);

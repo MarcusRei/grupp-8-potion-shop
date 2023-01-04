@@ -23,35 +23,6 @@
   }
 }
 
-// shopbutton layout and styling
-// .button-shop {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 9em;
-//   height: 3em;
-//   background-color: col.$color-accent-purple;
-//   border: none;
-//   color: col.$color-text-light;
-//   border-radius: 15px;
-//   font-size: 2em;
-//   cursor: pointer;
-
-//   & > a {
-//     text-decoration: none;
-//     color: col.$color-text-light;
-//   }
-
-//   &:hover {
-//     background-color: col.$color-grey-very-light;
-//   }
-// }
-
-// .welcome-text {
-//   text-align: center;
-//   color: col.$color-text-light;
-// }
-
 #store {
   &-sign {
     background-image: url("../assets/images/sign.png");

@@ -59,7 +59,6 @@
 
 //hanging-plank
 @mixin hanging-plank--mobile {
-  // height: var.$header-height--mobile;
   background-image: url(../assets/images/MobileHangingSign.png);
   background-repeat: no-repeat;
   background-position: top center;
@@ -68,14 +67,12 @@
 
 @mixin hanging-plank--tablet {
   @media screen and (min-width: var.$tablet) {
-    // height: var.$header-height--tablet;
     background-image: url("../assets/images/TabletHangingSign.png");
   }
 }
 
 @mixin hanging-plank--desktop {
   @media screen and (min-width: var.$desktop) {
-    // height: var.$header-height--desktop;
     background-image: url("../assets/images/DesktopHangingSign.png");
   }
 }

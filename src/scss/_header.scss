@@ -6,7 +6,6 @@
 header {
   display: flex;
   justify-content: flex-end;
-  // height: 10vh;
   position: fixed;
   align-items: center;
   width: 100vw;
@@ -24,8 +23,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  // // align-items: center;
-  // gap: 70px;
+
   @include mix.tablet {
     justify-content: flex-end;
   }
@@ -37,9 +35,7 @@ nav {
     display: flex;
     justify-content: center;
     align-self: center;
-    // width: 5em;
     width: 30vw;
-    // height: 100%;
 
     height: var.$header-height--mobile;
     cursor: pointer;
@@ -58,30 +54,12 @@ nav {
       height: 100%;
 
       .logo-icon {
-        // position: fixed;
-        // margin-left: 20vw;
-        // margin-top: 3vh;
-        // top: 3vh;
-        // align-self: center;
-        // left: 6vw;
-        // mix-blend-mode: multiply;
-        // display: flex;
-        // align-self: center;
         height: 60%;
         @include mix.burned--img;
 
-        @include mix.tablet {
-          // margin-left: 0; //??
-          // left: 2vw;
-          // top: 15px;
-        }
         @include mix.desktop {
           margin-left: 0;
           margin-left: 2em;
-          // top: 2vh; //25px;;
-
-          // font-size: 4rem;
-          // color: white;
         }
       }
     }
@@ -117,27 +95,19 @@ nav {
   }
 
   .menu-link {
-    //finns en til menu-link längre ned för mobile!!
     text-decoration: none;
-    // color: col.$color-burned;
-    // mix-blend-mode: multiply;
-    // font-family: "Cinzel", serif;
-    // font-weight: bold;
     @include mix.burned--text-btn;
     @include mix.menu--font;
 
     &:hover {
-      mix-blend-mode: color-burn; //soft-light eller color-burn
+      mix-blend-mode: color-burn;
       color: rgb(200, 200, 200);
     }
   }
 
   .shoppingcart-container {
     display: flex;
-    // width: 10vw;
-    // height: 100%;
     height: var.$header-height--mobile;
-    // width: 80px;
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
@@ -157,47 +127,9 @@ nav {
       display: none;
     }
 
-    // @include mixins.desktop {
-    //   // padding-left: 30px;
-    //   padding-right: 0px;
-    // }
-
     .cart-icon {
-      // margin-top: 2vh;
-      // margin-right: 12vw;
-      // margin-left: 10vw;
-      // margin-top: 1vh;
-      // margin-left: 20vw;
-      // position: fixed;
-      // top: 2vh;
-      // padding: 1em;
       height: 60%;
-      // position: fixed;
-      // top: 3vh;
-      // align-self: center;
-      // left: 6vw;
       @include mix.burned--img;
-      // mix-blend-mode: multiply;
-      // height: 90%;
-
-      // height: 50px;
-      @include mix.tablet {
-        // right: 2vw;
-        // top: 15px;
-      }
-      @include mix.desktop {
-        // margin-right: 2vw;
-        // margin-top: 1.5vh;
-        // top: 1.5vh; //25px;
-
-        // left: 2vw;
-        // top: 2vh;//25px;;
-        // font-size: 4rem;
-        // color: white;
-      }
-      // &:hover {
-      //   mix-blend-mode: soft-light; //soft-light eller color-burn
-      // }
     }
   }
 }
@@ -207,17 +139,11 @@ nav {
   display: flex; //
   justify-content: center;
   align-items: center;
-  // background-color: col.$color-accent-purple;
   background-color: transparent;
-  // width: 80px;
   border: none;
   cursor: pointer;
   z-index: 100;
-
-  // padding-top: 2vh;
-  // padding-right: 5vw;
   padding: 0;
-  // width: 10vw;
   width: 30vw;
 
   @include mix.tablet {
@@ -228,13 +154,6 @@ nav {
   }
 
   @include mix.burned--text-btn;
-  // color: col.$color-burned;
-  // mix-blend-mode: multiply;
-
-  // &:hover {
-  //   background-color: transparent; //col.$color-grey-light;
-  //   mix-blend-mode: soft-light; //soft-light eller color-burn
-  // }
 
   @include mix.desktop {
     display: none;
@@ -242,7 +161,6 @@ nav {
 
   .icon {
     font-size: 4rem;
-    // // color: white;
   }
 
   #closeIcon {
@@ -280,19 +198,12 @@ nav {
     margin-top: 0.2em;
 
     @include mix.tablet {
-      // margin-top: 0em;
       margin-top: 0.75em;
     }
   }
   .hamburger-menu-item {
     width: 100vw;
     height: 10vh;
-    // top: 10vh;
-    // background-color: col.$color-grey-dark;
-    // background-image: url(../assets/images/MobileHangingSign.png);
-    // background-repeat: no-repeat;
-    // background-position: top center;
-    // background-size: 100vw;
 
     @include mix.hanging-plank--mobile;
     @include mix.hanging-plank--tablet;
@@ -301,32 +212,19 @@ nav {
     justify-content: center;
   }
   .menu-link-mobile {
-    //finns en til menu-link längre upp för desktop!!
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    // color: col.$color-text-light;
-
     @include mix.burned--text-btn;
-    // color: col.$color-burned;
-    // mix-blend-mode: multiply;
-    // font-family: var.$font-menu;
-    // font-weight: bold;
     @include mix.menu--font;
     width: 100vw;
     font-size: 1.5rem;
     margin-top: 10px;
-
-    // &:hover {
-    //   mix-blend-mode: color-burn; //soft-light eller color-burn
-    //   color: rgb(200, 200, 200);
-    // }
   }
 
   &.showMenu {
     transform: translateY(0);
-    // background-color: col.$color-accent-purple;
     display: flex;
   }
 
