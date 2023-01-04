@@ -53,6 +53,9 @@
       &--heading {
         margin: 0;
       }
+      &--link {
+        text-decoration: none;
+      }
       &--btn {
         display: flex;
         background-color: col.$color-grey-very-dark;
@@ -84,8 +87,7 @@
 
         @include mix.desktop {
           display: flex;
-          margin-bottom: 0; //5em;
-          // height: 50%;
+          margin-bottom: 0;
           width: 50%;
           align-self: flex-start;
         }
