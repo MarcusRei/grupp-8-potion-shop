@@ -87,7 +87,6 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     let productButton: HTMLButtonElement = document.getElementById(
       `add-${listToRender[i].id}-button`
     ) as HTMLButtonElement;
-    console.log(productButton.id + productAmount.id + " 've been made");
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
@@ -96,7 +95,6 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
         listToRender[i],
         productAmount.value
       );
-      console.log(productButton.id + "'ve been clicked");
 
       putUserCartInLS(productsPageUserCart);
     });
