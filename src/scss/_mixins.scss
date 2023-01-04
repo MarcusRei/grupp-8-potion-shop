@@ -99,6 +99,16 @@
     color: col.$color-grey-light;
   }
 }
+@mixin no-burned--text-btn {
+  background-image: url("../assets/images/TabletHangingSign.png");
+  background-size: auto;
+  background-position: center center;
+  &:hover {
+    @include burned--text;
+    background-color: col.$color-grey-very-light;
+    color: col.$color-text-light;
+  }
+}
 @mixin burned--icon {
   color: col.$color-text-light;
   mix-blend-mode: soft-light;
