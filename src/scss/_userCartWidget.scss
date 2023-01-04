@@ -144,6 +144,8 @@
       border: none;
       border-radius: 5px;
       bottom: 0.2em;
+      display: flex;
+      justify-content: center;
       @include mix.burned--icon;
 
       @include mix.tablet {
