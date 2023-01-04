@@ -28,7 +28,7 @@ export function closeFilter () {
 
 export function clearFilter () {
   for(let i = 0; i < products.length; i++) {
-    let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+    let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
     productContainer.style.display = "flex";
   }
 }
@@ -110,12 +110,12 @@ function filterProducts () {
   // shows all products if nothing is checked & shows only checked filter if one is checked
   if(small || medium || large || healing || mana || stamina) {
     for(let i = 0; i < products.length; i++) {
-      let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+      let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
       productContainer.style.display = "none";
     }
   } else {
     for(let i = 0; i < products.length; i++) {
-      let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+      let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
       productContainer.style.display = "flex";
     }
   }
@@ -131,7 +131,7 @@ function filterProducts () {
           
           if(healing) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "small") && (products[i].type === "healing")) {
                 productContainer.style.display = "flex";
                 console.log("show me small hp")
@@ -141,7 +141,7 @@ function filterProducts () {
           }
           if(mana) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "small") && (products[i].type === "mana")) {
                 productContainer.style.display = "flex";
                 console.log("show me small mana")
@@ -151,7 +151,7 @@ function filterProducts () {
           }
           if(stamina) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "small") && (products[i].type === "stamina")) {
                 productContainer.style.display = "flex";
                 console.log("show me small stamina")
@@ -167,7 +167,7 @@ function filterProducts () {
           
           if(healing) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "medium") && (products[i].type === "healing")) {
                 productContainer.style.display = "flex";
                 console.log("show me small hp")
@@ -177,7 +177,7 @@ function filterProducts () {
           }
           if(mana) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "medium") && (products[i].type === "mana")) {
                 productContainer.style.display = "flex";
                 console.log("show me small mana")
@@ -187,7 +187,7 @@ function filterProducts () {
           }
           if(stamina) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "medium") && (products[i].type === "stamina")) {
                 productContainer.style.display = "flex";
                 console.log("show me small stamina")
@@ -203,7 +203,7 @@ function filterProducts () {
           
           if(healing) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "large") && (products[i].type === "healing")) {
                 productContainer.style.display = "flex";
                 console.log("show me small hp")
@@ -213,7 +213,7 @@ function filterProducts () {
           }
           if(mana) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "large") && (products[i].type === "mana")) {
                 productContainer.style.display = "flex";
                 console.log("show me small mana")
@@ -223,7 +223,7 @@ function filterProducts () {
           }
           if(stamina) {
             for(let i = 0; i < products.length; i++) {
-              let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+              let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
               if((products[i].size === "large") && (products[i].type === "stamina")) {
                 productContainer.style.display = "flex";
                 console.log("show me small stamina")
@@ -240,7 +240,7 @@ function filterProducts () {
     if (small) {
       console.log("show me small");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].size === "small") {
           productContainer.style.display = "flex";
         }
@@ -249,7 +249,7 @@ function filterProducts () {
     if (medium) {
       console.log("show me medium");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].size === "medium") {
           productContainer.style.display = "flex";
         }
@@ -258,7 +258,7 @@ function filterProducts () {
     if (large) {
       console.log("show me large");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].size === "large") {
           productContainer.style.display = "flex";
         }
@@ -267,7 +267,7 @@ function filterProducts () {
     if (healing) {
       console.log("show me healing");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].type === "healing") {
           productContainer.style.display = "flex";
         }
@@ -276,7 +276,7 @@ function filterProducts () {
     if (mana) {
       console.log("show me mana");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].type === "mana") {
           productContainer.style.display = "flex";
         }
@@ -285,7 +285,7 @@ function filterProducts () {
     if (stamina) {
       console.log("show me stamina");
       for (let i = 0; i < products.length; i++){
-        let productContainer :HTMLDivElement = document.getElementById(products[i].name) as HTMLDivElement;
+        let productContainer :HTMLDivElement = document.getElementById(products[i].id) as HTMLDivElement;
         if(products[i].type === "stamina") {
           productContainer.style.display = "flex";
         }
