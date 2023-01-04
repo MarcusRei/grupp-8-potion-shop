@@ -97,6 +97,8 @@ export function showShoppingCart() {
       let productQuantityInput = document.createElement("input");
       productQuantityInput.type = "number";
       productQuantityInput.id = "productQuantity";
+      productQuantityInput.max = "100";
+      productQuantityInput.min = "1";
       productQuantityInput.classList.add("itemRow__quantity-input");
       productQuantityInput.value = userCart[i].quantity.toString();
       productChangeContainer.appendChild(productQuantityInput);

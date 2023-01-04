@@ -85,6 +85,8 @@ export function renderUserCartinWidget() {
       let productQuantityInput = document.createElement("input");
       productQuantityInput.type = "number";
       productQuantityInput.id = "productQuantityCartWidget";
+      productQuantityInput.max = "100";
+      productQuantityInput.min = "1";
       productQuantityInput.value = userCartInWidget[i].quantity.toString();
       productChangeContainer.appendChild(productQuantityInput);
 

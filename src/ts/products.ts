@@ -73,6 +73,8 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     productAmount.setAttribute("id", `add-${listToRender[i].id}-input`);
     productAmount.type = "number";
     productAmount.value = "1";
+    productAmount.max = "100";
+    productAmount.min = "1";
     productAmount.classList.add("product__info-amount");
     productInputs.appendChild(productAmount);
 
