@@ -26,7 +26,7 @@ import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 //   localStorage.clear();
 // }
 //Gets LS list
-let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
+
 
 // clearLocalStorage();
 export function renderProductlist(listToRender: ProductTemplate[]) {
@@ -93,13 +93,14 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
 
     //Adds eventlistener
     productButton.addEventListener("click", () => {
+      let productsPageUserCart: CartProductTemplate[] = getUserCartFromLS() || "[]";
       addProductToCart(
         productsPageUserCart,
         listToRender[i],
         productAmount.value
       );
 
-      putUserCartInLS(productsPageUserCart);
+      // putUserCartInLS(productsPageUserCart);
     });
   }
 }

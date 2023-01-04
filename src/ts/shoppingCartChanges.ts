@@ -1,6 +1,7 @@
 import { putUserCartInLS } from "./localStorage";
 import { CartProductTemplate } from "./models/CartProductTemplate";
 import { ProductTemplate } from "./models/ProductTemplate";
+import { renderUserCartinWidget } from "./services/userCartWidget";
 
 //original addProductToCart function
 export function addProductToCart(
@@ -26,6 +27,7 @@ export function addProductToCart(
     list.push(newArticle);
 
     putUserCartInLS(list);
+    renderUserCartinWidget();
   }
 }
 
@@ -41,6 +43,8 @@ export function changeQuantity(
       product.quantity = Number(value);
     }
   }
+  putUserCartInLS(list);
+  renderUserCartinWidget();
 }
 
 //delete specific object/product from cart
@@ -53,6 +57,8 @@ export function deleteFromCart(
       list.splice(i, 1);
     }
   }
+  putUserCartInLS(list);
+  renderUserCartinWidget();
 }
 
 //delete all objects/products from cart
@@ -61,4 +67,5 @@ export function emptyShoppingCart(list: CartProductTemplate[]) {
     list.splice(i, list.length);
   }
   putUserCartInLS(list);
+  renderUserCartinWidget();
 }

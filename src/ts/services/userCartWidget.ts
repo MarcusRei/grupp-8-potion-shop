@@ -1,6 +1,6 @@
 import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
 import { CartProductTemplate } from "../models/CartProductTemplate";
-import { changeQuantity } from "../shoppingCartChanges";
+import { changeQuantity, deleteFromCart } from "../shoppingCartChanges";
 import { sumTotalPrice } from "../totalAmount";
 
 let userCartWidget: HTMLDivElement = document.getElementById(
@@ -111,13 +111,14 @@ export function renderUserCartinWidget() {
           productQuantityInput.value,
           userCartInWidget
         );
-        putUserCartInLS(userCartInWidget);
-        renderUserCartinWidget();
+        // putUserCartInLS(userCartInWidget);
+        // renderUserCartinWidget();
       });
 
       // Creates eventListener for removing an item from the usercart
       userItemRemoveBtn.addEventListener("click", () => {
-        removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
+        deleteFromCart(i, userCartInWidget)
+        // removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
       });
     }
 
@@ -165,7 +166,7 @@ export function removeItemfromUserCart(
 ) {
   userCartInWidget.splice(userCartPosition, 1);
   putUserCartInLS(userCartInWidget);
-  renderUserCartinWidget();
+  // renderUserCartinWidget();
 }
 
 // Counts out the total price in usercart
