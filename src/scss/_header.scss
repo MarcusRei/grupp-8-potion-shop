@@ -31,66 +31,69 @@ nav {
     justify-content: space-between;
   }
 
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 30vw;
+  .logo {
+    &-container {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+      width: 30vw;
+      height: var.$header-height--mobile;
+      cursor: pointer;
 
-    height: var.$header-height--mobile;
-    cursor: pointer;
-    @include mix.tablet {
-      height: var.$header-height--tablet;
-      width: 70vw;
-      justify-content: flex-start;
+      @include mix.tablet {
+        height: var.$header-height--tablet;
+        width: 70vw;
+        justify-content: flex-start;
+      }
+      @include mix.desktop {
+        width: 10vw;
+        height: var.$header-height--desktop;
+      }
     }
-    @include mix.desktop {
-      width: 10vw;
-      height: var.$header-height--desktop;
-    }
-    a {
+    &-box {
       display: flex;
       align-items: center;
       height: 100%;
+    }
+    &-icon {
+      height: 60%;
+      @include mix.burned--img;
 
-      .logo-icon {
-        height: 60%;
-        @include mix.burned--img;
-
-        @include mix.desktop {
-          margin-left: 0;
-          margin-left: 2em;
-        }
+      @include mix.desktop {
+        margin-left: 0;
+        margin-left: 2em;
       }
     }
   }
 
-  .desktopnav-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .desktopnav-menu {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    padding: 0;
-    list-style-type: none;
-    margin: 0;
-
-    &__checkout {
-      margin-right: 2rem;
-    }
-
-    @include mix.desktop {
+  .desktopnav {
+    &-container {
+      position: relative;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: center;
+    }
+    &-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      margin-bottom: 0;
+      gap: 30px;
+      padding: 0;
+      list-style-type: none;
+      margin: 0;
+
+      &__checkout {
+        margin-right: 2rem;
+      }
+
+      @include mix.desktop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -168,20 +171,42 @@ nav {
   }
 }
 
-.mobilenav-container {
-  display: none;
-  flex-direction: column;
-  transform: translateY(-100%);
-  transition: transform 0.2s;
-  position: absolute;
-  width: 100vw;
-  top: 8vh;
-
-  @include mix.desktop {
+.mobilenav {
+  &-container {
     display: none;
-  }
+    flex-direction: column;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+    position: absolute;
+    width: 100vw;
+    top: 8vh;
 
-  .mobilenav-menu {
+    @include mix.desktop {
+      display: none;
+    }
+
+    .menu-link-mobile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      @include mix.burned--text-btn;
+      @include mix.menu--font;
+      width: 100vw;
+      font-size: 1.5rem;
+      margin-top: 10px;
+    }
+
+    &.showMenu {
+      transform: translateY(0);
+      display: flex;
+    }
+
+    @include mix.desktop {
+      display: none;
+    }
+  }
+  &-menu {
     list-style-type: none;
     padding: 0;
     display: flex;
@@ -193,42 +218,21 @@ nav {
       display: none;
     }
   }
-
-  .hamburger-menu-item:first-child {
+}
+.hamburger-menu-item {
+  &:first-child {
     margin-top: 0.2em;
 
     @include mix.tablet {
       margin-top: 0.75em;
     }
   }
-  .hamburger-menu-item {
-    width: 100vw;
-    height: 10vh;
+  width: 100vw;
+  height: 10vh;
 
-    @include mix.hanging-plank--mobile;
-    @include mix.hanging-plank--tablet;
+  @include mix.hanging-plank--mobile;
+  @include mix.hanging-plank--tablet;
 
-    display: flex;
-    justify-content: center;
-  }
-  .menu-link-mobile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    @include mix.burned--text-btn;
-    @include mix.menu--font;
-    width: 100vw;
-    font-size: 1.5rem;
-    margin-top: 10px;
-  }
-
-  &.showMenu {
-    transform: translateY(0);
-    display: flex;
-  }
-
-  @include mix.desktop {
-    display: none;
-  }
+  display: flex;
+  justify-content: center;
 }

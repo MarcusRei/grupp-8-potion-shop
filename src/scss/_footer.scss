@@ -23,9 +23,10 @@ footer {
     align-items: flex-start;
     text-align: left;
   }
-
-  // customerservice layout
-  .customerservice-container {
+}
+// customerservice layout
+.customerservice {
+  &-container {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -35,44 +36,42 @@ footer {
     @include mix.desktop {
       width: auto;
     }
+  }
+  &-title {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
 
-    .customerservice-title {
-      margin: 0;
+    @include mix.desktop {
+      text-align: left;
       font-size: 1em;
-      text-align: center;
-
-      @include mix.desktop {
-        text-align: left;
-        font-size: 1em;
-      }
     }
+  }
+  &-info {
+    margin: 0;
+    font-family: var.$font-secondary;
+    font-weight: 400;
+    font-size: 1.1em;
 
-    .customerservice-info {
-      margin: 0;
-      font-family: var.$font-secondary;
-      font-weight: 400;
-      font-size: 1.1em;
-
-      @include mix.desktop {
-        font-size: 1.2em;
-      }
+    @include mix.desktop {
+      font-size: 1.2em;
     }
   }
 }
-
 // contact layout
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  gap: 0.5em;
-  margin: 1.5em;
+.contact {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 0.5em;
+    margin: 1.5em;
 
-  @include mix.desktop {
-    width: auto;
+    @include mix.desktop {
+      width: auto;
+    }
   }
-
-  .contact-title {
+  &-title {
     margin: 0;
     font-size: 1em;
     text-align: center;
@@ -83,7 +82,7 @@ footer {
     }
   }
 
-  .contact-info {
+  &-info {
     margin: 0;
     font-size: 0.8em;
     text-align: center;
@@ -92,17 +91,16 @@ footer {
       text-align: left;
       font-size: 1em;
     }
-  }
+    &__body {
+      font-family: var.$font-secondary;
+      font-weight: 400;
+      font-size: 1.1em;
+      text-align: center;
 
-  .contact-info__body {
-    font-family: var.$font-secondary;
-    font-weight: 400;
-    font-size: 1.1em;
-    text-align: center;
-
-    @include mix.desktop {
-      font-size: 1.2em;
-      text-align: left;
+      @include mix.desktop {
+        font-size: 1.2em;
+        text-align: left;
+      }
     }
   }
 }

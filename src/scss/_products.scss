@@ -15,46 +15,46 @@
   @include mix.background--desktop;
 }
 
-.product__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  align-items: center;
-  justify-content: space-between;
-  width: 100vw;
-  margin-top: 1em;
-  margin-bottom: 5em;
-
-  @include mix.desktop {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 70vw;
-    gap: 2em;
-  }
-}
-.product__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  gap: 0.3em;
-  padding: 1em;
-  width: 60%;
-
-  @include mix.desktop {
-    width: 25%;
-  }
-
-  .product__container-image {
-    width: 90%;
-    z-index: 1;
+.product {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    margin-top: 1em;
+    margin-bottom: 5em;
 
     @include mix.desktop {
-      width: 90%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 70vw;
+      gap: 2em;
     }
   }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    gap: 0.3em;
+    padding: 1em;
+    width: 60%;
 
-  .product__info {
+    @include mix.desktop {
+      width: 25%;
+    }
+    &-image {
+      width: 90%;
+      z-index: 1;
+
+      @include mix.desktop {
+        width: 90%;
+      }
+    }
+  }
+  &__info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,8 +70,7 @@
     @include mix.desktop {
       width: 95%;
     }
-
-    .product__info-name {
+    &-name {
       font-weight: 600;
       width: 100%;
       margin-top: 1.5em;
@@ -84,8 +83,7 @@
         width: 80%;
       }
     }
-
-    .product__info-price {
+    &-price {
       font-weight: 600;
       padding-left: 1.8em;
 
@@ -94,25 +92,15 @@
         width: 80%;
       }
     }
-
-    .product__inputs {
-      display: flex;
-      gap: 1em;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product__info-amount {
+    &-amount {
       width: 2em;
     }
-
-    .product__info-text-container {
+    &-text-container {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-
-    .product__info-buy-btn {
+    &-buy-btn {
       background-color: col.$color-grey-very-dark;
       @include mix.burned--icon;
       border: none;
@@ -121,10 +109,16 @@
       font-family: var.$font-main;
       font-weight: 600;
       cursor: pointer;
-    }
 
-    .product__info-buy-btn:hover {
-      background-color: col.$color-grey-very-light;
+      &:hover {
+        background-color: col.$color-grey-very-light;
+      }
     }
+  }
+  &__inputs {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
   }
 }

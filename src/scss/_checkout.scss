@@ -16,6 +16,31 @@
     margin-top: 10vh;
     min-height: 100vh;
   }
+
+  &Btn {
+    padding: 5px;
+    height: 50px;
+    width: 50%;
+    border-radius: 10px;
+    align-self: center;
+    @include mix.no-burned--text-btn;
+    border: none;
+    color: col.$color-text-light;
+    margin-bottom: 20px;
+    font-family: var.$font-main;
+    font-weight: 600;
+
+    @include mix.desktop {
+      font-size: large;
+      padding: 5px;
+      height: 8vh;
+      width: 20%;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
 
 #shoppingCart {
@@ -150,31 +175,5 @@
   @include mix.desktop {
     font-size: x-large;
     width: 50%;
-  }
-}
-
-#checkoutBtn {
-  padding: 5px;
-  height: 50px;
-  width: 50%;
-  border-radius: 10px;
-  align-self: center;
-  // background-color: col.$color-accent-purple;
-  background-color: col.$color-btn-purple;
-  border: none;
-  color: col.$color-text-light;
-  margin-bottom: 20px;
-  font-family: var.$font-main;
-  font-weight: 600;
-
-  @include mix.desktop {
-    font-size: large;
-    padding: 5px;
-    height: 8vh;
-    width: 20%;
-  }
-  &:hover {
-    cursor: pointer;
-    background-color: col.$color-grey-very-light;
   }
 }

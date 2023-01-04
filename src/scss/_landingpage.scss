@@ -10,11 +10,8 @@
 // landingpage layout
 .content-container {
   display: flex;
-  // flex-direction: column;
-  justify-content: center; //space-evenly;
+  justify-content: center;
   align-items: center;
-  // background-color: col.$color-grey-very-dark;
-  // height: 80%;
   height: 100vh;
 
   @include mix.desktop {
@@ -22,7 +19,7 @@
     align-items: flex-end;
   }
 }
-
+//design elements
 #store {
   &-sign {
     background-image: url("../assets/images/sign.png");
