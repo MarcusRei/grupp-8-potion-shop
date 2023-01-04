@@ -17,6 +17,7 @@ import {
   toggleStamina,
   toggleTime,
 } from "./services/filter";
+import { renderUserCartinWidget } from "./services/userCartWidget";
 import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
 (document.querySelector("#products") as HTMLBodyElement).onload = function () {
@@ -90,12 +91,12 @@ export function renderProductlist(listToRender: ProductTemplate[]) {
     productButton.addEventListener("click", () => {
       let productsPageUserCart: CartProductTemplate[] =
         getUserCartFromLS() || "[]";
-      addProductToCart(
+        addProductToCart(
         productsPageUserCart,
         listToRender[i],
         productAmount.value
       );
-
+        renderUserCartinWidget();
       // putUserCartInLS(productsPageUserCart);
     });
   }
