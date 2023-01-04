@@ -1,7 +1,7 @@
-import { getUserCartFromLS, putUserCartInLS } from "../localStorage";
+import { getUserCartFromLS } from "../localStorage";
 import { CartProductTemplate } from "../models/CartProductTemplate";
 import { changeQuantity, deleteFromCart } from "../shoppingCartChanges";
-import { sumTotalPrice } from "../totalAmount";
+
 
 let userCartWidget: HTMLDivElement = document.getElementById(
   "user-cart__container"
@@ -111,14 +111,11 @@ export function renderUserCartinWidget() {
           productQuantityInput.value,
           userCartInWidget
         );
-        // putUserCartInLS(userCartInWidget);
-        // renderUserCartinWidget();
       });
 
       // Creates eventListener for removing an item from the usercart
       userItemRemoveBtn.addEventListener("click", () => {
-        deleteFromCart(i, userCartInWidget)
-        // removeItemfromUserCart(userCartInWidget[i], i, userCartInWidget);
+        deleteFromCart(i, userCartInWidget);
       });
     }
 
@@ -142,31 +139,18 @@ export function renderUserCartinWidget() {
     checkoutButtonContainer.appendChild(checkoutLink);
 
     //Creates html for total amount
-
     console.log(sumUsercart);
     let usercartTotal = document.createElement("div");
     usercartTotal.classList.add("checkout-total");
     usercartTotal.setAttribute("id", "usercart-total-amount");
     usercartTotal.innerHTML = "Your total: " + sumUsercart + " G";
     checkoutButtonContainer.appendChild(usercartTotal);
-    //Creates usercart total amount
-    // userCartTotal(userCartInWidget, checkoutButtonContainer);
   }
 }
 
+// clear out usercart html
 export function removeUserCartHtml() {
   userCartWidget.innerHTML = "";
-}
-
-// removes deleted products from shoppingbag and updates localstorage
-export function removeItemfromUserCart(
-  userCartItem: CartProductTemplate,
-  userCartPosition: number,
-  userCartInWidget: CartProductTemplate[]
-) {
-  userCartInWidget.splice(userCartPosition, 1);
-  putUserCartInLS(userCartInWidget);
-  // renderUserCartinWidget();
 }
 
 // Counts out the total price in usercart
@@ -184,21 +168,3 @@ function sumUsercartTotal(userCartInWidget: CartProductTemplate[]) {
   return totalPrice;
 }
 
-// export function userCartTotal(
-//   userCartInWidget: CartProductTemplate[],
-//   checkoutButtonContainer: HTMLDivElement
-// ) {
-//   let usercartTotal = document.createElement("div");
-//   usercartTotal.classList.add("checkout-total");
-//   let usercartTotalSum = 0;
-
-//   for (let i = 0; i < userCartInWidget.length; i++) {
-//     let usercartQuantity: HTMLInputElement = document.getElementById(
-//       "productQuantityCartWidget"
-//     ) as HTMLInputElement;
-//     usercartTotalSum +=
-//       userCartInWidget[i].product.price * usercartQuantity.valueAsNumber;
-//   }
-//   usercartTotal.innerHTML = usercartTotalSum.toString() + "G";
-//   checkoutButtonContainer.appendChild(usercartTotal);
-// }
