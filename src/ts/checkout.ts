@@ -7,7 +7,7 @@ import {
 import { changeQuantity, deleteFromCart } from "./shoppingCartChanges";
 import { sumTotalPrice } from "./totalAmount";
 
-(document.querySelector("#checkout-body") as HTMLBodyElement).onload =
+(document.querySelector("#checkout--body") as HTMLBodyElement).onload =
   function () {
     showShoppingCart();
 
@@ -90,18 +90,20 @@ export function showShoppingCart() {
       let productLabel = document.createElement("label");
       productLabel.setAttribute("for", "productQuantity");
       productLabel.id = "quantityContainer";
+      productLabel.classList.add("itemRow__quantity-container");
       productChangeContainer.appendChild(productLabel);
 
       //create input for quantity
       let productQuantityInput = document.createElement("input");
       productQuantityInput.type = "number";
       productQuantityInput.id = "productQuantity";
+      productQuantityInput.classList.add("itemRow__quantity-input");
       productQuantityInput.value = userCart[i].quantity.toString();
       productChangeContainer.appendChild(productQuantityInput);
 
       //Creates Remove button
       let deleteBtn = document.createElement("button");
-      deleteBtn.classList.add("user-cart-item__remove-btn");
+      deleteBtn.classList.add("itemRow__remove-btn");
       deleteBtn.innerHTML = `<span class="material-symbols-rounded">
 delete
 </span>`;
