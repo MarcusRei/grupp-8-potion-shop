@@ -1,5 +1,6 @@
+@use "mixins" as mix;
+@use "variables" as var;
 @use "colors" as col;
-@use "mixins";
 
 #filter-background {
   position: absolute;
@@ -19,16 +20,19 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5em;
-  background-color: col.$color-grey-very-light;
+  @include mix.background--mobile;
+  @include mix.background--tablet;
  
   width: 60vw;
   z-index: 200;
   left: 0;
   top: 0;
 
-  @include mixins.desktop {
+  @include mix.desktop {
     width: 20vw;
   }
+
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .filter-category {
@@ -36,7 +40,7 @@
   &__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 80%;
     justify-content: center;
     align-items: flex-start;
   }
@@ -50,28 +54,34 @@
   }
 
 }
-
-
-.filter-menu__invisible {
-  display: none;
+.filter-checkbox{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+input[type='checkbox'] {
+  accent-color: col.$color-accent-purple;
 }
 
-.filter-menu__visible {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5em;
-  background-color: col.$color-grey-very-light;
-  width: 100%;
-  right: -2em;
-  top: 3em;
 
-  @include mixins.desktop {
-    width: 20%;
-  }
-}
+// .filter-menu__invisible {
+//   display: none;
+// }
+
+// .filter-menu__visible {
+//   position: absolute;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 0.5em;
+//   background-color: col.$color-grey-very-light;
+//   width: 100%;
+//   right: -2em;
+//   top: 3em;
+
+//   @include mix.desktop {
+//     width: 20%;
+//   }
+// }
 
 .filter-bar {
   position: relative;
@@ -126,6 +136,6 @@
   }
 }
 
-.invisible {
-  display: none;
-}
+// .invisible {
+//   display: none;
+// }
