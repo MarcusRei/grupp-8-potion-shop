@@ -121,9 +121,3 @@
   font-variant: small-caps;
   font-size: x-large;
 }
-
-@mixin logo-no-see-on-sign {
-  @if height and (max-height: 20%) {
-    display: none;
-  }
-}

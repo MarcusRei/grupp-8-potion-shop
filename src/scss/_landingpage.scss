@@ -82,7 +82,6 @@
         width: 65%;
         margin-bottom: 1.5em;
         display: none;
-        @include mix.logo-no-see-on-sign;
 
         @include mix.desktop {
           display: flex;
