@@ -28,9 +28,9 @@ import JoyL from "../../assets/images/JoyLarge.png";
 import TimeS from "../../assets/images/TimeSmall.png";
 import TimeM from "../../assets/images/TimeMedium.png";
 import TimeL from "../../assets/images/TimeLarge.png";
-import InvisabilityS from "../../assets/images/InvisabilitySmall.png";
-import InvisabilityM from "../../assets/images/InvisabilityMedium.png";
-import InvisabilityL from "../../assets/images/InvisabilityLarge.png";
+import InvisibilityS from "../../assets/images/InvisibilitySmall.png";
+import InvisibilityM from "../../assets/images/InvisibilityMedium.png";
+import InvisibilityL from "../../assets/images/InvisibilityLarge.png";
 
 import ShelfSPoison from "../../assets/images/ShelfSPoison.png";
 import ShelfMPoison from "../../assets/images/ShelfMPoison.png";
@@ -41,15 +41,15 @@ import ShelfLJoy from "../../assets/images/ShelfLJoy.png";
 import ShelfSTime from "../../assets/images/ShelfSTime.png";
 import ShelfMTime from "../../assets/images/ShelfMTime.png";
 import ShelfLTime from "../../assets/images/ShelfLTime.png";
-import ShelfSInvisability from "../../assets/images/ShelfSInvisability.png";
-import ShelfMInvisability from "../../assets/images/ShelfMInvisability.png";
-import ShelfLInvisability from "../../assets/images/ShelfLInvisability.png";
+import ShelfSInvisibility from "../../assets/images/ShelfSInvisibility.png";
+import ShelfMInvisibility from "../../assets/images/ShelfMInvisibility.png";
+import ShelfLInvisibility from "../../assets/images/ShelfLInvisibility.png";
 
 //./../assets/images/placeholder_square.jpg
 
 export const products: ProductTemplate[] = [
   {
-    name: "Small healing potion",
+    name: "Small Healing Potion",
     price: 100,
     image: HealthSmall,
     size: "small",
@@ -58,7 +58,7 @@ export const products: ProductTemplate[] = [
     id: "health_s",
   },
   {
-    name: "Medium healing potion",
+    name: "Medium Healing Potion",
     price: 200,
     image: HealthMedium,
     size: "medium",
@@ -67,7 +67,7 @@ export const products: ProductTemplate[] = [
     id: "health_m",
   },
   {
-    name: "Large healing potion",
+    name: "Large Healing Potion",
     price: 300,
     image: HealthLarge,
     size: "large",
@@ -76,7 +76,7 @@ export const products: ProductTemplate[] = [
     id: "health_l",
   },
   {
-    name: "Small mana potion",
+    name: "Small Mana Potion",
     price: 100,
     image: ManaSmall,
     size: "small",
@@ -85,7 +85,7 @@ export const products: ProductTemplate[] = [
     id: "mana_s",
   },
   {
-    name: "Medium mana potion",
+    name: "Medium Mana Potion",
     price: 200,
     image: ManaMedium,
     size: "medium",
@@ -94,7 +94,7 @@ export const products: ProductTemplate[] = [
     id: "mana_m",
   },
   {
-    name: "Large mana potion",
+    name: "Large Mana Potion",
     price: 300,
     image: ManaLarge,
     size: "large",
@@ -103,7 +103,7 @@ export const products: ProductTemplate[] = [
     id: "mana_l",
   },
   {
-    name: "Small stamina potion",
+    name: "Small Stamina Potion",
     price: 100,
     image: StaminaSmall,
     size: "small",
@@ -112,7 +112,7 @@ export const products: ProductTemplate[] = [
     id: "stamina_s",
   },
   {
-    name: "Medium stamina potion",
+    name: "Medium Stamina Potion",
     price: 200,
     image: StaminaMedium,
     size: "medium",
@@ -121,7 +121,7 @@ export const products: ProductTemplate[] = [
     id: "stamina_m",
   },
   {
-    name: "Large stamina potion",
+    name: "Large Stamina Potion",
     price: 300,
     image: StaminaLarge,
     size: "large",
@@ -213,28 +213,28 @@ export const products: ProductTemplate[] = [
   {
     name: "Small Potion of Invisibility",
     price: 200,
-    image: InvisabilityS,
+    image: InvisibilityS,
     size: "small",
     type: "invisibility",
-    shelfImage: ShelfSInvisability,
+    shelfImage: ShelfSInvisibility,
     id: "invis_s",
   },
   {
     name: "Medium Potion of Invisibility",
     price: 200,
-    image: InvisabilityM,
+    image: InvisibilityM,
     size: "medium",
     type: "invisibility",
-    shelfImage: ShelfMInvisability,
+    shelfImage: ShelfMInvisibility,
     id: "invis_m",
   },
   {
     name: "Large Potion of Invisibility",
     price: 200,
-    image: InvisabilityL,
+    image: InvisibilityL,
     size: "large",
     type: "invisibility",
-    shelfImage: ShelfLInvisability,
+    shelfImage: ShelfLInvisibility,
     id: "invis_l",
   },
 ];
