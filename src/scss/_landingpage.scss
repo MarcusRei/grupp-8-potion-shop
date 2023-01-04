@@ -78,10 +78,11 @@
         background-size: contain;
         background-position: center top;
         background-repeat: no-repeat;
-        min-height: 20%;
+        height: 20%;
         width: 65%;
         margin-bottom: 1.5em;
         display: none;
+        @include mix.logo-no-see-on-sign;
 
         @include mix.desktop {
           display: flex;
