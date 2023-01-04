@@ -21,7 +21,7 @@ import { sumTotalPrice } from "./totalAmount";
       startModalFunctionality();
     });
 
-    // krysset i modal
+    // x button
     let closeCross = document.getElementsByClassName(
       "modal-content__close"
     )[0] as HTMLSpanElement;
