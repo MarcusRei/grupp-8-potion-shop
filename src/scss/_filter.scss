@@ -2,142 +2,115 @@
 @use "variables" as var;
 @use "colors" as col;
 
-#filter-background {
-  position: absolute;
-  display: none;
-  height: 100vh;
-  background-color: rgba(72, 72, 72, 0.4);
-  width: 100vw;
-  left: 20vw;
-  top: 0;
-  z-index: 200;
-}
-
-#filter-container {
-  position: fixed;
-  height: 100vh;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5em;
-  @include mix.background--mobile;
-  @include mix.background--tablet;
- 
-  width: 60vw;
-  z-index: 200;
-  left: 0;
-  top: 0;
-
-  @include mix.desktop {
-    width: 20vw;
+#filter {
+  &-background {
+    position: absolute;
+    display: none;
+    height: 100vh;
+    background-color: rgba(72, 72, 72, 0.4);
+    width: 100vw;
+    left: 20vw;
+    top: 0;
+    z-index: 200;
   }
-
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-}
-
-.filter-category {
-
-  &__container {
-    display: flex;
+  &-container {
+    position: fixed;
+    height: 100vh;
+    display: none;
     flex-direction: column;
-    width: 80%;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  &__selection {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: flex-start;
     align-items: center;
-  }
+    gap: 0.5em;
+    @include mix.background--mobile;
+    @include mix.background--tablet;
 
+    width: 60vw;
+    z-index: 200;
+    left: 0;
+    top: 0;
+
+    @include mix.desktop {
+      width: 20vw;
+    }
+
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  }
+  &-btn {
+    @include mix.no-burned--text-btn;
+    color: col.$color-text-light;
+    width: 4em;
+    border: none;
+    height: 3em;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
-.filter-checkbox{
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-  height: 1.5em;
-  width: 1.5em;
+
+.filter {
+  &-category {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      width: 80%;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    &__selection {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+  &-checkbox {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    height: 1.5em;
+    width: 1.5em;
+  }
+  &-bar {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    justify-content: flex-end;
+    right: 2em;
+    align-items: center;
+    position: relative;
+    margin-top: 2.5em;
+    gap: 1em;
+  }
 }
-input[type='checkbox'] {
+
+input[type="checkbox"] {
   accent-color: col.$color-accent-purple;
 }
 
-
-// .filter-menu__invisible {
-//   display: none;
-// }
-
-// .filter-menu__visible {
-//   position: absolute;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   gap: 0.5em;
-//   background-color: col.$color-grey-very-light;
-//   width: 100%;
-//   right: -2em;
-//   top: 3em;
-
-//   @include mix.desktop {
-//     width: 20%;
-//   }
-// }
-
-.filter-bar {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  flex-direction: row;
-  justify-content: flex-end;
-  right: 2em;
-  align-items: center;
-  position: relative;
-  margin-top: 2.5em;
-  gap: 1em;
-
-  #clear-filter {
+#clear {
+  &-filter {
+    @include mix.no-burned--text-btn;
     color: col.$color-text-light;
     width: 6em;
     background-color: col.$color-accent-purple;
     border: none;
     height: 3em;
     border-radius: 5px;
-  }
-
-  #clear-filter:hover {
-    background-color: col.$color-grey-very-light;
-    cursor: pointer;
-  }
-
-  #filter-btn {
-    color: col.$color-text-light;
-    width: 4em;
-    background-color: col.$color-accent-purple;
-    border: none;
-    height: 3em;
-    border-radius: 5px;
-  }
-
-  #filter-btn:hover {
-    background-color: col.$color-grey-very-light;
-    cursor: pointer;
-  }
-
-  .menu-btn {
-    background-color: col.$color-grey-dark;
-    border: none;
-    height: 3em;
-    width: 100%;
-    color: col.$color-text-light;
-  }
-
-  .menu-btn:hover {
-    background-color: col.$color-grey-light;
+    &:hover {
+      background-color: col.$color-grey-very-light;
+      cursor: pointer;
+    }
   }
 }
 
-// .invisible {
-//   display: none;
-// }
+.menu-btn {
+  background-color: col.$color-grey-dark;
+  border: none;
+  height: 3em;
+  width: 100%;
+  color: col.$color-text-light;
+  &:hover {
+    background-color: col.$color-grey-light;
+  }
+}
