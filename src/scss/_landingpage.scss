@@ -37,6 +37,7 @@
       width: 25vw;
       display: flex;
     }
+
     &__message {
       padding: 2.5em;
       display: flex;
@@ -47,6 +48,9 @@
         padding: 3em;
         height: 75%;
         justify-content: space-between;
+      }
+      @include mix.desktop--big-scr {
+        padding: 4em;
       }
       &--heading {
         margin: 0;
@@ -84,6 +88,12 @@
         display: none;
 
         @include mix.desktop {
+          display: none;
+          margin-bottom: 0;
+          width: 50%;
+          align-self: flex-start;
+        }
+        @include mix.desktop--big-scr {
           display: flex;
           margin-bottom: 0;
           width: 50%;

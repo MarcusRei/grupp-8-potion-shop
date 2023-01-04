@@ -17,6 +17,11 @@
     @content;
   }
 }
+@mixin desktop--big-scr {
+  @media screen and (min-width: var.$big-scr) {
+    @content;
+  }
+}
 
 //background
 @mixin background--mobile {
