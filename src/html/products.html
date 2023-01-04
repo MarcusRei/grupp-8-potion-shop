@@ -6,15 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Cursed Cauldron Products</title>
     <link rel="icon" type="image/png" href="../assets/images/PoisonLarge.png"/>
-
     <link rel="stylesheet" href="../scss/main.scss" />
-
     <!-- Icons -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"
     />
-
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,19 +19,19 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital@1&family=Passions+Conflict&display=swap"
       rel="stylesheet"
     />
-
     <script defer src="../ts/products.ts" type="module"></script>
     <script defer src="../ts/main.ts" type="module"></script>
-    <!-- jag kommenterade bort script till userCartWidget för att addEventLister skapas i main -->
-    <!-- <script src="../ts/services/userCartWidget.ts" type="module"></script> -->
   </head>
   <body id="products">
     <header>
+      <!-- filter -->
       <div id="filter-background"></div>
       <div id="filter-container">
         <h3 class="filter-title">FILTER</h3>
         <div class="filter-category__container" id="filter-category__size">
           <h4 class="filter-category__title">Size</h4>
+
+          <!-- checkboxes -->
           <div class="filter-category__selection">
             <input
               type="checkbox"
@@ -199,6 +196,7 @@
       <article id="filter-menu" class="filter-menu__invisible"></article>
     </div>
 
+    <!-- ghost problems -->
     <section class="product__list">
       <h1>If you see this, <br />we have a ghost in our system</h1>
       <h3>
