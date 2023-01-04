@@ -6,13 +6,16 @@ import {
   clearFilter,
   closeFilter,
   showFilter,
-  toggleFilterMenu,
   toggleHealing,
+  toggleInvisibility,
+  toggleJoy,
   toggleLarge,
   toggleMana,
   toggleMedium,
+  togglePoison,
   toggleSmall,
   toggleStamina,
+  toggleTime,
 } from "./services/filter";
 import { addProductToCart, changeQuantity } from "./shoppingCartChanges";
 
@@ -113,6 +116,10 @@ filterBtn.addEventListener("click", () => {
   checkboxHealing.checked = false;
   checkboxMana.checked = false;
   checkboxStamina.checked = false;
+  checkboxPoison.checked = false;
+  checkboxJoy.checked = false;
+  checkboxTime.checked = false;
+  checkboxInvisibility.checked = false;
 
   clearFilter();
 });
@@ -190,6 +197,43 @@ checkboxStamina.addEventListener("change", (e) => {
   toggleStamina(checkboxStamina);
 });
 
+// poisen
+let checkboxPoison: HTMLInputElement = document.getElementById(
+  "checkbox-poison"
+) as HTMLInputElement;
+checkboxPoison.addEventListener("change", (e) => {
+  e.preventDefault();
+  togglePoison(checkboxPoison);
+});
+
+// joy
+let checkboxJoy: HTMLInputElement = document.getElementById(
+  "checkbox-joy"
+) as HTMLInputElement;
+checkboxJoy.addEventListener("change", (e) => {
+  e.preventDefault();
+  toggleJoy(checkboxJoy);
+});
+
+// time
+let checkboxTime: HTMLInputElement = document.getElementById(
+  "checkbox-time"
+) as HTMLInputElement;
+checkboxTime.addEventListener("change", (e) => {
+  e.preventDefault();
+  toggleTime(checkboxTime);
+});
+
+// invisibility
+let checkboxInvisibility: HTMLInputElement = document.getElementById(
+  "checkbox-invisibility"
+) as HTMLInputElement;
+checkboxInvisibility.addEventListener("change", (e) => {
+  e.preventDefault();
+  toggleInvisibility(checkboxInvisibility);
+});
+
+
 window.addEventListener("load", (e) => {
   checkboxSmall.checked = false;
   checkboxMedium.checked = false;
@@ -197,5 +241,9 @@ window.addEventListener("load", (e) => {
   checkboxHealing.checked = false;
   checkboxMana.checked = false;
   checkboxStamina.checked = false;
+  checkboxPoison.checked = false;
+  checkboxJoy.checked = false;
+  checkboxTime.checked = false;
+  checkboxInvisibility.checked = false;
   console.log("i was triggerd");
 });
